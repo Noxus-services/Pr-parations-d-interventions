@@ -675,6 +675,7 @@
     opacity: 0;
     transform: scale(0.5);
     transition: all 0.25s 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
   }
 
   .check-card.checked .checkbox svg {
@@ -691,6 +692,7 @@
     align-items: center;
     justify-content: center;
     transition: all 0.25s;
+    pointer-events: none;
   }
 
   .check-illustration svg { width: 36px; height: 36px; }
@@ -1399,7 +1401,7 @@
 
         <ul class="check-list">
 
-          <li class="check-card critical" data-id="t1">
+          <li class="check-card critical" data-id="t1" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="8" y="6" width="32" height="38" rx="3" fill="#2d7dd2" stroke="#0C0C0A" stroke-width="1.5"/><rect x="10" y="9" width="28" height="6" rx="1" fill="#1958a8"/><circle cx="14" cy="12" r="1" fill="#15C55A"/><circle cx="18" cy="12" r="1" fill="#eda10c"/><circle cx="24" cy="28" r="11" fill="#F3F0E8" stroke="#0C0C0A" stroke-width="1.5"/><circle cx="24" cy="28" r="7" fill="#1958a8" opacity="0.3"/><text x="24" y="32" text-anchor="middle" font-size="9" font-weight="900" fill="#0C0C0A">60°</text></svg>
@@ -1414,7 +1416,7 @@
             </div>
           </li>
 
-          <li class="check-card critical" data-id="t2">
+          <li class="check-card critical" data-id="t2" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><path d="M14 14 L34 14 L36 42 L12 42 Z" fill="#0C0C0A" stroke="#0C0C0A" stroke-width="1.5"/><path d="M14 14 Q20 8 24 14 Q28 8 34 14" fill="none" stroke="#0C0C0A" stroke-width="2.5" stroke-linecap="round"/><text x="24" y="32" text-anchor="middle" font-size="14" fill="#15C55A">✓</text></svg>
@@ -1429,7 +1431,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="t3">
+          <li class="check-card" data-id="t3" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="10" y="6" width="28" height="38" rx="2" fill="#2d7dd2" stroke="#0C0C0A" stroke-width="1.5"/><line x1="10" y1="22" x2="38" y2="22" stroke="#0C0C0A" stroke-width="1.5"/><text x="20" y="18" font-size="10" fill="#F3F0E8">❄</text><text x="20" y="36" font-size="10" fill="#F3F0E8">❄</text><text x="14" y="40" font-size="7" font-weight="900" fill="#F3F0E8">-20°</text></svg>
@@ -1441,7 +1443,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="t4">
+          <li class="check-card" data-id="t4" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="8" y="16" width="32" height="24" rx="2" fill="#eda10c" stroke="#0C0C0A" stroke-width="1.5"/><rect x="18" y="10" width="12" height="6" rx="1" fill="none" stroke="#0C0C0A" stroke-width="1.5"/><line x1="24" y1="16" x2="24" y2="40" stroke="#0C0C0A" stroke-width="1.5"/><text x="24" y="36" text-anchor="middle" font-size="7" font-weight="900" fill="#0C0C0A">30j</text></svg>
@@ -1476,7 +1478,7 @@
 
         <ul class="check-list">
 
-          <li class="check-card critical" data-id="a1">
+          <li class="check-card critical" data-id="a1" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><circle cx="20" cy="28" r="12" fill="#c8321e" stroke="#0C0C0A" stroke-width="1.5"/><circle cx="20" cy="28" r="5" fill="#0C0C0A"/><path d="M30 24 Q38 18 42 22 L42 30 Q36 28 32 30" fill="#0C0C0A"/><circle cx="13" cy="40" r="3" fill="#0C0C0A"/><circle cx="27" cy="40" r="3" fill="#0C0C0A"/><path d="M30 24 L42 10" stroke="#0C0C0A" stroke-width="2" stroke-linecap="round"/></svg>
@@ -1491,7 +1493,7 @@
             </div>
           </li>
 
-          <li class="check-card critical" data-id="a2">
+          <li class="check-card critical" data-id="a2" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="10" y="14" width="28" height="28" rx="2" fill="#0C0C0A"/><rect x="8" y="10" width="32" height="6" rx="1" fill="#0C0C0A"/><line x1="16" y1="20" x2="16" y2="38" stroke="#F3F0E8" stroke-width="1.5"/><line x1="24" y1="20" x2="24" y2="38" stroke="#F3F0E8" stroke-width="1.5"/><line x1="32" y1="20" x2="32" y2="38" stroke="#F3F0E8" stroke-width="1.5"/><text x="24" y="8" text-anchor="middle" font-size="10">💨</text></svg>
@@ -1519,7 +1521,7 @@
 
         <ul class="check-list">
 
-          <li class="check-card critical" data-id="m1">
+          <li class="check-card critical" data-id="m1" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><line x1="4" y1="6" x2="4" y2="42" stroke="#0C0C0A" stroke-width="2"/><rect x="14" y="14" width="20" height="22" rx="2" fill="#eda10c" stroke="#0C0C0A" stroke-width="1.5"/><line x1="14" y1="22" x2="34" y2="22" stroke="#0C0C0A" stroke-width="1"/><text x="9" y="40" font-size="7" font-weight="900" fill="#004d00">50cm</text></svg>
@@ -1534,7 +1536,7 @@
             </div>
           </li>
 
-          <li class="check-card critical" data-id="m2">
+          <li class="check-card critical" data-id="m2" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="6" y="8" width="36" height="34" rx="2" fill="#0C0C0A"/><rect x="10" y="12" width="32" height="8" fill="#eda10c" stroke="#0C0C0A" stroke-width="1"/><rect x="2" y="22" width="32" height="8" fill="#eda10c" stroke="#0C0C0A" stroke-width="1"/><rect x="10" y="32" width="32" height="8" fill="#eda10c" stroke="#0C0C0A" stroke-width="1"/></svg>
@@ -1549,7 +1551,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="m3">
+          <li class="check-card" data-id="m3" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="4" y="38" width="40" height="2" fill="#0C0C0A"/><rect x="14" y="6" width="20" height="32" rx="3" fill="#F3F0E8" stroke="#0C0C0A" stroke-width="1.5"/><line x1="18" y1="12" x2="30" y2="12" stroke="#0C0C0A" stroke-width="0.5"/><line x1="18" y1="20" x2="30" y2="20" stroke="#0C0C0A" stroke-width="0.5"/><line x1="18" y1="28" x2="30" y2="28" stroke="#0C0C0A" stroke-width="0.5"/></svg>
@@ -1561,7 +1563,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="m4">
+          <li class="check-card" data-id="m4" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="6" y="6" width="36" height="36" fill="#F3F0E8" stroke="#0C0C0A" stroke-width="1.5"/><path d="M18 8 Q20 16 22 18 Q24 22 22 28 Q20 34 24 40" fill="none" stroke="#eda10c" stroke-width="3" stroke-linecap="round"/><circle cx="35" cy="14" r="3" fill="#004d00"/><text x="35" y="18" text-anchor="middle" font-size="6" fill="white" font-weight="900">✓</text></svg>
@@ -1573,7 +1575,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="m5">
+          <li class="check-card" data-id="m5" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="22" rx="2" fill="#0C0C0A"/><rect x="20" y="36" width="8" height="4" fill="#0C0C0A"/><rect x="14" y="38" width="20" height="2" fill="#0C0C0A"/><path d="M6 12 L42 12 L40 24 L8 24 Z" fill="#2d7dd2" opacity="0.7" stroke="#0C0C0A" stroke-width="1.5"/></svg>
@@ -1585,7 +1587,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="m6">
+          <li class="check-card" data-id="m6" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><path d="M8 18 L40 18 L36 42 L12 42 Z" fill="#15C55A" stroke="#0C0C0A" stroke-width="1.5"/><ellipse cx="24" cy="18" rx="16" ry="3" fill="#004d00" stroke="#0C0C0A" stroke-width="1.5"/><rect x="12" y="6" width="24" height="12" rx="1" fill="#eda10c" stroke="#0C0C0A" stroke-width="1.5"/><text x="24" y="14" text-anchor="middle" font-size="8" font-weight="900" fill="#0C0C0A">🍴</text></svg>
@@ -1610,7 +1612,7 @@
 
         <ul class="check-list">
 
-          <li class="check-card" data-id="i1">
+          <li class="check-card" data-id="i1" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration" style="background: var(--noxus-red-soft);">
               <svg viewBox="0 0 48 48"><rect x="18" y="14" width="12" height="26" rx="2" fill="#c8321e" stroke="#0C0C0A" stroke-width="1.5"/><rect x="20" y="10" width="8" height="4" rx="1" fill="#0C0C0A"/><circle cx="24" cy="6" r="2" fill="#0C0C0A"/><line x1="8" y1="8" x2="40" y2="40" stroke="#c8321e" stroke-width="4" stroke-linecap="round"/></svg>
@@ -1622,7 +1624,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="i2">
+          <li class="check-card" data-id="i2" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration" style="background: var(--noxus-red-soft);">
               <svg viewBox="0 0 48 48"><path d="M8 16 L24 8 L40 16 L40 36 L24 44 L8 36 Z" fill="#eda10c" stroke="#0C0C0A" stroke-width="1.5"/><path d="M8 16 L24 24 L40 16" fill="none" stroke="#0C0C0A" stroke-width="1.5"/><line x1="24" y1="24" x2="24" y2="44" stroke="#0C0C0A" stroke-width="1.5"/><line x1="8" y1="8" x2="40" y2="40" stroke="#c8321e" stroke-width="4" stroke-linecap="round"/></svg>
@@ -1634,7 +1636,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="i3">
+          <li class="check-card" data-id="i3" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration" style="background: var(--noxus-red-soft);">
               <svg viewBox="0 0 48 48"><rect x="6" y="20" width="36" height="14" rx="2" fill="#F3F0E8" stroke="#0C0C0A" stroke-width="1.5"/><line x1="6" y1="8" x2="42" y2="44" stroke="#c8321e" stroke-width="4" stroke-linecap="round"/></svg>
@@ -1705,7 +1707,7 @@
 
       <ul class="check-list">
 
-        <li class="check-card critical" data-id="p1">
+        <li class="check-card critical" data-id="p1" onclick="handleClick(this)">
           <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
           <div class="check-illustration">
             <svg viewBox="0 0 48 48"><circle cx="14" cy="14" r="4" fill="#0C0C0A"/><rect x="10" y="18" width="8" height="12" rx="2" fill="#2d7dd2"/><circle cx="26" cy="16" r="3" fill="#0C0C0A"/><rect x="23" y="19" width="6" height="10" rx="2" fill="#eda10c"/><ellipse cx="38" cy="32" rx="6" ry="4" fill="#004d00"/><path d="M2 40 L46 40" stroke="#0C0C0A" stroke-width="1.5"/><path d="M44 36 L46 38 L44 40" fill="none" stroke="#15C55A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1717,7 +1719,7 @@
           </div>
         </li>
 
-        <li class="check-card" data-id="p2">
+        <li class="check-card" data-id="p2" onclick="handleClick(this)">
           <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
           <div class="check-illustration">
             <svg viewBox="0 0 48 48"><path d="M14 36 L34 36 L32 44 L16 44 Z" fill="#c8321e" stroke="#0C0C0A" stroke-width="1.5"/><path d="M24 36 Q24 24 18 18 Q14 14 16 10" fill="none" stroke="#004d00" stroke-width="2.5" stroke-linecap="round"/><path d="M24 36 Q24 26 28 20 Q32 14 30 10" fill="none" stroke="#004d00" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="16" cy="14" rx="3" ry="5" fill="#15C55A" transform="rotate(-30 16 14)"/><ellipse cx="30" cy="14" rx="3" ry="5" fill="#15C55A" transform="rotate(30 30 14)"/><ellipse cx="22" cy="22" rx="3" ry="5" fill="#15C55A"/></svg>
@@ -1729,7 +1731,7 @@
           </div>
         </li>
 
-        <li class="check-card" data-id="p3">
+        <li class="check-card" data-id="p3" onclick="handleClick(this)">
           <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
           <div class="check-illustration">
             <svg viewBox="0 0 48 48"><rect x="14" y="4" width="20" height="40" rx="4" fill="#0C0C0A"/><rect x="16" y="9" width="16" height="28" fill="#004d00"/><circle cx="24" cy="40" r="1.5" fill="#F3F0E8"/><text x="24" y="27" text-anchor="middle" font-size="14" fill="white">📞</text></svg>
@@ -1741,7 +1743,7 @@
           </div>
         </li>
 
-        <li class="check-card" data-id="p4">
+        <li class="check-card" data-id="p4" onclick="handleClick(this)">
           <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
           <div class="check-illustration">
             <svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="2" fill="#2d7dd2" stroke="#0C0C0A" stroke-width="1.5"/><line x1="24" y1="8" x2="24" y2="40" stroke="#0C0C0A" stroke-width="1.5"/><line x1="8" y1="24" x2="40" y2="24" stroke="#0C0C0A" stroke-width="1.5"/><rect x="6" y="40" width="36" height="3" fill="#0C0C0A"/><circle cx="24" cy="24" r="3" fill="#c8321e"/><line x1="22" y1="22" x2="26" y2="26" stroke="white" stroke-width="1.5"/><line x1="26" y1="22" x2="22" y2="26" stroke="white" stroke-width="1.5"/></svg>
@@ -1848,7 +1850,7 @@
 
         <ul class="check-list">
 
-          <li class="check-card critical" data-id="ap1">
+          <li class="check-card critical" data-id="ap1" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="22" y="6" width="4" height="26" fill="#0C0C0A"/><path d="M14 32 L34 32 L36 42 L12 42 Z" fill="#2d7dd2" stroke="#0C0C0A" stroke-width="1.5"/><line x1="8" y1="8" x2="40" y2="40" stroke="#c8321e" stroke-width="4" stroke-linecap="round"/><text x="40" y="14" text-anchor="middle" font-size="9" font-weight="900" fill="#c8321e">30j</text></svg>
@@ -1860,7 +1862,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="ap2">
+          <li class="check-card" data-id="ap2" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="2" fill="none" stroke="#0C0C0A" stroke-width="1.5"/><line x1="24" y1="8" x2="24" y2="40" stroke="#0C0C0A" stroke-width="1.5"/><line x1="8" y1="24" x2="40" y2="24" stroke="#0C0C0A" stroke-width="1.5"/><path d="M14 14 Q18 12 22 14" fill="none" stroke="#15C55A" stroke-width="2" stroke-linecap="round"/><path d="M26 30 Q30 32 34 30" fill="none" stroke="#15C55A" stroke-width="2" stroke-linecap="round"/></svg>
@@ -1872,7 +1874,7 @@
             </div>
           </li>
 
-          <li class="check-card critical" data-id="ap3">
+          <li class="check-card critical" data-id="ap3" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="6" y="20" width="36" height="16" rx="2" fill="#2d7dd2" stroke="#0C0C0A" stroke-width="1.5"/><rect x="6" y="14" width="10" height="10" rx="1" fill="#F3F0E8" stroke="#0C0C0A" stroke-width="1.5"/><circle cx="11" cy="19" r="2.5" fill="#eda10c"/><text x="30" y="14" font-size="10">💤</text></svg>
@@ -1887,7 +1889,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="ap4">
+          <li class="check-card" data-id="ap4" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><path d="M12 14 L36 14 L38 42 L10 42 Z" fill="#eda10c" stroke="#0C0C0A" stroke-width="1.5"/><path d="M12 14 Q18 8 24 14 Q30 8 36 14" fill="none" stroke="#0C0C0A" stroke-width="2.5" stroke-linecap="round"/><rect x="16" y="22" width="16" height="14" rx="1" fill="white" stroke="#0C0C0A" stroke-width="1"/><rect x="16" y="22" width="16" height="3" fill="#c8321e"/><text x="24" y="32" text-anchor="middle" font-size="7" font-weight="900" fill="#0C0C0A">30j</text></svg>
@@ -1899,7 +1901,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="ap5">
+          <li class="check-card" data-id="ap5" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><path d="M14 8 L34 8 L34 28 L40 38 L40 44 L10 44 L10 38 L14 28 Z" fill="#15C55A" stroke="#0C0C0A" stroke-width="1.5"/><line x1="14" y1="14" x2="34" y2="14" stroke="#004d00" stroke-width="2"/><line x1="14" y1="20" x2="34" y2="20" stroke="#004d00" stroke-width="2"/></svg>
@@ -1911,7 +1913,7 @@
             </div>
           </li>
 
-          <li class="check-card critical" data-id="ap6">
+          <li class="check-card critical" data-id="ap6" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="32" rx="2" fill="white" stroke="#0C0C0A" stroke-width="1.5"/><rect x="8" y="10" width="32" height="8" fill="#c8321e"/><rect x="14" y="6" width="3" height="8" rx="1" fill="#0C0C0A"/><rect x="31" y="6" width="3" height="8" rx="1" fill="#0C0C0A"/><text x="24" y="33" text-anchor="middle" font-size="12" font-weight="900" fill="#c8321e">J+15</text></svg>
@@ -1923,7 +1925,7 @@
             </div>
           </li>
 
-          <li class="check-card" data-id="ap7">
+          <li class="check-card" data-id="ap7" onclick="handleClick(this)">
             <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
             <div class="check-illustration">
               <svg viewBox="0 0 48 48"><circle cx="20" cy="20" r="12" fill="none" stroke="#0C0C0A" stroke-width="2.5"/><circle cx="20" cy="20" r="8" fill="#eda10c" opacity="0.3"/><line x1="29" y1="29" x2="40" y2="40" stroke="#0C0C0A" stroke-width="4" stroke-linecap="round"/><ellipse cx="20" cy="20" rx="4" ry="3" fill="#c8321e"/></svg>
@@ -2223,12 +2225,15 @@
     showToast('🔄', 'Progression réinitialisée');
   }
 
+  function handleClick(card) {
+    onCheckClick(card);
+  }
+
   function init() {
     const state = loadState();
     document.querySelectorAll('.check-card').forEach(card => {
       const id = card.dataset.id;
       if (state.items[id]) card.classList.add('checked');
-      card.addEventListener('click', () => onCheckClick(card));
     });
     currentStep = state.unlocked || 1;
     goToStep(currentStep);
