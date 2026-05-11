@@ -2,613 +2,728 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fiches de Préparation · Noxus Services</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,800;0,900;1,700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Notices Client · Noxus Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --g:   #004d00;
-  --gm:  #0a6b0a;
   --gb:  #15C55A;
   --or:  #eda10c;
-  --bg:  #0f1710;
-  --bg2: #162118;
+  --dk:  #0e120e;
   --cr:  #f0ede4;
-  --mu:  rgba(240,237,228,0.45);
-  --bd:  rgba(240,237,228,0.1);
+  --mu:  rgba(240,237,228,0.5);
+  --pp:  #F5F2EB;
+  --pp2: #EDE9E0;
+  --ink: #1c1c14;
+  --inkl:#6b6860;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Outfit',sans-serif;
-  background:var(--bg);
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden}
+
+body {
+  font-family:'DM Sans',sans-serif;
+  background:var(--dk);
   color:var(--cr);
-  min-height:100vh;
-  overflow-x:hidden;
+  position:relative;
 }
 
-/* ── NOISE TEXTURE ── */
-body::before{
-  content:"";
-  position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity:0.025;pointer-events:none;z-index:0;
+/* ─── FOND ANIMÉ ─── */
+.bg {
+  position:fixed;inset:0;z-index:0;overflow:hidden;
+}
+.bg-mesh {
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(0,77,0,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 85% 80%, rgba(237,161,12,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(0,77,0,0.08) 0%, transparent 70%);
+  animation: meshMove 20s ease-in-out infinite;
+}
+@keyframes meshMove {
+  0%,100%{transform:scale(1) translate(0,0)}
+  33%{transform:scale(1.05) translate(20px,-15px)}
+  66%{transform:scale(0.98) translate(-15px,20px)}
+}
+.bg-grid {
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(240,237,228,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(240,237,228,0.04) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.bg-grain {
+  position:absolute;inset:0;opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ── AURORA ── */
-.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.au{position:absolute;border-radius:50%;filter:blur(100px)}
-.au1{width:700px;height:500px;background:radial-gradient(ellipse,rgba(0,77,0,0.35),transparent 70%);
-  top:-100px;left:-200px;animation:au1 20s ease-in-out infinite}
-.au2{width:500px;height:600px;background:radial-gradient(ellipse,rgba(21,197,90,0.12),transparent 70%);
-  top:30%;right:-150px;animation:au2 25s ease-in-out infinite}
-.au3{width:600px;height:400px;background:radial-gradient(ellipse,rgba(237,161,12,0.1),transparent 70%);
-  bottom:-50px;left:20%;animation:au3 18s ease-in-out infinite}
-@keyframes au1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,40px) scale(1.1)}}
-@keyframes au2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,-60px) scale(1.08)}}
-@keyframes au3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,-30px) scale(1.12)}}
-
-/* ── LAYOUT ── */
-.w{position:relative;z-index:10;max-width:1080px;margin:0 auto;padding:0 28px}
-
-/* ── HEADER ── */
-.hdr{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:26px 0;
-  border-bottom:1px solid var(--bd);
-  margin-bottom:0;
-}
-.logo{height:40px;width:auto}
-.certif{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 16px;
-  background:rgba(21,197,90,0.08);
-  border:1px solid rgba(21,197,90,0.3);
-  border-radius:100px;
-  font-size:11px;font-weight:700;color:var(--gb);
-  letter-spacing:1px;text-transform:uppercase;
-}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--gb);animation:blink 2s infinite}
-@keyframes blink{0%,100%{box-shadow:0 0 0 0 rgba(21,197,90,.5)}50%{box-shadow:0 0 0 6px rgba(21,197,90,0)}}
-
-/* ── HERO ── */
-.hero{
-  padding:72px 0 64px;
+/* ─── LAYOUT ─── */
+.shell {
+  position:relative;z-index:10;
+  height:100vh;
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
+  grid-template-rows: auto 1fr auto;
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+/* ─── HEADER ─── */
+header {
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 0;
+  border-bottom:1px solid rgba(240,237,228,0.08);
+  animation:fadeDown .6s ease both;
+}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+
+.logo-svg{height:36px;width:auto}
+
+.header-right{display:flex;align-items:center;gap:16px}
+
+.certif {
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 14px;
+  background:rgba(21,197,90,0.08);
+  border:1px solid rgba(21,197,90,0.25);
+  border-radius:100px;
+  font-size:11px;font-weight:600;color:var(--gb);
+  letter-spacing:1.5px;text-transform:uppercase;
+}
+.certif-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--gb);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(21,197,90,.5)}50%{box-shadow:0 0 0 5px rgba(21,197,90,0)}}
+
+/* ─── MAIN ─── */
+main {
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:48px;
   align-items:center;
+  padding:20px 0;
+  min-height:0;
 }
-.hero-left{}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:12px;font-weight:700;color:var(--gb);
-  letter-spacing:2px;text-transform:uppercase;
+
+/* ─── HERO LEFT ─── */
+.hero-left {
+  display:flex;flex-direction:column;gap:0;
+  animation:fadeLeft .7s .15s ease both;
+}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+
+.hero-eyebrow {
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:18px;
+  font-size:11px;font-weight:600;
+  color:var(--or);letter-spacing:2px;text-transform:uppercase;
+}
+.hero-eyebrow::before{
+  content:"";display:block;
+  width:24px;height:2px;background:var(--or);
+  border-radius:1px;
+}
+
+h1 {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(36px,4.5vw,58px);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-1.5px;
   margin-bottom:20px;
 }
-.eyebrow::before{content:"";display:block;width:28px;height:2px;background:var(--gb)}
-h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(40px,4.5vw,60px);
-  font-weight:900;line-height:1.08;
-  letter-spacing:-1px;
-  margin-bottom:20px;
-  color:var(--cr);
+h1 .line2 {
+  display:block;
+  background:linear-gradient(135deg,var(--gb) 0%,#004d00 60%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-h1 em{font-style:italic;color:var(--gb)}
-.hero-desc{
-  font-size:16px;color:var(--mu);
-  line-height:1.7;font-weight:500;
-  margin-bottom:36px;
-  max-width:440px;
+
+.hero-desc {
+  font-size:15px;color:var(--mu);line-height:1.7;
+  max-width:380px;margin-bottom:36px;font-weight:500;
 }
-/* Steps inline */
-.steps{display:flex;flex-direction:column;gap:12px}
+
+/* Steps */
+.steps{display:flex;flex-direction:column;gap:10px}
 .step{
   display:flex;align-items:center;gap:14px;
   padding:12px 16px;
   background:rgba(240,237,228,0.04);
-  border:1px solid var(--bd);
+  border:1px solid rgba(240,237,228,0.08);
   border-radius:12px;
-  transition:all .3s;
+  transition:all .25s;
 }
-.step:hover{background:rgba(21,197,90,0.06);border-color:rgba(21,197,90,0.25)}
+.step:hover{background:rgba(240,237,228,0.07);border-color:rgba(240,237,228,0.14)}
 .step-n{
-  width:32px;height:32px;border-radius:50%;
+  width:28px;height:28px;border-radius:50%;
   background:var(--g);color:white;
-  font-size:14px;font-weight:800;
+  font-size:13px;font-weight:700;
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
 }
-.step-n.gold{background:var(--or);color:#0f1710}
+.step-n.or{background:var(--or);color:var(--dk)}
 .step-info{flex:1}
-.step-t{font-size:14px;font-weight:700;color:var(--cr)}
-.step-s{font-size:12px;color:var(--mu);font-weight:500}
-.step-tag{
-  font-size:10px;font-weight:700;
-  padding:3px 8px;border-radius:100px;
-  background:rgba(21,197,90,0.1);
-  color:var(--gb);
-  letter-spacing:.5px;
-}
+.step-t{font-size:13px;font-weight:600;color:var(--cr)}
+.step-s{font-size:11px;color:var(--mu)}
 
-/* Hero right - big stat card */
-.hero-right{
-  background:rgba(240,237,228,0.03);
-  border:1px solid var(--bd);
-  border-radius:24px;
-  padding:36px;
-  position:relative;overflow:hidden;
+/* ─── BOOK COLUMN ─── */
+.book-col {
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+  min-height:0;
+  animation:fadeRight .7s .2s ease both;
 }
-.hero-right::before{
-  content:"";position:absolute;
-  top:-60px;right:-60px;
-  width:220px;height:220px;
-  background:radial-gradient(circle,rgba(0,77,0,0.4),transparent 70%);
-  border-radius:50%;
-}
-.big-shield{
-  font-size:72px;
-  display:block;
-  margin-bottom:20px;
-  position:relative;z-index:1;
-  animation:shield 3s ease-in-out infinite;
-}
-@keyframes shield{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(2deg)}}
-.gar-title{
-  font-family:'Playfair Display',serif;
-  font-size:24px;font-weight:900;
-  margin-bottom:10px;
-  position:relative;z-index:1;
-}
-.gar-desc{
-  font-size:13px;color:var(--mu);
-  line-height:1.6;font-weight:500;
-  margin-bottom:24px;
-  position:relative;z-index:1;
-}
-.gar-stats{
-  display:grid;grid-template-columns:1fr 1fr 1fr;
-  gap:12px;position:relative;z-index:1;
-}
-.gstat{
-  background:rgba(0,77,0,0.2);
-  border:1px solid rgba(21,197,90,0.2);
-  border-radius:12px;
-  padding:14px;text-align:center;
-}
-.gstat-num{
-  font-family:'Playfair Display',serif;
-  font-size:28px;font-weight:900;
-  color:var(--or);line-height:1;
-}
-.gstat-lbl{font-size:10px;color:var(--mu);font-weight:600;margin-top:4px;line-height:1.3}
+@keyframes fadeRight{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
 
-/* ── DIVIDER ── */
-.divider{
-  height:1px;background:linear-gradient(90deg,transparent,rgba(240,237,228,0.15),transparent);
-  margin:8px 0 40px;
-}
-
-/* ── SEC HEAD ── */
-.sec-head{
-  display:flex;align-items:center;gap:14px;margin-bottom:20px;
-}
-.sec-label{
-  display:flex;align-items:center;gap:8px;
-  font-size:12px;font-weight:700;
-  color:var(--mu);
-  text-transform:uppercase;letter-spacing:1.5px;
-  white-space:nowrap;
-}
-.sec-line{flex:1;height:1px;background:var(--bd)}
-
-/* ── GRID ── */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:16px;
-  margin-bottom:48px;
-}
-
-/* ── CARD ── */
-.card{
-  background:var(--bg2);
-  border-radius:20px;
-  border:1px solid var(--bd);
-  overflow:hidden;
-  display:flex;flex-direction:column;
-  transition:all .35s cubic-bezier(.16,1,.3,1);
-  text-decoration:none;color:inherit;
+/* ─── BOOK ─── */
+.book {
+  width:100%;flex:1;min-height:0;
   position:relative;
-  animation:upIn .5s ease both;
-}
-.card:nth-child(1){animation-delay:.05s}
-.card:nth-child(2){animation-delay:.10s}
-.card:nth-child(3){animation-delay:.15s}
-.card:nth-child(4){animation-delay:.20s}
-.card:nth-child(5){animation-delay:.25s}
-.card:nth-child(6){animation-delay:.30s}
-.card:nth-child(7){animation-delay:.35s}
-
-@keyframes upIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-.card.dispo:hover{
-  transform:translateY(-6px);
-  border-color:var(--ac,var(--bd));
-  box-shadow:0 24px 48px rgba(0,0,0,.5),0 0 40px -10px var(--ac,transparent);
-}
-.card.soon{opacity:.5}
-
-/* Glow top */
-.card-glow{
-  position:absolute;top:0;left:0;right:0;
-  height:120px;
-  background:radial-gradient(ellipse at 40% 0%,var(--ac-soft,rgba(240,237,228,.03)),transparent 70%);
-  pointer-events:none;
+  max-height:480px;
 }
 
-/* Color strip */
-.strip{height:3px;background:var(--ac,var(--bd))}
-
-.card-body{padding:22px 22px 18px;flex:1;display:flex;flex-direction:column;gap:16px;position:relative}
-
-.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-
-/* Icon */
-.icon{
-  width:60px;height:60px;border-radius:16px;
-  background:var(--ac-soft,rgba(240,237,228,.05));
-  display:flex;align-items:center;justify-content:center;
-  font-size:30px;flex-shrink:0;
-  transition:transform .35s cubic-bezier(.16,1,.3,1);
-  border:1px solid rgba(255,255,255,.06);
+.book-deco {
+  position:absolute;
+  top:8px;right:-8px;bottom:-8px;left:8px;
+  background:rgba(0,77,0,0.4);
+  border-radius:6px 16px 16px 6px;
+  filter:blur(20px);
 }
-.card.dispo:hover .icon{transform:scale(1.15) rotate(-5deg)}
 
-/* Badges */
-.bgs{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
-.bg-type{
-  font-size:10px;font-weight:700;
-  padding:3px 9px;border-radius:100px;
-  background:rgba(240,237,228,.06);
-  color:var(--mu);text-transform:uppercase;letter-spacing:.5px;
+.book-shadow {
+  position:absolute;
+  top:4px;left:4px;right:-4px;bottom:-4px;
+  background:rgba(0,0,0,0.35);
+  border-radius:4px 16px 16px 4px;
+  filter:blur(8px);
 }
-.bg-live{
+
+/* Reliure */
+.book-bind {
+  position:absolute;
+  top:0;bottom:0;left:0;width:16px;
+  background:linear-gradient(180deg,var(--g) 0%,#003300 100%);
+  border-radius:4px 0 0 4px;
+  z-index:5;
+  box-shadow:inset -2px 0 6px rgba(0,0,0,0.3);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+}
+.bind-dot{
+  width:4px;height:4px;border-radius:50%;
+  background:rgba(255,255,255,0.2);
+}
+
+/* Pages container */
+.pages {
+  position:absolute;
+  top:0;left:16px;right:0;bottom:0;
+  border-radius:0 12px 12px 0;
+  overflow:hidden;
+  box-shadow:inset -2px 0 8px rgba(0,0,0,0.1);
+  touch-action:none;
+  cursor:grab;
+}
+.pages:active{cursor:grabbing}
+
+/* Page */
+.page {
+  position:absolute;inset:0;
+  background:var(--pp);
+  display:flex;flex-direction:column;
+  transition:transform .42s cubic-bezier(.25,.46,.45,.94),opacity .42s ease;
+  will-change:transform;
+}
+
+/* Lignes */
+.page::before {
+  content:"";position:absolute;inset:0;
+  background-image:repeating-linear-gradient(
+    transparent,transparent 27px,
+    rgba(0,77,0,0.06) 27px,rgba(0,77,0,0.06) 28px
+  );
+  background-position:0 44px;
+  pointer-events:none;z-index:0;
+}
+/* Marge */
+.page::after {
+  content:"";position:absolute;top:0;bottom:0;left:44px;
+  width:1px;background:rgba(200,50,30,0.18);
+  pointer-events:none;z-index:1;
+}
+
+.page.cur  {z-index:10;transform:translateX(0)}
+.page.nxt  {z-index:5; transform:translateX(100%)}
+.page.prv  {z-index:5; transform:translateX(-100%)}
+.page.hid  {z-index:1; transform:translateX(100%);opacity:0}
+
+/* Page cover */
+.p-cover {
+  padding:28px 24px 24px 60px;
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;
+  height:100%;
+}
+.p-cover-label{
+  font-size:10px;font-weight:600;color:var(--inkl);
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;
+}
+.p-cover-title{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(22px,5vw,30px);
+  line-height:1.15;color:var(--ink);margin-bottom:8px;
+}
+.p-cover-title em{font-style:italic;color:var(--g)}
+.p-cover-sub{font-size:12px;color:var(--inkl);line-height:1.6;margin-bottom:auto}
+.p-cover-hint{
+  display:flex;align-items:center;gap:8px;
+  font-size:11px;color:var(--inkl);margin-top:16px;
+}
+.chevrons{display:flex;gap:3px}
+.chevrons span{
+  width:5px;height:5px;
+  border-right:1.5px solid var(--inkl);
+  border-bottom:1.5px solid var(--inkl);
+  transform:rotate(-45deg);
+  animation:chev 1.4s ease-in-out infinite;
+}
+.chevrons span:nth-child(2){animation-delay:.15s;opacity:.6}
+.chevrons span:nth-child(3){animation-delay:.3s;opacity:.3}
+@keyframes chev{0%,100%{opacity:.15}50%{opacity:1}}
+
+/* Page notice */
+.p-notice {
+  padding:22px 20px 20px 58px;
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;
+  height:100%;
+  text-decoration:none;color:inherit;
+}
+.p-notice-num{font-size:10px;font-weight:600;color:var(--inkl);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.p-notice-emoji{font-size:44px;line-height:1;margin-bottom:14px;transition:transform .3s}
+.p-notice:hover .p-notice-emoji{transform:scale(1.1) rotate(-4deg)}
+.p-notice-cat{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;color:var(--nc,var(--g))}
+.p-notice-title{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(20px,4vw,26px);
+  line-height:1.15;color:var(--ink);margin-bottom:6px;
+}
+.p-notice-latin{font-size:11px;font-style:italic;color:var(--inkl);margin-bottom:10px}
+.p-notice-desc{font-size:12px;color:var(--inkl);line-height:1.6;flex:1}
+.p-notice-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+.ntag{
   display:inline-flex;align-items:center;gap:5px;
+  padding:5px 11px;border-radius:100px;
   font-size:10px;font-weight:700;
-  padding:3px 9px;border-radius:100px;
-  background:rgba(21,197,90,.12);color:var(--gb);
-  letter-spacing:.5px;
+  background:var(--nc,var(--g));color:white;
 }
-.bg-live::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gb);animation:blink 2s infinite}
-.bg-soon{
-  font-size:10px;font-weight:700;
-  padding:3px 9px;border-radius:100px;
-  background:rgba(240,237,228,.06);color:var(--mu);letter-spacing:.5px;
+.ntag::before{content:"";width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.6);animation:pulse 2s infinite}
+.ntag.soon{background:transparent;border:1.5px solid var(--inkl);color:var(--inkl)}
+.ntag.soon::before{display:none}
+.nopen{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--ink);color:white;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .25s;
+}
+.p-notice:hover .nopen{background:var(--nc,var(--g));transform:scale(1.1)}
+.nopen svg{width:14px;height:14px}
+
+/* Coin corné */
+.corner{
+  position:absolute;bottom:0;right:0;
+  width:28px;height:28px;
+  background:linear-gradient(135deg,transparent 50%,rgba(0,0,0,0.07) 50%);
 }
 
-/* Content */
-.card-content{flex:1}
-.cat{
-  font-size:10px;font-weight:700;
-  text-transform:uppercase;letter-spacing:1.5px;
-  color:var(--ac,var(--mu));margin-bottom:5px;
+/* ─── BOOK NAV ─── */
+.book-nav{
+  display:flex;align-items:center;gap:12px;
+  width:100%;
 }
-.title{
-  font-family:'Playfair Display',serif;
-  font-size:20px;font-weight:900;
-  color:var(--cr);line-height:1.2;margin-bottom:8px;
-  transition:color .25s;
+.bnav{
+  width:38px;height:38px;border:none;
+  background:rgba(240,237,228,0.08);
+  border-radius:50%;color:var(--cr);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;flex-shrink:0;
 }
-.card.dispo:hover .title{color:var(--ac,var(--cr))}
-.desc{font-size:13px;color:var(--mu);line-height:1.55;font-weight:500}
+.bnav:hover{background:rgba(240,237,228,0.16)}
+.bnav:disabled{opacity:.2;cursor:default}
+.bnav svg{width:16px;height:16px}
+.bdots{display:flex;gap:5px;flex:1;justify-content:center}
+.bdot{
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(240,237,228,0.22);
+  cursor:pointer;transition:all .25s;
+}
+.bdot.on{background:white;transform:scale(1.4)}
 
-/* Footer */
-.card-foot{
-  padding:14px 22px;
-  border-top:1px solid var(--bd);
+/* ─── FOOTER ─── */
+footer {
   display:flex;align-items:center;justify-content:space-between;
+  padding:16px 0;
+  border-top:1px solid rgba(240,237,228,0.08);
+  animation:fadeUp .6s .4s ease both;
 }
-.pills{display:flex;gap:5px}
-.pill{
-  font-size:9px;font-weight:700;
-  padding:3px 8px;border-radius:100px;
-  background:rgba(240,237,228,.05);
-  color:var(--mu);text-transform:uppercase;letter-spacing:.5px;
-  border:1px solid var(--bd);
-}
-.cta{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:12px;font-weight:700;
-  color:var(--ac,var(--mu));
-  transition:gap .25s;
-}
-.card.dispo:hover .cta{gap:10px}
-.cta svg{width:14px;height:14px;transition:transform .25s}
-.card.dispo:hover .cta svg{transform:translateX(3px)}
-
-/* ── FOOTER ── */
-footer{
-  border-top:1px solid var(--bd);
-  padding:24px 0;
-  position:relative;z-index:10;
-}
-.foot-in{
-  max-width:1080px;margin:0 auto;padding:0 28px;
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:14px;
-}
-.foot-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:var(--or)}
-.zones{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
-.zone{
-  font-size:10px;font-weight:600;
-  padding:4px 10px;
-  background:rgba(240,237,228,.04);
-  border:1px solid var(--bd);
-  border-radius:100px;color:var(--mu);
-}
-.foot-cert{
-  font-size:11px;font-weight:700;color:var(--gb);
-  display:flex;align-items:center;gap:5px;
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.footer-left{font-size:11px;color:var(--mu);font-weight:500}
+.footer-left strong{color:var(--cr)}
+.footer-zones{display:flex;gap:6px;flex-wrap:wrap}
+.fz{
+  font-size:10px;padding:3px 8px;
+  background:rgba(240,237,228,0.05);
+  border:1px solid rgba(240,237,228,0.1);
+  border-radius:100px;color:rgba(240,237,228,0.45);
 }
 
-/* ── RESPONSIVE ── */
+/* ─── MOBILE ─── */
 @media(max-width:780px){
-  .hero{grid-template-columns:1fr;gap:36px;padding:48px 0 40px}
-  .hero-right{display:none}
-  h1{font-size:38px}
-  .grid{grid-template-columns:1fr}
-  .w{padding:0 16px}
-  .foot-in{flex-direction:column;align-items:center;text-align:center}
+  .shell{padding:0 16px}
+  main{
+    grid-template-columns:1fr;
+    grid-template-rows:auto 1fr;
+    gap:20px;
+    padding:12px 0;
+  }
+  .hero-left{gap:0}
+  h1{font-size:32px}
+  .hero-desc{font-size:13px;margin-bottom:20px}
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .step{padding:10px 12px;gap:10px}
+  .step-t{font-size:12px}
+  .step-s{font-size:10px}
+  .book{max-height:none}
+  .book-col{gap:12px}
+  footer{flex-direction:column;gap:10px;text-align:center}
+  .footer-zones{justify-content:center}
+  .hero-eyebrow{margin-bottom:12px}
+}
+@media(max-width:400px){
+  h1{font-size:28px}
+  .steps{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<div class="aurora">
-  <div class="au au1"></div>
-  <div class="au au2"></div>
-  <div class="au au3"></div>
+<div class="bg">
+  <div class="bg-mesh"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-grain"></div>
 </div>
 
-<div class="w">
+<div class="shell">
 
-<!-- HEADER -->
-<div class="hdr">
-  <svg class="logo" viewBox="0 0 130 103" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M100.696 2.77895C84.5751 16.3168 66.2151 24.6158 45.0162 27.4579C47.1257 20.2737 46.3867 13.8284 41.9151 7.81263C61.2193 1.0421 80.6435 -1.41158 100.696 2.77895Z" fill="#eda10c"/>
-    <path d="M129.828 22.2726C127.181 22.7558 121.756 23.7632 115.238 25.1305C109.715 24.4895 103.728 20.2137 95.2141 14.8074C98.3499 12.4547 104.372 7.93579 111.945 6.53684C118.614 10.1179 124.529 14.5358 129.828 22.2726Z" fill="#eda10c"/>
-    <path d="M25.3772 35.0842C23.293 24.2368 35.7225 10.6674 37.5162 11.0589C40.9741 17.0274 41.5299 23.1284 38.312 29.3716C35.7951 32.7505 25.3772 35.0842 25.3772 35.0842ZM31.4814 28.0137C33.5436 28.0137 35.1383 24.5053 31.5572 20.88C27.9067 24.4105 27.9067 28.0137 31.4814 28.0137Z" fill="#eda10c"/>
-    <path d="M6.20891 55.2505V71.5895H0V44.4253H7.02365L16.57 59.4442V44.4253H22.7784V71.5895H16.57L6.20891 55.2505Z" fill="#F3F0E8"/>
-    <path d="M40.63 43.6453C48.5089 43.6453 54.9889 50.321 54.9889 58.0042C54.9889 65.6874 48.3131 72.3632 40.63 72.3632C32.5584 72.3632 26.271 65.4568 26.271 58.0042C26.271 50.1253 32.9058 43.6453 40.63 43.6453ZM40.63 66.66C45.3258 66.66 48.5089 62.2358 48.5089 58.0074C48.5089 53.5042 45.0952 49.3547 40.63 49.3547C35.9342 49.3547 32.751 53.7411 32.751 58.0074C32.9436 62.5074 35.9721 66.66 40.63 66.66Z" fill="#F3F0E8"/>
-    <path d="M55.2984 71.5863L63.7963 58.2758L54.9857 44.46L67.1342 52.9989L72.5657 44.4221L78.97 44.46L70.3173 58.0042L78.97 71.5863H72.2563L66.9794 63.2811L61.7026 71.5863H55.2984Z" fill="#F3F0E8"/>
-    <path d="M81.6858 44.4221H87.8942V61.3421C87.8942 66.66 97.791 66.66 97.791 61.3421V44.4221H103.999V61.1874C103.999 72.3632 81.6858 72.3632 81.6858 61.1874V44.4221Z" fill="#F3F0E8"/>
-    <path d="M107.416 52.38C107.416 43.6484 129.266 43.6484 129.266 49.3516L124.144 52.8442C113.896 49.3516 113.896 55.0547 129.844 64.0958C129.844 72.3221 106.327 66.3063 107.416 52.38Z" fill="#F3F0E8"/>
-    <path d="M17.5184 97.5128C14.2178 96.9217 11.3359 91.9954 11.3359 91.9954V79.8766H23.3315V85.5173H20.9915C13.9469 81.9211 13.9469 85.6897 21.1146 91.5766C17.5184 97.5128 17.5184 97.5128 17.5184 97.5128Z" fill="#F3F0E8"/>
-    <path d="M26.6787 80.0737H38.1324V82.1181H29.0433V87.611H35.3983V89.6554H29.0433V95.2714H38.1324V97.3158H26.6787V80.0737Z" fill="#F3F0E8"/>
-    <path d="M55.1834 80.0737L62.5482 97.3158H60.5531L55.1834 80.0737ZM61.6122 93.9413L65.7503 80.2707H67.9672L62.8438 97.1187H60.5531Z" fill="#F3F0E8"/>
-    <path d="M71.233 80.0737H73.3513V97.3158H71.233V80.0737Z" fill="#F3F0E8"/>
-    <path d="M76.9171 85.4926C76.9171 79.8766 88.9127 79.8766 88.9127 85.3202H86.7944C86.548 79.8766 79.2817 81.9211 79.2817 85.4187V91.9707C86.548 95.4684 86.548 91.9707 88.6664 91.7983C88.9127 97.5375 76.9171 97.5375 76.9171 91.8722V85.4926Z" fill="#F3F0E8"/>
-    <path d="M92.3469 80.0737H103.801V82.1181H94.7115V87.611H100.82V89.6554H94.7115V95.2714H103.801V97.3158H92.3469V80.0737Z" fill="#F3F0E8"/>
-    <path d="M106.206 79.8766H118.202V85.5173H115.862C108.817 81.9211 108.817 85.6897 115.985 91.5766C115.985 95.4684 108.497 95.4684 106.206 91.9954V79.8766Z" fill="#F3F0E8"/>
-  </svg>
-  <div class="certif"><div class="dot"></div>Certibiocide</div>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="eyebrow">Portail client · Fiches de préparation</div>
-    <h1>Préparez votre<br><em>intervention</em><br>avec nous</h1>
-    <p class="hero-desc">Sélectionnez la fiche de votre nuisible, cochez chaque étape et activez votre garantie résultat Noxus avant notre premier passage.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-n">1</div>
-        <div class="step-info">
-          <div class="step-t">Avant l'intervention</div>
-          <div class="step-s">De J-3 à J-1 · La plus importante</div>
-        </div>
-        <span class="step-tag">Garantie</span>
-      </div>
-      <div class="step">
-        <div class="step-n">2</div>
-        <div class="step-info">
-          <div class="step-t">Pendant l'intervention</div>
-          <div class="step-s">Jour J · Évacuation & logistique</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-n">3</div>
-        <div class="step-info">
-          <div class="step-t">Après l'intervention</div>
-          <div class="step-s">J+0 à J+30 · Rémanence 1 mois</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-n gold">🛡</div>
-        <div class="step-info">
-          <div class="step-t">Garantie résultat activée</div>
-          <div class="step-s">100 % coché = 2e passage gratuit si besoin</div>
-        </div>
-      </div>
+  <!-- HEADER -->
+  <header>
+    <svg class="logo-svg" viewBox="0 0 130 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100.696 2.77895C84.5751 16.3168 66.2151 24.6158 45.0162 27.4579C47.1257 20.2737 46.3867 13.8284 41.9151 7.81263C61.2193 1.0421 80.6435 -1.41158 100.696 2.77895Z" fill="#eda10c"/>
+      <path d="M129.828 22.2726C127.181 22.7558 124.456 23.1947 121.756 23.7632C115.238 25.1305 109.715 24.4895 103.728 20.2137C100.794 18.2526 98.1004 16.6042 95.2141 14.8074C98.3499 12.4547 101.359 10.1968 104.372 7.93579C104.666 7.71474 104.94 7.51579 105.24 7.26316C108.278 4.84737 109.232 5.14737 111.945 6.53684C118.614 10.1179 124.529 14.5358 129.127 20.6053C129.828 22.2726 129.828 22.2726 129.828 22.2726Z" fill="#eda10c"/>
+      <path d="M25.3772 35.0842C23.293 24.2368 35.7225 10.6674 37.5162 11.0589C40.9741 17.0274 38.312 29.3716 25.3772 35.0842Z" fill="#eda10c"/>
+      <path d="M6.20891 55.2505V71.5895H0V44.4253H7.02365L16.57 59.4442V44.4253H22.7784V71.5895H16.57L6.20891 55.2505Z" fill="#F3F0E8"/>
+      <path d="M40.63 43.6453C48.5089 43.6453 54.9889 58.0042 40.63 72.3632C26.271 72.3632 26.271 58.0042 40.63 43.6453Z" fill="#F3F0E8"/>
+      <path d="M55.2984 71.5863L63.7963 58.2758L54.9857 44.46L67.1342 52.9989L72.5657 44.4221L78.97 44.46L70.3173 58.0042L78.97 71.5863H72.2563L66.9794 63.2811L61.7026 71.5863H55.2984Z" fill="#F3F0E8"/>
+      <path d="M81.6858 44.4221H87.8942V61.3421C87.8942 66.66 97.791 66.66 97.791 61.3421V44.4221H103.999V61.1874C103.999 72.3632 81.6858 72.3632 81.6858 61.1874V44.4221Z" fill="#F3F0E8"/>
+      <path d="M107.416 52.38C107.416 43.6484 129.266 49.3516 124.144 52.8442C113.896 49.3516 113.896 55.0547 129.844 64.0958C129.844 72.3221 106.327 66.3063 107.416 52.38Z" fill="#F3F0E8"/>
+      <path d="M17.5184 97.5128C14.2178 96.9217 11.3359 91.9954 11.3359 79.8766H23.3315V85.5173H20.9915C13.9469 81.9211 13.9469 85.6897 21.1146 91.5766C17.5184 97.5128 17.5184 97.5128 17.5184 97.5128Z" fill="#F3F0E8"/>
+      <path d="M26.6787 80.0737H38.1324V82.1181H29.0433V87.611H35.3983V89.6554H29.0433V95.2714H38.1324V97.3158H26.6787V80.0737Z" fill="#F3F0E8"/>
+      <path d="M71.233 80.0737H73.3513V97.3158H71.233V80.0737Z" fill="#F3F0E8"/>
+      <path d="M76.9171 85.4926C76.9171 79.8766 88.9127 79.8766 88.9127 85.3202H86.7944C86.548 79.8766 79.2817 85.4187 79.2817 91.9707C86.548 95.4684 86.548 91.9707 88.6664 91.7983C88.9127 97.5375 76.9171 97.5375 76.9171 85.4926Z" fill="#F3F0E8"/>
+      <path d="M92.3469 80.0737H103.801V82.1181H94.7115V87.611H100.82V89.6554H94.7115V95.2714H103.801V97.3158H92.3469V80.0737Z" fill="#F3F0E8"/>
+      <path d="M106.206 79.8766H118.202V85.5173H115.862C108.817 81.9211 108.817 85.6897 115.985 91.5766C115.985 97.5128 106.206 96.9217 106.206 91.9954V79.8766Z" fill="#F3F0E8"/>
+    </svg>
+    <div class="header-right">
+      <div class="certif"><div class="certif-dot"></div>Certibiocide 2026</div>
     </div>
-  </div>
+  </header>
 
-  <div class="hero-right">
-    <span class="big-shield">🛡️</span>
-    <div class="gar-title">Garantie Résultat<br>Noxus Services</div>
-    <div class="gar-desc">Complétez 100 % de la préparation avant notre 1er passage. En cas de présence persistante à l'issue des 3 passages, nous revenons sans frais supplémentaires.</div>
-    <div class="gar-stats">
-      <div class="gstat"><div class="gstat-num">3</div><div class="gstat-lbl">Passages inclus</div></div>
-      <div class="gstat"><div class="gstat-num">100%</div><div class="gstat-lbl">Si bien préparé</div></div>
-      <div class="gstat"><div class="gstat-num">J+30</div><div class="gstat-lbl">Rémanence</div></div>
-    </div>
-  </div>
-</section>
+  <!-- MAIN -->
+  <main>
 
-<div class="divider"></div>
+    <!-- HERO LEFT -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">Portail client</div>
 
-<!-- DISPONIBLES -->
-<div class="sec-head">
-  <div class="sec-label">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-    Disponible maintenant
-  </div>
-  <div class="sec-line"></div>
-</div>
+      <h1>
+        Notices
+        <span class="line2">d'intervention</span>
+      </h1>
 
-<div class="grid">
-  <a class="card dispo" href="punaises-de-lit.html"
-     style="--ac:#e63946;--ac-soft:rgba(230,57,70,.12);">
-    <div class="strip"></div>
-    <div class="card-glow"></div>
-    <div class="card-body">
-      <div class="card-top">
-        <div class="icon">🪲</div>
-        <div class="bgs">
-          <span class="bg-type">Désinsectisation</span>
-          <span class="bg-live">En ligne</span>
+      <p class="hero-desc">
+        Avant chaque passage, votre fiche de preparation personnalisee. Cochez chaque etape et activez votre garantie resultat.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">1</div>
+          <div class="step-info">
+            <div class="step-t">Avant</div>
+            <div class="step-s">J-3 a J-1</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">2</div>
+          <div class="step-info">
+            <div class="step-t">Pendant</div>
+            <div class="step-s">Jour J</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">3</div>
+          <div class="step-info">
+            <div class="step-t">Apres</div>
+            <div class="step-s">J+0 a J+30</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n or">&#x1F6E1;</div>
+          <div class="step-info">
+            <div class="step-t">Garantie</div>
+            <div class="step-s">100% coche</div>
+          </div>
         </div>
       </div>
-      <div class="card-content">
-        <div class="cat">Punaises de lit</div>
-        <div class="title">Cimex lectularius</div>
-        <div class="desc">Linge, mobilier, aspiration + 3 passages insecticide + consignes post-traitement et garantie résultat.</div>
+    </div>
+
+    <!-- BOOK -->
+    <div class="book-col">
+      <div class="book">
+        <div class="book-deco"></div>
+        <div class="book-shadow"></div>
+        <div class="book-bind">
+          <div class="bind-dot"></div>
+          <div class="bind-dot"></div>
+          <div class="bind-dot"></div>
+          <div class="bind-dot"></div>
+          <div class="bind-dot"></div>
+        </div>
+        <div class="pages" id="pages">
+
+          <!-- COVER -->
+          <div class="page cur" data-i="0">
+            <div class="p-cover">
+              <div class="p-cover-label">Noxus Services · 7 notices</div>
+              <div class="p-cover-title">Fiches de<br>preparation<br><em>client</em></div>
+              <div class="p-cover-sub">Glissez pour choisir la notice correspondant a votre nuisible.</div>
+              <div class="p-cover-hint">
+                Glisser
+                <div class="chevrons">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+            <div class="corner"></div>
+          </div>
+
+          <!-- NOTICE 01 -->
+          <a class="page nxt" data-i="1" href="punaises-de-lit.html" style="--nc:#c8321e">
+            <div class="p-notice">
+              <div class="p-notice-num">Notice 01</div>
+              <div class="p-notice-emoji">&#x1FAB2;</div>
+              <div class="p-notice-cat">Desinsectisation</div>
+              <div class="p-notice-title">Punaises de lit</div>
+              <div class="p-notice-latin">Cimex lectularius</div>
+              <div class="p-notice-desc">Preparation linge, mobilier et aspiration. 3 passages insecticide. Garantie resultat activable.</div>
+              <div class="p-notice-foot">
+                <span class="ntag">Disponible</span>
+                <div class="nopen">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="corner"></div>
+          </a>
+
+          <!-- NOTICE 02 -->
+          <div class="page hid" data-i="2" style="--nc:#d97706">
+            <div class="p-notice">
+              <div class="p-notice-num">Notice 02</div>
+              <div class="p-notice-emoji">&#x1FAB3;</div>
+              <div class="p-notice-cat">Desinsectisation</div>
+              <div class="p-notice-title">Blattes &amp; Cafards</div>
+              <div class="p-notice-latin">Blattodea</div>
+              <div class="p-notice-desc">Cuisine videe, gel appats, zones humides. CHR, restauration, entrepots alimentaires.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+            </div>
+            <div class="corner"></div>
+          </div>
+
+          <!-- NOTICE 03 -->
+          <div class="page hid" data-i="3" style="--nc:#7c3aed">
+            <div class="p-notice">
+              <div class="p-notice-num">Notice 03</div>
+              <div class="p-notice-emoji">&#x1F400;</div>
+              <div class="p-notice-cat">Deratisation</div>
+              <div class="p-notice-title">Rats &amp; Souris</div>
+              <div class="p-notice-latin">Rattus norvegicus</div>
+              <div class="p-notice-desc">Securisation des postes, protection enfants et animaux, tracabilite HACCP anticoagulants.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+            </div>
+            <div class="corner"></div>
+          </div>
+
+          <!-- NOTICE 04 -->
+          <div class="page hid" data-i="4" style="--nc:#d97706">
+            <div class="p-notice">
+              <div class="p-notice-num">Notice 04</div>
+              <div class="p-notice-emoji">&#x1F41D;</div>
+              <div class="p-notice-cat">Desinsectisation</div>
+              <div class="p-notice-title">Frelons &amp; Guepes</div>
+              <div class="p-notice-latin">Vespa velutina</div>
+              <div class="p-notice-desc">Securite, evacuation, EPI obligatoires et delai de reintegration apres destruction du nid.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+            </div>
+            <div class="corner"></div>
+          </div>
+
+          <!-- NOTICE 05 -->
+          <div class="page hid" data-i="5" style="--nc:#0d9488">
+            <div class="p-notice">
+              <div class="p-notice-num">Notice 05</div>
+              <div class="p-notice-emoji">&#x1F41C;</div>
+              <div class="p-notice-cat">Desinsectisation</div>
+              <div class="p-notice-title">Fourmis</div>
+              <div class="p-notice-latin">Formicidae</div>
+              <div class="p-notice-desc">Localisation des colonies, traitement des pistes, gel appats et prevention des reinfestations.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+            </div>
+            <div class="corner"></div>
+          </div>
+
+          <!-- NOTICE 06 -->
+          <div class="page hid" data-i="6" style="--nc:#db2777">
+            <div class="p-notice">
+              <div class="p-notice-num">Notice 06</div>
+              <div class="p-notice-emoji">&#x1F98B;</div>
+              <div class="p-notice-cat">Desinsectisation</div>
+              <div class="p-notice-title">Mites &amp; Charansons</div>
+              <div class="p-notice-latin">Tinea pellionella</div>
+              <div class="p-notice-desc">Vider les placards, isoler les denrees, traitement textiles et stockage alimentaire.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+            </div>
+            <div class="corner"></div>
+          </div>
+
+          <!-- NOTICE 07 -->
+          <div class="page hid" data-i="7" style="--nc:#2563eb">
+            <div class="p-notice">
+              <div class="p-notice-num">Notice 07</div>
+              <div class="p-notice-emoji">&#x1F426;</div>
+              <div class="p-notice-cat">Nuisibles volants</div>
+              <div class="p-notice-title">Pigeons</div>
+              <div class="p-notice-latin">Columba livia</div>
+              <div class="p-notice-desc">Acces toiture, protection des surfaces, suivi post-pose des systemes anti-nidification.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+            </div>
+            <div class="corner"></div>
+          </div>
+
+        </div><!-- /pages -->
+      </div>
+
+      <!-- NAV -->
+      <div class="book-nav">
+        <button class="bnav" id="bprev" disabled onclick="nav(-1)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        </button>
+        <div class="bdots" id="bdots"></div>
+        <button class="bnav" id="bnext" onclick="nav(1)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
       </div>
     </div>
-    <div class="card-foot">
-      <div class="pills">
-        <span class="pill">Avant</span>
-        <span class="pill">Pendant</span>
-        <span class="pill">Après</span>
-      </div>
-      <div class="cta">
-        Ouvrir
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-        </svg>
-      </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      <strong>Noxus Services</strong> · Deratisation · Desinsectisation · Desinfection
     </div>
-  </a>
+    <div class="footer-zones">
+      <span class="fz">Villefranche-sur-Saone</span>
+      <span class="fz">Beaujolais</span>
+      <span class="fz">Rhone</span>
+      <span class="fz">Val de Saone</span>
+      <span class="fz">Ain</span>
+    </div>
+  </footer>
+
 </div>
 
-<!-- PROCHAINEMENT -->
-<div class="sec-head">
-  <div class="sec-label">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    Prochainement
-  </div>
-  <div class="sec-line"></div>
-</div>
+<script>
+var pages = document.querySelectorAll('.page');
+var N = pages.length;
+var cur = 0;
+var sx = 0;
+var drag = false;
+var thr = 55;
 
-<div class="grid">
+// Dots
+var dotsEl = document.getElementById('bdots');
+for (var i = 0; i < N; i++) {
+  var d = document.createElement('div');
+  d.className = 'bdot' + (i === 0 ? ' on' : '');
+  d.dataset.i = i;
+  (function(idx) { d.onclick = function() { go(idx); }; })(i);
+  dotsEl.appendChild(d);
+}
 
-  <div class="card soon" style="--ac:#f4a261;--ac-soft:rgba(244,162,97,.1);">
-    <div class="strip"></div>
-    <div class="card-glow"></div>
-    <div class="card-body">
-      <div class="card-top"><div class="icon">🪳</div><div class="bgs"><span class="bg-type">Désinsectisation</span><span class="bg-soon">⏳ Bientôt</span></div></div>
-      <div class="card-content">
-        <div class="cat">Blattes & Cafards</div>
-        <div class="title">Blattodea</div>
-        <div class="desc">Cuisine vidée, gel appâts, zones humides. Idéal CHR, restauration, entrepôts alimentaires.</div>
-      </div>
-    </div>
-    <div class="card-foot"><div class="pills"><span class="pill">Avant</span><span class="pill">Pendant</span><span class="pill">Après</span></div><div class="cta" style="opacity:.3">En préparation</div></div>
-  </div>
+function setUI() {
+  for (var i = 0; i < N; i++) {
+    var p = pages[i];
+    p.className = p.className.replace(/\b(cur|nxt|prv|hid)\b/g,'').trim();
+    if (i === cur)     { p.classList.add('cur'); }
+    else if (i === cur+1) { p.classList.add('nxt'); }
+    else if (i === cur-1) { p.classList.add('prv'); }
+    else               { p.classList.add('hid'); }
+  }
+  document.querySelectorAll('.bdot').forEach(function(d,i){
+    d.className = 'bdot' + (i === cur ? ' on' : '');
+  });
+  document.getElementById('bprev').disabled = cur === 0;
+  document.getElementById('bnext').disabled = cur === N-1;
+}
 
-  <div class="card soon" style="--ac:#8b5cf6;--ac-soft:rgba(139,92,246,.1);">
-    <div class="strip"></div>
-    <div class="card-glow"></div>
-    <div class="card-body">
-      <div class="card-top"><div class="icon">🐀</div><div class="bgs"><span class="bg-type">Dératisation</span><span class="bg-soon">⏳ Bientôt</span></div></div>
-      <div class="card-content">
-        <div class="cat">Rats & Souris</div>
-        <div class="title">Rattus & Mus</div>
-        <div class="desc">Sécurisation des postes, protection enfants et animaux, traçabilité anticoagulants HACCP.</div>
-      </div>
-    </div>
-    <div class="card-foot"><div class="pills"><span class="pill">Avant</span><span class="pill">Pendant</span><span class="pill">Après</span></div><div class="cta" style="opacity:.3">En préparation</div></div>
-  </div>
+function go(n) {
+  if (n < 0 || n >= N || n === cur) return;
+  cur = n; setUI();
+}
+function nav(d) { go(cur + d); }
 
-  <div class="card soon" style="--ac:#f59e0b;--ac-soft:rgba(245,158,11,.1);">
-    <div class="strip"></div>
-    <div class="card-glow"></div>
-    <div class="card-body">
-      <div class="card-top"><div class="icon">🐝</div><div class="bgs"><span class="bg-type">Désinsectisation</span><span class="bg-soon">⏳ Bientôt</span></div></div>
-      <div class="card-content">
-        <div class="cat">Frelons & Guêpes</div>
-        <div class="title">Vespa velutina</div>
-        <div class="desc">Sécurité, évacuation, EPI obligatoires et délai de réintégration après traitement du nid.</div>
-      </div>
-    </div>
-    <div class="card-foot"><div class="pills"><span class="pill">Avant</span><span class="pill">Pendant</span><span class="pill">Après</span></div><div class="cta" style="opacity:.3">En préparation</div></div>
-  </div>
+var pEl = document.getElementById('pages');
 
-  <div class="card soon" style="--ac:#14b8a6;--ac-soft:rgba(20,184,166,.1);">
-    <div class="strip"></div>
-    <div class="card-glow"></div>
-    <div class="card-body">
-      <div class="card-top"><div class="icon">🐜</div><div class="bgs"><span class="bg-type">Désinsectisation</span><span class="bg-soon">⏳ Bientôt</span></div></div>
-      <div class="card-content">
-        <div class="cat">Fourmis</div>
-        <div class="title">Formicidae</div>
-        <div class="desc">Localisation des colonies, traitement des pistes, gel appâts et prévention des réinfestations.</div>
-      </div>
-    </div>
-    <div class="card-foot"><div class="pills"><span class="pill">Avant</span><span class="pill">Pendant</span><span class="pill">Après</span></div><div class="cta" style="opacity:.3">En préparation</div></div>
-  </div>
+function ps(x) { sx = x; drag = true; }
+function pm(x) {
+  if (!drag) return;
+  var dx = x - sx;
+  pages[cur].style.transform = 'translateX(' + (dx * 0.25) + 'px)';
+}
+function pe(x) {
+  if (!drag) return;
+  drag = false;
+  pages[cur].style.transform = '';
+  var dx = x - sx;
+  if (dx < -thr) nav(1);
+  else if (dx > thr) nav(-1);
+}
 
-  <div class="card soon" style="--ac:#ec4899;--ac-soft:rgba(236,72,153,.1);">
-    <div class="strip"></div>
-    <div class="card-glow"></div>
-    <div class="card-body">
-      <div class="card-top"><div class="icon">🦋</div><div class="bgs"><span class="bg-type">Désinsectisation</span><span class="bg-soon">⏳ Bientôt</span></div></div>
-      <div class="card-content">
-        <div class="cat">Mites & Charançons</div>
-        <div class="title">Tinea & Sitophilus</div>
-        <div class="desc">Vider les placards, isoler les denrées, traitement textiles et zones de stockage alimentaire.</div>
-      </div>
-    </div>
-    <div class="card-foot"><div class="pills"><span class="pill">Avant</span><span class="pill">Pendant</span><span class="pill">Après</span></div><div class="cta" style="opacity:.3">En préparation</div></div>
-  </div>
+pEl.addEventListener('touchstart', function(e){ ps(e.touches[0].clientX); }, {passive:true});
+pEl.addEventListener('touchmove',  function(e){ pm(e.touches[0].clientX); }, {passive:true});
+pEl.addEventListener('touchend',   function(e){ pe(e.changedTouches[0].clientX); });
+pEl.addEventListener('mousedown',  function(e){ ps(e.clientX); e.preventDefault(); });
+pEl.addEventListener('mousemove',  function(e){ pm(e.clientX); });
+pEl.addEventListener('mouseup',    function(e){ pe(e.clientX); });
+pEl.addEventListener('mouseleave', function(e){ if(drag) pe(e.clientX); });
 
-  <div class="card soon" style="--ac:#3b82f6;--ac-soft:rgba(59,130,246,.1);">
-    <div class="strip"></div>
-    <div class="card-glow"></div>
-    <div class="card-body">
-      <div class="card-top"><div class="icon">🐦</div><div class="bgs"><span class="bg-type">Nuisibles volants</span><span class="bg-soon">⏳ Bientôt</span></div></div>
-      <div class="card-content">
-        <div class="cat">Pigeons</div>
-        <div class="title">Columba livia</div>
-        <div class="desc">Accès toiture, protection surfaces et suivi après pose des systèmes anti-nidification.</div>
-      </div>
-    </div>
-    <div class="card-foot"><div class="pills"><span class="pill">Avant</span><span class="pill">Pendant</span><span class="pill">Après</span></div><div class="cta" style="opacity:.3">En préparation</div></div>
-  </div>
+// Bloquer clic si swipe
+document.querySelectorAll('a.page').forEach(function(p){
+  p.addEventListener('click', function(e){
+    if (Math.abs(sx - e.clientX) > 8) e.preventDefault();
+  });
+});
 
-</div>
-
-</div><!-- /wrap -->
-
-<footer>
-  <div class="foot-in">
-    <div class="foot-name">NOXUS SERVICES</div>
-    <div class="zones">
-      <span class="zone">Villefranche-sur-Saône</span>
-      <span class="zone">Beaujolais</span>
-      <span class="zone">Rhône</span>
-      <span class="zone">Val de Saône</span>
-      <span class="zone">Ain</span>
-    </div>
-    <div class="foot-cert">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><polyline points="20 6 9 17 4 12"/></svg>
-      Certibiocide · Contrat Ville 2026
-    </div>
-  </div>
-</footer>
-
+setUI();
+</script>
 </body>
 </html>
