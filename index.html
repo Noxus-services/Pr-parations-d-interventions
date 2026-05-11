@@ -271,11 +271,13 @@ h1 .line2 {
   letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;
 }
 .p-cover-title{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(22px,5vw,30px);
-  line-height:1.15;color:var(--ink);margin-bottom:8px;
+  font-family:'Syne',sans-serif;
+  font-size:clamp(24px,5vw,32px);
+  font-weight:800;
+  line-height:1.1;color:var(--ink);margin-bottom:10px;
+  letter-spacing:-0.5px;
 }
-.p-cover-title em{font-style:italic;color:var(--g)}
+.p-cover-title em{font-style:normal;color:var(--g)}
 .p-cover-sub{font-size:12px;color:var(--inkl);line-height:1.6;margin-bottom:auto}
 .p-cover-hint{
   display:flex;align-items:center;gap:8px;
@@ -295,32 +297,44 @@ h1 .line2 {
 
 /* Page notice */
 .p-notice {
-  padding:22px 20px 20px 58px;
+  padding:24px 20px 22px 56px;
   position:relative;z-index:2;
   display:flex;flex-direction:column;
   height:100%;
   text-decoration:none;color:inherit;
 }
-.p-notice-num{font-size:10px;font-weight:600;color:var(--inkl);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
-.p-notice-emoji{font-size:44px;line-height:1;margin-bottom:14px;transition:transform .3s}
-.p-notice:hover .p-notice-emoji{transform:scale(1.1) rotate(-4deg)}
-.p-notice-cat{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;color:var(--nc,var(--g))}
+.p-notice-num{
+  font-size:11px;font-weight:700;color:var(--nc,var(--g));
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.p-notice-num::after{
+  content:"";flex:1;height:1px;background:var(--nc,var(--g));opacity:0.2;
+}
+.p-notice-emoji{font-size:52px;line-height:1;margin-bottom:16px;transition:transform .3s}
+.p-notice:hover .p-notice-emoji{transform:scale(1.08) rotate(-3deg)}
 .p-notice-title{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(20px,4vw,26px);
-  line-height:1.15;color:var(--ink);margin-bottom:6px;
+  font-family:'Syne',sans-serif;
+  font-size:clamp(22px,4.5vw,30px);
+  font-weight:800;
+  line-height:1.1;color:var(--ink);margin-bottom:12px;
+  letter-spacing:-0.5px;
 }
-.p-notice-latin{font-size:11px;font-style:italic;color:var(--inkl);margin-bottom:10px}
-.p-notice-desc{font-size:12px;color:var(--inkl);line-height:1.6;flex:1}
-.p-notice-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+.p-notice-desc{
+  font-size:13px;color:var(--inkl);line-height:1.65;flex:1;
+  font-weight:500;
+}
+.p-notice-foot{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
 .ntag{
-  display:inline-flex;align-items:center;gap:5px;
-  padding:5px 11px;border-radius:100px;
-  font-size:10px;font-weight:700;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 16px;border-radius:100px;
+  font-size:12px;font-weight:700;
   background:var(--nc,var(--g));color:white;
+  transition:all .2s;
 }
-.ntag::before{content:"";width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.6);animation:pulse 2s infinite}
-.ntag.soon{background:transparent;border:1.5px solid var(--inkl);color:var(--inkl)}
+.p-notice:hover .ntag{transform:translateX(3px)}
+.ntag::before{content:"";width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.7);animation:pulse 2s infinite}
+.ntag.soon{background:rgba(0,0,0,0.07);border:1.5px solid rgba(107,104,96,0.4);color:var(--inkl);font-size:11px;padding:6px 12px}
 .ntag.soon::before{display:none}
 .nopen{
   width:34px;height:34px;border-radius:50%;
@@ -506,117 +520,98 @@ footer {
           <div class="page cur" data-i="0">
             <div class="p-cover">
               <div class="p-cover-label">Noxus Services · 7 notices</div>
-              <div class="p-cover-title">Fiches de<br>preparation<br><em>client</em></div>
-              <div class="p-cover-sub">Glissez pour choisir la notice correspondant a votre nuisible.</div>
+              <div class="p-cover-title">Fiches de<br>préparation<br><em>client</em></div>
+              <div class="p-cover-sub">Glissez pour trouver la notice de votre nuisible.</div>
               <div class="p-cover-hint">
                 Glisser
-                <div class="chevrons">
-                  <span></span><span></span><span></span>
-                </div>
+                <div class="chevrons"><span></span><span></span><span></span></div>
               </div>
             </div>
             <div class="corner"></div>
           </div>
 
-          <!-- NOTICE 01 -->
+          <!-- 01 Punaises -->
           <a class="page nxt" data-i="1" href="punaises-de-lit.html" style="--nc:#c8321e">
             <div class="p-notice">
-              <div class="p-notice-num">Notice 01</div>
-              <div class="p-notice-emoji">&#x1FAB2;</div>
-              <div class="p-notice-cat">Desinsectisation</div>
-              <div class="p-notice-title">Punaises de lit</div>
-              <div class="p-notice-latin">Cimex lectularius</div>
-              <div class="p-notice-desc">Preparation linge, mobilier et aspiration. 3 passages insecticide. Garantie resultat activable.</div>
+              <div class="p-notice-num">01</div>
+              <div class="p-notice-emoji">🪲</div>
+              <div class="p-notice-title">Punaises<br>de lit</div>
+              <div class="p-notice-desc">Linge, mobilier, aspiration.<br>3 passages. Garantie résultat.</div>
               <div class="p-notice-foot">
-                <span class="ntag">Disponible</span>
-                <div class="nopen">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </div>
+                <span class="ntag">Ouvrir la fiche</span>
               </div>
             </div>
             <div class="corner"></div>
           </a>
 
-          <!-- NOTICE 02 -->
+          <!-- 02 Blattes -->
           <div class="page hid" data-i="2" style="--nc:#d97706">
             <div class="p-notice">
-              <div class="p-notice-num">Notice 02</div>
-              <div class="p-notice-emoji">&#x1FAB3;</div>
-              <div class="p-notice-cat">Desinsectisation</div>
-              <div class="p-notice-title">Blattes &amp; Cafards</div>
-              <div class="p-notice-latin">Blattodea</div>
-              <div class="p-notice-desc">Cuisine videe, gel appats, zones humides. CHR, restauration, entrepots alimentaires.</div>
-              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+              <div class="p-notice-num">02</div>
+              <div class="p-notice-emoji">🪳</div>
+              <div class="p-notice-title">Blattes<br>&amp; Cafards</div>
+              <div class="p-notice-desc">Cuisine, zones humides,<br>gel appâts. CHR &amp; entrepôts.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientôt disponible</span></div>
             </div>
             <div class="corner"></div>
           </div>
 
-          <!-- NOTICE 03 -->
+          <!-- 03 Rongeurs -->
           <div class="page hid" data-i="3" style="--nc:#7c3aed">
             <div class="p-notice">
-              <div class="p-notice-num">Notice 03</div>
-              <div class="p-notice-emoji">&#x1F400;</div>
-              <div class="p-notice-cat">Deratisation</div>
-              <div class="p-notice-title">Rats &amp; Souris</div>
-              <div class="p-notice-latin">Rattus norvegicus</div>
-              <div class="p-notice-desc">Securisation des postes, protection enfants et animaux, tracabilite HACCP anticoagulants.</div>
-              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+              <div class="p-notice-num">03</div>
+              <div class="p-notice-emoji">🐀</div>
+              <div class="p-notice-title">Rats<br>&amp; Souris</div>
+              <div class="p-notice-desc">Postes d'appâts, protection<br>enfants &amp; animaux. Traçabilité HACCP.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientôt disponible</span></div>
             </div>
             <div class="corner"></div>
           </div>
 
-          <!-- NOTICE 04 -->
+          <!-- 04 Frelons -->
           <div class="page hid" data-i="4" style="--nc:#d97706">
             <div class="p-notice">
-              <div class="p-notice-num">Notice 04</div>
-              <div class="p-notice-emoji">&#x1F41D;</div>
-              <div class="p-notice-cat">Desinsectisation</div>
-              <div class="p-notice-title">Frelons &amp; Guepes</div>
-              <div class="p-notice-latin">Vespa velutina</div>
-              <div class="p-notice-desc">Securite, evacuation, EPI obligatoires et delai de reintegration apres destruction du nid.</div>
-              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+              <div class="p-notice-num">04</div>
+              <div class="p-notice-emoji">🐝</div>
+              <div class="p-notice-title">Frelons<br>&amp; Guêpes</div>
+              <div class="p-notice-desc">Sécurité, évacuation, EPI.<br>Destruction du nid.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientôt disponible</span></div>
             </div>
             <div class="corner"></div>
           </div>
 
-          <!-- NOTICE 05 -->
+          <!-- 05 Fourmis -->
           <div class="page hid" data-i="5" style="--nc:#0d9488">
             <div class="p-notice">
-              <div class="p-notice-num">Notice 05</div>
-              <div class="p-notice-emoji">&#x1F41C;</div>
-              <div class="p-notice-cat">Desinsectisation</div>
+              <div class="p-notice-num">05</div>
+              <div class="p-notice-emoji">🐜</div>
               <div class="p-notice-title">Fourmis</div>
-              <div class="p-notice-latin">Formicidae</div>
-              <div class="p-notice-desc">Localisation des colonies, traitement des pistes, gel appats et prevention des reinfestations.</div>
-              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+              <div class="p-notice-desc">Colonies, pistes, gel appâts.<br>Prévention des réinfestations.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientôt disponible</span></div>
             </div>
             <div class="corner"></div>
           </div>
 
-          <!-- NOTICE 06 -->
+          <!-- 06 Mites -->
           <div class="page hid" data-i="6" style="--nc:#db2777">
             <div class="p-notice">
-              <div class="p-notice-num">Notice 06</div>
-              <div class="p-notice-emoji">&#x1F98B;</div>
-              <div class="p-notice-cat">Desinsectisation</div>
-              <div class="p-notice-title">Mites &amp; Charansons</div>
-              <div class="p-notice-latin">Tinea pellionella</div>
-              <div class="p-notice-desc">Vider les placards, isoler les denrees, traitement textiles et stockage alimentaire.</div>
-              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+              <div class="p-notice-num">06</div>
+              <div class="p-notice-emoji">🦋</div>
+              <div class="p-notice-title">Mites<br>&amp; Charançons</div>
+              <div class="p-notice-desc">Placards, denrées, textiles.<br>Stockage alimentaire.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientôt disponible</span></div>
             </div>
             <div class="corner"></div>
           </div>
 
-          <!-- NOTICE 07 -->
+          <!-- 07 Pigeons -->
           <div class="page hid" data-i="7" style="--nc:#2563eb">
             <div class="p-notice">
-              <div class="p-notice-num">Notice 07</div>
-              <div class="p-notice-emoji">&#x1F426;</div>
-              <div class="p-notice-cat">Nuisibles volants</div>
+              <div class="p-notice-num">07</div>
+              <div class="p-notice-emoji">🐦</div>
               <div class="p-notice-title">Pigeons</div>
-              <div class="p-notice-latin">Columba livia</div>
-              <div class="p-notice-desc">Acces toiture, protection des surfaces, suivi post-pose des systemes anti-nidification.</div>
-              <div class="p-notice-foot"><span class="ntag soon">Bientot</span></div>
+              <div class="p-notice-desc">Toiture, anti-nidification.<br>Suivi post-intervention.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientôt disponible</span></div>
             </div>
             <div class="corner"></div>
           </div>
