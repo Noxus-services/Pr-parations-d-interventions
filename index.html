@@ -545,16 +545,16 @@ footer {
           </a>
 
           <!-- 02 Blattes -->
-          <div class="page hid" data-i="2" style="--nc:#d97706">
+          <a class="page hid" data-i="2" href="blattes.html" style="--nc:#d97706">
             <div class="p-notice">
               <div class="p-notice-num">02</div>
               <div class="p-notice-emoji">🪳</div>
               <div class="p-notice-title">Blattes<br>&amp; Cafards</div>
-              <div class="p-notice-desc">Cuisine, zones humides,<br>gel appâts. CHR &amp; entrepôts.</div>
-              <div class="p-notice-foot"><span class="ntag soon">Bientôt disponible</span></div>
+              <div class="p-notice-desc">Gel appât ou insecticide.<br>CHR, appartements, entrepôts.</div>
+              <div class="p-notice-foot"><span class="ntag">Ouvrir la fiche</span></div>
             </div>
             <div class="corner"></div>
-          </div>
+          </a>
 
           <!-- 03 Rongeurs -->
           <div class="page hid" data-i="3" style="--nc:#7c3aed">
@@ -714,7 +714,48 @@ pEl.addEventListener('mousemove',  function(e){ pm(e.clientX); });
 pEl.addEventListener('mouseup',    function(e){ pe(e.clientX); });
 pEl.addEventListener('mouseleave', function(e){ if(drag) pe(e.clientX); });
 
-// Bloquer clic si swipe
+// -- AUTO-DETECTION DES FICHES DISPONIBLES
+var FICHES = [
+  { i: 1, href: 'punaises-de-lit.html' },
+  { i: 2, href: 'blattes.html' },
+  { i: 3, href: 'rongeurs.html' },
+  { i: 4, href: 'frelons.html' },
+  { i: 5, href: 'fourmis.html' },
+  { i: 6, href: 'mites.html' },
+  { i: 7, href: 'pigeons.html' }
+];
+
+function checkFiches() {
+  FICHES.forEach(function(f) {
+    fetch(f.href, { method: 'HEAD' })
+      .then(function(r) {
+        if (r.ok) activerFiche(f.i, f.href);
+      })
+      .catch(function() {});
+  });
+}
+
+function activerFiche(idx, href) {
+  var page = document.querySelector('.page[data-i="' + idx + '"]');
+  if (!page) return;
+  if (page.tagName === 'A') return; // deja active
+  // Convertir div en lien cliquable
+  page.style.cursor = 'pointer';
+  var ntag = page.querySelector('.ntag');
+  if (ntag) {
+    ntag.classList.remove('soon');
+    ntag.textContent = 'Ouvrir la fiche';
+  }
+  page.onclick = function(e) {
+    if (Math.abs(sx - e.clientX) > 8) return;
+    window.location.href = href;
+  };
+}
+
+// Lancer la detection au chargement
+checkFiches();
+
+// -- Bloquer clic si swipe
 document.querySelectorAll('a.page').forEach(function(p){
   p.addEventListener('click', function(e){
     if (Math.abs(sx - e.clientX) > 8) e.preventDefault();
