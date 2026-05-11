@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)file:///C:/Users/hilmi/Downloads/fiche-punaises-de-lit-noxus_3.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0C0C0A">
+<title>Préparation Punaises de Lit · Noxus Services</title>
+<style>
+  :root {
+    --noxus-dark: #0C0C0A;
+    --noxus-green: #004d00;
+    --noxus-green-light: #0a6b0a;
+    --noxus-green-bright: #15C55A;
+    --noxus-gold: #eda10c;
+    --noxus-gold-soft: #f5c869;
+    --noxus-cream: #F3F0E8;
+    --noxus-red: #c8321e;
+    --noxus-red-soft: #fde4df;
+    --noxus-blue: #2d7dd2;
+    --noxus-blue-soft: #e1edfa;
+    --border: #e4e0d6;
+    --text-muted: #6b6960;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+    background: var(--noxus-cream);
+    color: var(--noxus-dark);
+    line-height: 1.5;
+    padding: 16px 10px;
+    padding-bottom: 100px;
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* =========== HERO =========== */
+  .hero {
+    background: linear-gradient(135deg, #0C0C0A 0%, var(--noxus-green) 100%);
+    color: var(--noxus-cream);
+    padding: 24px 24px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(237,161,12,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .brand-logo {
+    height: 48px;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(237,161,12,0.2));
+  }
+  .brand-logo svg { height: 100%; width: auto; display: block; }
+
+  .certif-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    background: rgba(21,197,90,0.15);
+    border: 1px solid var(--noxus-green-bright);
+    border-radius: 20px;
+    font-size: 10px;
+    color: var(--noxus-green-bright);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .certif-pill svg { width: 12px; height: 12px; }
+
+  .hero h1 {
+    font-size: 26px;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-align: center;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero h1 .accent { color: var(--noxus-gold); }
+
+  .hero-sub {
+    text-align: center;
+    color: rgba(243,240,232,0.7);
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* =========== STICKY WRAPPER (nav + progress + garantie) =========== */
+  .sticky-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  }
+
+  /* =========== STEP NAV =========== */
+  .step-nav {
+    display: flex;
+    gap: 6px;
+    padding: 12px 16px 10px;
+  }
+
+  .step-tab {
+    flex: 1;
+    padding: 10px 6px;
+    border-radius: 12px;
+    background: white;
+    border: 2px solid var(--border);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    font-family: inherit;
+  }
+
+  .step-tab.locked {
+    cursor: not-allowed;
+    background: #f5f3ed;
+  }
+
+  .step-tab.active {
+    background: var(--noxus-dark);
+    border-color: var(--noxus-dark);
+    color: white;
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
+  }
+
+  .step-tab.done {
+    background: var(--noxus-green);
+    border-color: var(--noxus-green);
+    color: white;
+  }
+
+  .step-tab.done.active {
+    background: var(--noxus-dark);
+    border-color: var(--noxus-green-bright);
+    color: white;
+  }
+
+  .step-tab-num {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 2px;
+  }
+
+  .step-tab-label {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+
+  .step-tab .lock-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    opacity: 0;
+  }
+
+  .step-tab.locked .step-tab-num,
+  .step-tab.locked .step-tab-label {
+    opacity: 0.25;
+  }
+
+  .step-tab.locked .lock-icon { opacity: 1; }
+
+  /* =========== PROGRESS =========== */
+  .progress-zone {
+    padding: 4px 16px 10px;
+  }
+
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+
+  .progress-step-name {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-muted);
+  }
+
+  .progress-count {
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--noxus-green);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .progress-count .total {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .progress-track {
+    height: 8px;
+    background: var(--noxus-cream);
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--noxus-green) 0%, var(--noxus-green-bright) 100%);
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 100px;
+    position: relative;
+  }
+
+  .progress-fill::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* =========== GARANTIE BAR (dans sticky) =========== */
+  .warranty-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: linear-gradient(90deg, rgba(200,50,30,0.05) 0%, rgba(200,50,30,0.02) 100%);
+    border-top: 1px solid var(--border);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .warranty-bar.active {
+    background: linear-gradient(90deg, rgba(0,77,0,0.08) 0%, rgba(21,197,90,0.05) 100%);
+  }
+
+  .warranty-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .warranty-icon-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--noxus-red);
+    color: white;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .warranty-bar.active .warranty-icon-wrap {
+    background: var(--noxus-green);
+    transform: scale(1.05);
+    box-shadow: 0 4px 14px rgba(0,77,0,0.3);
+  }
+
+  .warranty-icon-wrap svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .warranty-text {
+    min-width: 0;
+  }
+
+  .warranty-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .warranty-status {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--noxus-red);
+    transition: color 0.5s;
+    line-height: 1.2;
+  }
+
+  .warranty-bar.active .warranty-status {
+    color: var(--noxus-green);
+  }
+
+  .warranty-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--noxus-red);
+    flex-shrink: 0;
+    margin-left: 8px;
+    animation: pulseRed 2s infinite;
+  }
+
+  .warranty-bar.active .warranty-pulse {
+    background: var(--noxus-green-bright);
+    animation: pulseGreen 2s infinite;
+  }
+
+  @keyframes pulseRed {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(200,50,30,0.6); }
+    50% { box-shadow: 0 0 0 8px rgba(200,50,30,0); }
+  }
+
+  @keyframes pulseGreen {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(21,197,90,0.6); }
+    50% { box-shadow: 0 0 0 8px rgba(21,197,90,0); }
+  }
+
+  /* =========== ALERT =========== */
+  .alert-banner {
+    padding: 14px 20px;
+    background: linear-gradient(135deg, rgba(200,50,30,0.08) 0%, rgba(237,161,12,0.05) 100%);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .alert-icon {
+    width: 32px; height: 32px;
+    background: var(--noxus-red);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+  }
+  .alert-icon svg { width: 18px; height: 18px; }
+
+  .alert-content {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .alert-content strong {
+    display: block;
+    color: var(--noxus-red);
+    margin-bottom: 2px;
+    font-size: 13px;
+  }
+
+  /* =========== GARANTIE EXPLAINER (gros bloc visible) =========== */
+  .warranty-explainer {
+    margin: 0;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(0,77,0,0.04) 0%, rgba(21,197,90,0.02) 100%);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .warranty-explainer::before {
+    content: "";
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, rgba(0,77,0,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .we-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .we-shield {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--noxus-green) 0%, var(--noxus-green-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(0,77,0,0.25);
+  }
+
+  .we-shield svg { width: 26px; height: 26px; }
+
+  .we-title-block { flex: 1; min-width: 0; }
+
+  .we-eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--noxus-green);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .we-title {
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--noxus-dark);
+    letter-spacing: -0.3px;
+  }
+
+  .we-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--noxus-dark);
+    position: relative;
+  }
+
+  .we-desc strong { color: var(--noxus-green); }
+
+  /* =========== STEP SECTIONS =========== */
+  .step-section {
+    display: none;
+    animation: stepFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .step-section.active { display: block; }
+
+  @keyframes stepFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* =========== STEP INTRO =========== */
+  .step-intro {
+    padding: 24px 20px 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .step-badge {
+    width: 64px; height: 64px;
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .step-badge.before {
+    background: linear-gradient(135deg, var(--noxus-blue) 0%, #1958a8 100%);
+    color: white;
+  }
+  .step-badge.during {
+    background: linear-gradient(135deg, var(--noxus-gold) 0%, #d18a08 100%);
+    color: var(--noxus-dark);
+  }
+  .step-badge.after {
+    background: linear-gradient(135deg, var(--noxus-green-bright) 0%, var(--noxus-green) 100%);
+    color: white;
+  }
+
+  .step-badge svg { width: 34px; height: 34px; }
+
+  .step-eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .step-title {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* =========== SECTION =========== */
+  .section {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .subsection { margin-bottom: 24px; }
+  .subsection:last-child { margin-bottom: 0; }
+
+  .subsection-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    background: var(--noxus-cream);
+    border-radius: 10px;
+    border-left: 4px solid var(--noxus-green);
+  }
+
+  .subsection-title.warning {
+    background: var(--noxus-red-soft);
+    border-left-color: var(--noxus-red);
+  }
+
+  .subsection-icon {
+    width: 32px; height: 32px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .subsection-icon svg {
+    width: 18px; height: 18px;
+    color: var(--noxus-green);
+  }
+  .subsection-title.warning .subsection-icon svg { color: var(--noxus-red); }
+
+  .subsection-title h3 {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--noxus-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .subsection-title.warning h3 { color: var(--noxus-red); }
+
+  /* =========== CHECK CARDS =========== */
+  .check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .check-card {
+    display: flex;
+    gap: 14px;
+    padding: 16px;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .check-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: transparent;
+    transition: background 0.2s;
+  }
+
+  .check-card.critical::before { background: var(--noxus-red); }
+  .check-card.important::before { background: var(--noxus-gold); }
+
+  .check-card:hover {
+    border-color: var(--noxus-green);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .check-card:active { transform: scale(0.98); }
+
+  .check-card.checked {
+    background: linear-gradient(135deg, rgba(0,77,0,0.04) 0%, rgba(21,197,90,0.02) 100%);
+    border-color: var(--noxus-green);
+  }
+
+  .check-card.checked .check-label {
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-color: rgba(0,77,0,0.5);
+    text-decoration-thickness: 2px;
+  }
+
+  .check-card.checked .check-illustration {
+    opacity: 0.4;
+    filter: saturate(0.5);
+  }
+
+  .checkbox-wrap { flex-shrink: 0; padding-top: 2px; }
+
+  .checkbox {
+    width: 26px; height: 26px;
+    border: 2.5px solid var(--noxus-dark);
+    border-radius: 8px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .check-card.checked .checkbox {
+    background: var(--noxus-green);
+    border-color: var(--noxus-green);
+    transform: rotate(360deg);
+  }
+
+  .checkbox svg {
+    width: 16px; height: 16px;
+    color: white;
+    stroke-width: 3.5;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.25s 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .check-card.checked .checkbox svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .check-illustration {
+    width: 56px; height: 56px;
+    flex-shrink: 0;
+    background: var(--noxus-cream);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+  }
+
+  .check-illustration svg { width: 36px; height: 36px; }
+
+  .check-content { flex: 1; min-width: 0; }
+
+  .check-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--noxus-dark);
+    line-height: 1.3;
+    display: block;
+    transition: all 0.25s;
+  }
+
+  .badge-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 100px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  .badge.critical { background: var(--noxus-red); color: white; }
+  .badge.important { background: var(--noxus-gold); color: var(--noxus-dark); }
+  .badge.tip { background: var(--noxus-blue-soft); color: var(--noxus-blue); }
+  .badge.time { background: var(--noxus-cream); color: var(--text-muted); border: 1px solid var(--border); }
+  .badge.warranty { background: var(--noxus-green); color: white; }
+
+  .check-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* =========== CALLOUTS =========== */
+  .callout {
+    margin: 16px 0;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .callout-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+  }
+  .callout-icon svg { width: 20px; height: 20px; }
+
+  .callout.warning {
+    background: linear-gradient(135deg, rgba(237,161,12,0.1) 0%, rgba(237,161,12,0.04) 100%);
+    border: 1px solid rgba(237,161,12,0.3);
+  }
+  .callout.warning .callout-icon { background: var(--noxus-gold); }
+
+  .callout.danger {
+    background: linear-gradient(135deg, rgba(200,50,30,0.08) 0%, rgba(200,50,30,0.03) 100%);
+    border: 1px solid rgba(200,50,30,0.3);
+  }
+  .callout.danger .callout-icon { background: var(--noxus-red); }
+
+  .callout.success {
+    background: linear-gradient(135deg, rgba(0,77,0,0.08) 0%, rgba(21,197,90,0.04) 100%);
+    border: 1px solid rgba(0,77,0,0.3);
+  }
+  .callout.success .callout-icon { background: var(--noxus-green); }
+
+  .callout.info {
+    background: linear-gradient(135deg, rgba(45,125,210,0.08) 0%, rgba(45,125,210,0.03) 100%);
+    border: 1px solid rgba(45,125,210,0.3);
+  }
+  .callout.info .callout-icon { background: var(--noxus-blue); }
+
+  .callout-text { font-size: 13px; line-height: 1.5; flex: 1; }
+  .callout-text strong { display: block; margin-bottom: 4px; font-size: 14px; }
+  .callout.warning strong { color: #8a5a00; }
+  .callout.danger strong { color: var(--noxus-red); }
+  .callout.success strong { color: var(--noxus-green); }
+  .callout.info strong { color: var(--noxus-blue); }
+
+  /* =========== TIMELINE DELAYS =========== */
+  .timeline-card {
+    background: linear-gradient(135deg, #0C0C0A 0%, var(--noxus-green) 100%);
+    border-radius: 16px;
+    padding: 22px 18px;
+    margin: 18px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .timeline-card::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 150px; height: 150px;
+    background: radial-gradient(circle, rgba(237,161,12,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .timeline-title {
+    font-size: 13px;
+    color: var(--noxus-gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    position: relative;
+  }
+
+  .timeline-subtitle {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .delay-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    position: relative;
+  }
+
+  .delay-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+
+  .delay-emoji { font-size: 26px; margin-bottom: 4px; display: block; }
+  .delay-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    min-height: 24px;
+  }
+  .delay-value {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--noxus-gold);
+    line-height: 1;
+  }
+
+  /* =========== STEP COMPLETE =========== */
+  .step-complete-zone {
+    padding: 28px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0,77,0,0.08) 0%, rgba(21,197,90,0.03) 100%);
+    border-top: 2px dashed var(--noxus-green);
+    display: none;
+  }
+
+  .step-complete-zone.show {
+    display: block;
+    animation: completeFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes completeFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .complete-icon {
+    width: 64px; height: 64px;
+    background: var(--noxus-green);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    color: white;
+    box-shadow: 0 8px 24px rgba(0,77,0,0.4);
+    animation: pop 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes pop {
+    0% { transform: scale(0); }
+    60% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  .complete-icon svg { width: 36px; height: 36px; stroke-width: 3; }
+
+  .complete-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--noxus-green);
+    margin-bottom: 6px;
+  }
+
+  .complete-msg {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* === GARANTIE ACTIVÉE (encart spécial fin étape 1) === */
+  .warranty-unlocked {
+    background: white;
+    border: 2px solid var(--noxus-green);
+    border-radius: 16px;
+    padding: 18px;
+    margin: 0 auto 18px;
+    max-width: 460px;
+    text-align: left;
+    box-shadow: 0 12px 32px rgba(0,77,0,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .warranty-unlocked::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle, rgba(237,161,12,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .wu-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .wu-stamp {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--noxus-green) 0%, var(--noxus-green-light) 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(0,77,0,0.3);
+    position: relative;
+  }
+
+  .wu-stamp svg { width: 28px; height: 28px; }
+
+  .wu-stamp::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border: 2px dashed var(--noxus-green);
+    border-radius: 50%;
+    animation: rotate 8s linear infinite;
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .wu-titles { flex: 1; }
+
+  .wu-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--noxus-gold);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .wu-title {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--noxus-green);
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+  }
+
+  .wu-msg {
+    font-size: 13px;
+    color: var(--noxus-dark);
+    line-height: 1.5;
+    position: relative;
+  }
+
+  .wu-msg strong { color: var(--noxus-green); }
+
+  .btn-next {
+    background: var(--noxus-dark);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-md);
+    font-family: inherit;
+  }
+
+  .btn-next:hover {
+    background: var(--noxus-green);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-next svg { width: 18px; height: 18px; }
+
+  /* =========== FOOTER =========== */
+  .footer {
+    background: linear-gradient(135deg, #0C0C0A 0%, var(--noxus-green) 100%);
+    color: var(--noxus-cream);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .footer-logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 4px 16px rgba(237,161,12,0.2));
+  }
+
+  .footer-tag {
+    font-size: 11px;
+    color: rgba(243,240,232,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-info {
+    font-size: 13px;
+    color: rgba(243,240,232,0.7);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .footer-zones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin: 14px 0;
+  }
+
+  .zone-pill {
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    font-size: 11px;
+    color: rgba(243,240,232,0.85);
+  }
+
+  .footer-cert {
+    margin-top: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(237,161,12,0.15);
+    border: 1px solid var(--noxus-gold);
+    border-radius: 100px;
+    font-size: 11px;
+    color: var(--noxus-gold);
+    letter-spacing: 1.5px;
+    font-weight: 700;
+  }
+  .footer-cert svg { width: 12px; height: 12px; }
+
+  /* =========== FAB =========== */
+  .fab-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--noxus-dark);
+    border-radius: 100px;
+    padding: 6px;
+    display: flex;
+    gap: 4px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+    z-index: 200;
+  }
+
+  .fab-btn {
+    border: none;
+    background: transparent;
+    color: var(--noxus-cream);
+    padding: 10px 16px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .fab-btn:hover { background: rgba(255,255,255,0.1); }
+  .fab-btn.primary { background: var(--noxus-gold); color: var(--noxus-dark); }
+  .fab-btn.primary:hover { background: var(--noxus-gold-soft); }
+  .fab-btn svg { width: 16px; height: 16px; }
+
+  /* =========== TOAST =========== */
+  .toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--noxus-green);
+    color: white;
+    padding: 14px 22px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 8px 24px rgba(0,77,0,0.4);
+    z-index: 250;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 90vw;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* =========== CONFETTI =========== */
+  .confetti-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+  }
+
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -20px;
+    opacity: 0;
+    animation: confettiFall 3s ease-out forwards;
+  }
+
+  @keyframes confettiFall {
+    0% { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
+    100% { opacity: 0; transform: translateY(100vh) rotate(720deg) scale(0.5); }
+  }
+
+  /* =========== PRINT =========== */
+  @media print {
+    body { background: white; padding: 0; font-size: 11pt; }
+    .container { box-shadow: none; max-width: 100%; border-radius: 0; }
+    .sticky-bar, .fab-bar, .toast, .step-complete-zone, .confetti-container { display: none !important; }
+    .step-section { display: block !important; break-before: always; }
+    .step-section:first-of-type { break-before: avoid; }
+    .check-card { break-inside: avoid; border: 1px solid #ccc; }
+    .section { break-inside: avoid-page; padding: 20px; }
+    .hero { background: white !important; color: var(--noxus-dark) !important; padding: 20px; }
+    .hero h1, .hero-sub { color: var(--noxus-dark) !important; }
+    .hero h1 .accent { color: var(--noxus-green) !important; }
+    .footer { background: white !important; color: var(--noxus-dark) !important; }
+    .footer-logo-wrap svg path[fill="#F3F0E8"] { fill: #0C0C0A !important; }
+    .footer-info { color: var(--noxus-dark) !important; }
+    .footer-zones .zone-pill { color: var(--noxus-dark) !important; }
+    .timeline-card { background: white !important; color: var(--noxus-dark) !important; border: 2px solid var(--noxus-dark); }
+    .timeline-title { color: var(--noxus-green) !important; }
+    .timeline-subtitle { color: var(--noxus-dark) !important; }
+    .delay-item { background: var(--noxus-cream) !important; border-color: #ccc !important; }
+    .delay-label { color: var(--text-muted) !important; }
+    .delay-value { color: var(--noxus-green) !important; }
+    .checkbox { border-color: var(--noxus-dark) !important; }
+  }
+
+  /* =========== MOBILE =========== */
+  @media (max-width: 500px) {
+    body { padding: 8px 4px; padding-bottom: 90px; font-size: 14px; }
+    .container { border-radius: 12px; }
+    .hero { padding: 20px 16px 24px; }
+    .brand-logo { height: 40px; }
+    .hero h1 { font-size: 21px; }
+    .step-nav { padding: 10px 12px 8px; gap: 4px; }
+    .step-tab { padding: 8px 4px; }
+    .step-tab-num { font-size: 9px; }
+    .step-tab-label { font-size: 11px; }
+    .progress-zone { padding: 2px 12px 8px; }
+    .progress-step-name { font-size: 10px; }
+    .warranty-bar { padding: 8px 12px; }
+    .warranty-icon-wrap { width: 28px; height: 28px; }
+    .warranty-icon-wrap svg { width: 16px; height: 16px; }
+    .warranty-label { font-size: 9px; }
+    .warranty-status { font-size: 12px; }
+    .warranty-explainer { padding: 18px 16px; }
+    .we-title { font-size: 15px; }
+    .we-desc { font-size: 12px; }
+    .step-intro { padding: 20px 16px 14px; }
+    .step-badge { width: 56px; height: 56px; }
+    .step-badge svg { width: 28px; height: 28px; }
+    .step-title { font-size: 22px; }
+    .section { padding: 20px 14px; }
+    .check-card { padding: 14px 12px; gap: 10px; }
+    .check-illustration { width: 48px; height: 48px; }
+    .check-illustration svg { width: 32px; height: 32px; }
+    .check-label { font-size: 14px; }
+    .check-desc { font-size: 12px; }
+    .delay-grid { gap: 8px; }
+    .delay-value { font-size: 18px; }
+    .fab-btn { padding: 8px 12px; font-size: 12px; }
+    .wu-title { font-size: 16px; }
+    .wu-stamp { width: 44px; height: 44px; }
+    .wu-stamp svg { width: 22px; height: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="brand-row">
+      <div class="brand-logo">
+        <svg viewBox="0 0 130 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100.696 2.77895C84.5751 16.3168 66.2151 24.6158 45.0162 27.4579C47.1257 20.2737 46.3867 13.8284 41.9151 7.81263C61.2193 1.0421 80.6435 -1.41158 100.696 2.77895Z" fill="#F3F0E8"></path>
+          <path d="M129.828 22.2726C127.181 22.7558 124.456 23.1947 121.756 23.7632C115.238 25.1305 109.715 24.4895 103.728 20.2137C100.794 18.2526 98.1004 16.6042 95.2141 14.8074C98.3499 12.4547 101.359 10.1968 104.372 7.93579C104.666 7.71474 104.94 7.51579 105.24 7.26316C108.278 4.84737 109.232 5.14737 111.945 6.53684C118.614 10.1179 124.529 14.5358 129.127 20.6053C129.379 20.94 129.604 21.2937 129.821 21.6537C129.866 21.7295 129.828 21.8558 129.828 22.2789V22.2726Z" fill="#F3F0E8"></path>
+          <path d="M25.3772 35.0842C23.293 24.2368 25.0614 16.8095 35.7225 10.6674C36.5435 10.1937 37.0488 10.2505 37.5162 11.0589C40.9741 17.0274 41.5299 23.1284 38.312 29.3716C37.3141 31.3074 35.7951 32.7505 33.6067 33.2684C30.8751 33.9158 28.1278 34.4811 25.3804 35.0842H25.3772ZM31.4814 28.0137C33.5436 28.0137 35.1635 26.4568 35.1383 24.5053C35.113 22.4589 33.5625 20.8895 31.5572 20.88C29.5141 20.8674 27.9067 22.4242 27.9067 24.4105C27.9067 26.4316 29.4793 28.0137 31.4814 28.0137Z" fill="#F3F0E8"></path>
+          <path d="M121.046 38.2137C119.113 38.2137 117.174 38.2768 115.245 38.1758C114.613 38.1442 113.956 37.7621 113.397 37.4084C107.321 33.5558 101.242 29.7063 95.2141 25.7779C94.0393 25.0137 93.2372 24.9158 91.7972 25.4968C88.4625 26.9684 87.1299 26.9084 84.3699 24.8684C83.9562 24.5621 83.5362 24.2526 82.8635 23.7663C83.9467 23.2453 84.8499 22.8063 85.7562 22.3768C87.512 21.5432 89.2993 20.7695 91.0204 19.8663C91.9583 19.3737 92.6814 19.3579 93.6067 19.9611C100.999 24.7768 108.427 29.5389 115.838 34.32C117.632 35.4789 119.416 36.6537 121.204 37.8221C121.15 37.9516 121.099 38.0779 121.046 38.2074V38.2137Z" fill="#F3F0E8"></path>
+          <path d="M18.2814 21.6663C12.4267 18.6758 8.9025 14.1663 6.98566 8.3621C5.94039 5.19474 5.80776 2.00526 6.51513 0C7.49408 0.385263 8.15092 0.827368 8.10355 2.12526C7.84145 9.46737 13.6362 18.4011 21.4741 20.1568C21.7204 20.2137 21.9604 20.3084 22.1562 20.3716C22.2036 20.5642 22.2635 20.6684 22.2478 20.7568C21.6667 23.9337 21.6572 23.8042 18.3478 24.0347C11.9246 24.4832 7.26987 27.8747 3.96355 33.2305C3.03513 34.7337 2.37513 36.4011 1.59197 37.9958C-0.18908 37.68 -0.280659 37.5632 0.369867 35.9463C3.29092 28.6642 8.22671 23.64 16.1278 21.9695C16.6899 21.8495 17.2646 21.8053 18.2846 21.6663H18.2814Z" fill="#F3F0E8"></path>
+          <path d="M96.0636 37.7526C92.653 38.2358 89.4288 38.7411 86.3941 36.4453C83.2204 34.0453 79.7183 32.0779 76.2951 30.0253C75.6825 29.6589 74.7099 29.5926 73.993 29.7663C72.5214 30.1263 71.113 30.7453 69.6793 31.2568C67.1246 32.1695 66.6604 32.0432 64.6172 29.7853C68.413 28.4368 72.1583 27.0758 75.932 25.8095C76.3678 25.6642 77.053 25.9295 77.4983 26.2074C82.4025 29.2579 87.2783 32.3558 92.173 35.4284C93.452 36.2305 94.7657 36.9789 96.0636 37.7526Z" fill="#F3F0E8"></path>
+          <path d="M66.0414 38.2011C64.2193 38.2011 62.4004 38.2105 60.5783 38.1916C60.2751 38.1884 59.9057 38.1316 59.6846 37.9547C57.4899 36.2021 55.3172 34.4211 52.7814 32.3589C54.7299 31.9263 56.1857 31.5821 57.6541 31.2979C57.9162 31.2474 58.292 31.3674 58.5067 31.5411C61.0709 33.6063 63.6162 35.6968 66.1678 37.7811C66.1267 37.92 66.0825 38.0621 66.0414 38.2011Z" fill="#F3F0E8"></path>
+          <path d="M50.9088 38.2042L46.6457 33.4421L41.4699 33.6695L45.133 38.1632L50.9088 38.2042Z" fill="#F3F0E8"></path>
+          <path d="M6.20891 55.2505V71.5895H0.000488281V44.4253H7.02365L16.57 59.4442V44.4253H22.7784V71.5895H16.57V71.5516L6.20891 55.2537V55.2505Z" fill="#F3F0E8"></path>
+          <path d="M40.63 43.6453C48.5089 43.6453 54.9889 50.321 54.9889 58.0042C54.9889 65.6874 48.3131 72.3632 40.63 72.3632C32.5584 72.3632 26.271 65.4568 26.271 58.0042C26.271 50.1253 32.9058 43.6453 40.63 43.6453ZM40.63 66.66C45.3258 66.66 48.5089 62.2358 48.5089 58.0074C48.5089 53.5042 45.0952 49.3547 40.63 49.3547C35.9342 49.3547 32.751 53.7411 32.751 58.0074C32.9436 62.5074 35.9721 66.66 40.63 66.66Z" fill="#F3F0E8"></path>
+          <path d="M55.2984 71.5863L63.7963 58.2758L54.9857 44.46L61.6994 44.4221L67.1342 52.9989L72.5657 44.4221L78.97 44.46L70.3173 58.0042L78.97 71.5863H72.2563L66.9794 63.2811L61.7026 71.5863H55.2984Z" fill="#F3F0E8"></path>
+          <path d="M81.6858 44.4221H87.8942V61.3421C87.8942 64.2916 89.8742 66.66 92.8615 66.66C95.8489 66.66 97.791 64.2916 97.791 61.3421V44.4221H103.999V61.1874C103.999 67.9389 99.0321 72.3632 92.8615 72.3632C86.691 72.3632 81.6858 68.2895 81.6858 61.1874V44.4221Z" fill="#F3F0E8"></path>
+          <path d="M123.364 64.2916C123.364 62.7379 120.995 61.7305 117.815 61.0326C113.587 60.1011 107.416 58.3547 107.416 52.38C107.416 46.4053 112.889 43.6484 117.856 43.6484C122.824 43.6484 126.743 45.9 129.266 49.3516L124.144 52.8442C123.136 51.0979 120.651 49.3516 118.011 49.3516C116.498 49.3516 113.896 50.1284 113.896 52.0674C113.896 53.7347 116.186 54.3189 119.056 55.0547C123.597 56.22 129.844 57.9253 129.844 64.0958C129.844 69.7232 123.869 72.3221 118.125 72.3221C113.467 72.3221 108.733 69.8779 106.327 66.3063L111.683 63.1232C112.807 65.0621 115.873 66.6537 118.204 66.6537C118.204 66.6537 123.364 66.7326 123.364 64.2853V64.2916Z" fill="#F3F0E8"></path>
+          <path d="M17.5184 97.5128C16.254 97.5128 15.1538 97.3158 14.2178 96.9217C13.2982 96.5276 12.5839 95.9693 12.0749 95.2467C11.5822 94.5242 11.3359 93.6785 11.3359 92.7097V91.9954C11.3359 91.8312 11.418 91.7491 11.5822 91.7491H13.3803C13.5445 91.7491 13.6266 91.8312 13.6266 91.9954V92.5865C13.6266 93.424 13.9879 94.1137 14.7104 94.6556C15.433 95.1975 16.4264 95.4684 17.6909 95.4684C18.8239 95.4684 19.6778 95.2303 20.2525 94.7541C20.8273 94.2779 21.1146 93.6539 21.1146 92.8821C21.1146 92.3731 20.9669 91.9379 20.6713 91.5766C20.3757 91.2154 19.9405 90.887 19.3658 90.5914C18.8075 90.2794 17.9864 89.9099 16.9026 89.483C15.7039 89.0232 14.7515 88.6044 14.0454 88.2267C13.3557 87.8491 12.781 87.3564 12.3212 86.7488C11.8614 86.1248 11.6315 85.3448 11.6315 84.4088C11.6315 82.9966 12.1323 81.8882 13.134 81.0836C14.1521 80.279 15.5233 79.8766 17.2475 79.8766C18.4626 79.8766 19.53 80.0819 20.4496 80.4924C21.3692 80.903 22.0753 81.4777 22.5679 82.2166C23.077 82.9556 23.3315 83.8095 23.3315 84.7783V85.271C23.3315 85.4352 23.2494 85.5173 23.0852 85.5173H21.2378C21.0736 85.5173 20.9915 85.4352 20.9915 85.271V84.9015C20.9915 84.0476 20.6466 83.3415 19.957 82.7832C19.2837 82.2084 18.3477 81.9211 17.149 81.9211C16.1309 81.9211 15.3426 82.1345 14.7843 82.5615C14.226 82.972 13.9469 83.5714 13.9469 84.3596C13.9469 84.9015 14.0864 85.3448 14.3656 85.6897C14.6447 86.0345 15.0553 86.3465 15.5972 86.6257C16.1555 86.8884 17.0012 87.2333 18.1342 87.6602C19.3001 88.12 20.2443 88.547 20.9669 88.9411C21.6894 89.3187 22.2887 89.8278 22.765 90.4682C23.2412 91.0922 23.4793 91.8722 23.4793 92.8082C23.4793 94.2533 22.9456 95.4027 21.8782 96.2566C20.8273 97.0941 19.374 97.5128 17.5184 97.5128ZM38.1324 81.8718C38.1324 82.036 38.0503 82.1181 37.8861 82.1181H29.1418C29.0762 82.1181 29.0433 82.151 29.0433 82.2166V87.5124C29.0433 87.5781 29.0762 87.611 29.1418 87.611H35.1519C35.3162 87.611 35.3983 87.6931 35.3983 87.8573V89.4091C35.3983 89.5733 35.3162 89.6554 35.1519 89.6554H29.1418C29.0762 89.6554 29.0433 89.6882 29.0433 89.7539V95.1728C29.0433 95.2385 29.0762 95.2714 29.1418 95.2714H37.8861C38.0503 95.2714 38.1324 95.3535 38.1324 95.5177V97.0695C38.1324 97.2337 38.0503 97.3158 37.8861 97.3158H26.925C26.7608 97.3158 26.6787 97.2337 26.6787 97.0695V80.32C26.6787 80.1558 26.7608 80.0737 26.925 80.0737H37.8861C38.0503 80.0737 38.1324 80.1558 38.1324 80.32V81.8718ZM51.2279 97.3158C51.0965 97.3158 51.0062 97.2583 50.957 97.1434L47.5085 89.7785C47.4921 89.7293 47.4593 89.7046 47.41 89.7046H43.8631C43.7974 89.7046 43.7645 89.7375 43.7645 89.8032V97.0695C43.7645 97.2337 43.6824 97.3158 43.5182 97.3158H41.6462C41.482 97.3158 41.3999 97.2337 41.3999 97.0695V80.32C41.3999 80.1558 41.482 80.0737 41.6462 80.0737H48.2721C49.2574 80.0737 50.1195 80.279 50.8584 80.6895C51.6138 81.1 52.1967 81.6747 52.6073 82.4137C53.0178 83.1526 53.2231 84.0065 53.2231 84.9754C53.2231 86.1248 52.9193 87.1019 52.3117 87.9065C51.7205 88.6947 50.8913 89.2284 49.8239 89.5076C49.7582 89.5404 49.7418 89.5815 49.7746 89.6307L53.3462 97.0202C53.3626 97.0531 53.3709 97.0941 53.3709 97.1434C53.3709 97.2583 53.3052 97.3158 53.1738 97.3158H51.2279ZM43.8631 82.1181C43.7974 82.1181 43.7645 82.151 43.7645 82.2166V87.7341C43.7645 87.7998 43.7974 87.8326 43.8631 87.8326H47.9765C48.8469 87.8326 49.5447 87.5781 50.0702 87.0691C50.5957 86.5436 50.8584 85.8539 50.8584 85C50.8584 84.1297 50.5957 83.4318 50.0702 82.9063C49.5447 82.3808 48.8469 82.1181 47.9765 82.1181H43.8631ZM60.5531 97.3158C60.4053 97.3158 60.3068 97.2501 60.2575 97.1187L54.9863 80.3446L54.9617 80.2461C54.9617 80.1312 55.0356 80.0737 55.1834 80.0737H57.1785C57.3263 80.0737 57.4249 80.1394 57.4741 80.2707L61.5383 93.892C61.5548 93.9248 61.5794 93.9413 61.6122 93.9413C61.6451 93.9413 61.6697 93.9248 61.6861 93.892L65.7503 80.2707C65.7996 80.1394 65.8899 80.0737 66.0213 80.0737H67.9672C68.1478 80.0737 68.2135 80.164 68.1642 80.3446L62.8438 97.1187C62.7945 97.2501 62.696 97.3158 62.5482 97.3158H60.5531ZM71.233 97.3158C71.0688 97.3158 70.9867 97.2337 70.9867 97.0695V80.32C70.9867 80.1558 71.0688 80.0737 71.233 80.0737H73.105C73.2692 80.0737 73.3513 80.1558 73.3513 80.32V97.0695C73.3513 97.2337 73.2692 97.3158 73.105 97.3158H71.233ZM82.9272 97.5375C81.7449 97.5375 80.6939 97.3076 79.7744 96.8478C78.8712 96.3716 78.1651 95.7065 77.656 94.8526C77.1634 93.9823 76.9171 92.9888 76.9171 91.8722V85.4926C76.9171 84.376 77.1634 83.399 77.656 82.5615C78.1651 81.7076 78.8712 81.0507 79.7744 80.591C80.6939 80.1147 81.7449 79.8766 82.9272 79.8766C84.1095 79.8766 85.1523 80.1065 86.0554 80.5663C86.9586 81.0097 87.6565 81.6419 88.1491 82.463C88.6582 83.284 88.9127 84.2364 88.9127 85.3202V85.3448C88.9127 85.427 88.888 85.4926 88.8388 85.5419C88.7895 85.5912 88.732 85.6158 88.6664 85.6158L86.7944 85.7143C86.6302 85.7143 86.548 85.6404 86.548 85.4926V85.4187C86.548 84.3678 86.2196 83.5221 85.5628 82.8817C84.9059 82.2413 84.0274 81.9211 82.9272 81.9211C81.827 81.9211 80.9403 82.2413 80.267 82.8817C79.6102 83.5221 79.2817 84.3678 79.2817 85.4187V91.9707C79.2817 93.0217 79.6102 93.8674 80.267 94.5078C80.9403 95.1482 81.827 95.4684 82.9272 95.4684C84.0274 95.4684 84.9059 95.1482 85.5628 94.5078C86.2196 93.8674 86.548 93.0217 86.548 91.9707V91.9215C86.548 91.7737 86.6302 91.6998 86.7944 91.6998L88.6664 91.7983C88.8306 91.7983 88.9127 91.8804 88.9127 92.0446C88.9127 93.1284 88.6582 94.0891 88.1491 94.9265C87.6565 95.7476 86.9586 96.388 86.0554 96.8478C85.1523 97.3076 84.1095 97.5375 82.9272 97.5375ZM103.801 81.8718C103.801 82.036 103.718 82.1181 103.554 82.1181H94.81C94.7443 82.1181 94.7115 82.151 94.7115 82.2166V87.5124C94.7115 87.5781 94.7443 87.611 94.81 87.611H100.82C100.984 87.611 101.066 87.6931 101.066 87.8573V89.4091C101.066 89.5733 100.984 89.6554 100.82 89.6554H94.81C94.7443 89.6554 94.7115 89.6882 94.7115 89.7539V95.1728C94.7115 95.2385 94.7443 95.2714 94.81 95.2714H103.554C103.718 95.2714 103.801 95.3535 103.801 95.5177V97.0695C103.801 97.2337 103.718 97.3158 103.554 97.3158H92.5932C92.429 97.3158 92.3469 97.2337 92.3469 97.0695V80.32C92.3469 80.1558 92.429 80.0737 92.5932 80.0737H103.554C103.718 80.0737 103.801 80.1558 103.801 80.32V81.8718ZM112.388 97.5128C111.124 97.5128 110.024 97.3158 109.088 96.9217C108.168 96.5276 107.454 95.9693 106.945 95.2467C106.452 94.5242 106.206 93.6785 106.206 92.7097V91.9954C106.206 91.8312 106.288 91.7491 106.452 91.7491H108.25C108.415 91.7491 108.497 91.8312 108.497 91.9954V92.5865C108.497 93.424 108.858 94.1137 109.58 94.6556C110.303 95.1975 111.296 95.4684 112.561 95.4684C113.694 95.4684 114.548 95.2303 115.123 94.7541C115.697 94.2779 115.985 93.6539 115.985 92.8821C115.985 92.3731 115.837 91.9379 115.541 91.5766C115.246 91.2154 114.811 90.887 114.236 90.5914C113.678 90.2794 112.856 89.9099 111.773 89.483C110.574 89.0232 109.622 88.6044 108.915 88.2267C108.226 87.8491 107.651 87.3564 107.191 86.7488C106.731 86.1248 106.502 85.3448 106.502 84.4088C106.502 82.9966 107.002 81.8882 108.004 81.0836C109.022 80.279 110.393 79.8766 112.118 79.8766C113.333 79.8766 114.4 80.0819 115.32 80.4924C116.239 80.903 116.945 81.4777 117.438 82.2166C117.947 82.9556 118.202 83.8095 118.202 84.7783V85.271C118.202 85.4352 118.119 85.5173 117.955 85.5173H116.108C115.944 85.5173 115.862 85.4352 115.862 85.271V84.9015C115.862 84.0476 115.517 83.3415 114.827 82.7832C114.154 82.2084 113.218 81.9211 112.019 81.9211C111.001 81.9211 110.213 82.1345 109.654 82.5615C109.096 82.972 108.817 83.5714 108.817 84.3596C108.817 84.9015 108.956 85.3448 109.236 85.6897C109.515 86.0345 109.925 86.3465 110.467 86.6257C111.026 86.8884 111.871 87.2333 113.004 87.6602C114.17 88.12 115.114 88.547 115.837 88.9411C116.559 89.3187 117.159 89.8278 117.635 90.4682C118.111 91.0922 118.349 91.8722 118.349 92.8082C118.349 94.2533 117.816 95.4027 116.748 96.2566C115.697 97.0941 114.244 97.5128 112.388 97.5128Z" fill="#F3F0E8"></path>
+        </svg>
+      </div>
+      <div class="certif-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        CERTIBIOCIDE
+      </div>
+    </div>
+
+    <h1>Préparation <span class="accent">Punaises de Lit</span></h1>
+    <div class="hero-sub">Suivez les 3 étapes, on s'occupe du reste 💪</div>
+  </header>
+
+  <!-- ============ STICKY BAR (tabs + progress + garantie) ============ -->
+  <div class="sticky-bar">
+
+    <nav class="step-nav">
+      <button class="step-tab active" data-step="1" onclick="goToStep(1)">
+        <div class="step-tab-num">Étape 1</div>
+        <div class="step-tab-label">AVANT</div>
+      </button>
+      <button class="step-tab locked" data-step="2" onclick="goToStep(2)">
+        <div class="step-tab-num">Étape 2</div>
+        <div class="step-tab-label">PENDANT</div>
+        <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+          <path d="M7 11V7a5 5 0 0110 0v4"></path>
+        </svg>
+      </button>
+      <button class="step-tab locked" data-step="3" onclick="goToStep(3)">
+        <div class="step-tab-num">Étape 3</div>
+        <div class="step-tab-label">APRÈS</div>
+        <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+          <path d="M7 11V7a5 5 0 0110 0v4"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <div class="progress-zone">
+      <div class="progress-header">
+        <div class="progress-step-name" id="progressStepName">Étape 1 · Avant l'intervention</div>
+        <div class="progress-count">
+          <span id="progressDone">0</span><span class="total">/<span id="progressTotal">17</span></span>
+        </div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- GARANTIE BAR -->
+    <div class="warranty-bar" id="warrantyBar">
+      <div class="warranty-info">
+        <div class="warranty-icon-wrap">
+          <svg id="warrantyIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+            <path d="M7 11V7a5 5 0 0110 0v4"></path>
+          </svg>
+        </div>
+        <div class="warranty-text">
+          <div class="warranty-label">Garantie Noxus</div>
+          <div class="warranty-status" id="warrantyStatus">Inactive — préparation à compléter</div>
+        </div>
+      </div>
+      <div class="warranty-pulse"></div>
+    </div>
+
+  </div>
+
+  <!-- ============ ALERT ============ -->
+  <div class="alert-banner">
+    <div class="alert-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </svg>
+    </div>
+    <div class="alert-content">
+      <strong>Préparation obligatoire</strong>
+      Une seule punaise femelle survivante peut tout relancer. Sans cette préparation, le traitement n'est pas garanti.
+    </div>
+  </div>
+
+  <!-- ============ GARANTIE EXPLAINER ============ -->
+  <div class="warranty-explainer">
+    <div class="we-header">
+      <div class="we-shield">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6z"></path>
+          <polyline points="9 12 11 14 15 10"></polyline>
+        </svg>
+      </div>
+      <div class="we-title-block">
+        <div class="we-eyebrow">Garantie Résultat Noxus</div>
+        <div class="we-title">🛡️ Comment activer votre garantie ?</div>
+      </div>
+    </div>
+    <div class="we-desc">
+      La <strong>garantie résultat Noxus</strong> s'active après réalisation complète des <strong>3 passages</strong> (J, J+15, J+30). Pour qu'elle soit opposable, la préparation client doit être <strong>intégralement réalisée</strong>. En cochant chaque tâche, vous validez votre engagement. <strong>100 % de l'étape AVANT cochée = garantie déclenchée au 1er passage.</strong>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- ============ STEP 1 : AVANT ============ -->
+  <!-- ============================================ -->
+  <section class="step-section active" data-step="1">
+
+    <div class="step-intro">
+      <div class="step-badge before">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+      </div>
+      <div class="step-eyebrow">⏱️ J-3 à J-1 · 1 à 2 jours</div>
+      <h2 class="step-title">AVANT 🏠</h2>
+      <p class="step-desc">Cette étape conditionne l'activation de votre garantie. Préparez votre logement avec soin — c'est ce qui fait la différence entre un succès et un échec.</p>
+    </div>
+
+    <div class="section">
+
+      <!-- LINGE -->
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="subsection-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 6h18l-2 13H5z"></path><path d="M8 6V3a2 2 0 012-2h4a2 2 0 012 2v3"></path>
+            </svg>
+          </div>
+          <h3>👕 Linge &amp; Textiles</h3>
+        </div>
+
+        <ul class="check-list">
+
+          <li class="check-card critical" data-id="t1">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="8" y="6" width="32" height="38" rx="3" fill="#2d7dd2" stroke="#0C0C0A" stroke-width="1.5"></rect><rect x="10" y="9" width="28" height="6" rx="1" fill="#1958a8"></rect><circle cx="14" cy="12" r="1" fill="#15C55A"></circle><circle cx="18" cy="12" r="1" fill="#eda10c"></circle><circle cx="24" cy="28" r="11" fill="#F3F0E8" stroke="#0C0C0A" stroke-width="1.5"></circle><circle cx="24" cy="28" r="7" fill="#1958a8" opacity="0.3"></circle><text x="24" y="32" text-anchor="middle" font-size="9" font-weight="900" fill="#0C0C0A">60°</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Laver tout le linge à 60°C</span>
+              <div class="badge-row">
+                <span class="badge critical">🔥 Obligatoire</span>
+                <span class="badge warranty">🛡️ Garantie</span>
+              </div>
+              <div class="check-desc">Draps, couettes, oreillers, rideaux, vêtements, peluches. La seule température qui tue adultes <strong>ET</strong> œufs.</div>
+            </div>
+          </li>
+
+          <li class="check-card critical" data-id="t2">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><path d="M14 14 L34 14 L36 42 L12 42 Z" fill="#0C0C0A" stroke="#0C0C0A" stroke-width="1.5"></path><path d="M14 14 Q20 8 24 14 Q28 8 34 14" fill="none" stroke="#0C0C0A" stroke-width="2.5" stroke-linecap="round"></path><text x="24" y="32" text-anchor="middle" font-size="14" fill="#15C55A">✓</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Tout en sac hermétique, double-nœud</span>
+              <div class="badge-row">
+                <span class="badge critical">🔒 Obligatoire</span>
+                <span class="badge warranty">🛡️ Garantie</span>
+              </div>
+              <div class="check-desc">Linge propre dans sacs solides, bien fermés. Étiquetez « PROPRE ». Ne remettez RIEN dans les armoires avant la fin du traitement.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="t3">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="10" y="6" width="28" height="38" rx="2" fill="#2d7dd2" stroke="#0C0C0A" stroke-width="1.5"></rect><line x1="10" y1="22" x2="38" y2="22" stroke="#0C0C0A" stroke-width="1.5"></line><text x="20" y="18" font-size="10" fill="#F3F0E8">❄</text><text x="20" y="36" font-size="10" fill="#F3F0E8">❄</text><text x="14" y="40" font-size="7" font-weight="900" fill="#F3F0E8">-20°</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Cuir, laine, soie : congélateur 72h</span>
+              <div class="badge-row"><span class="badge tip">❄️ -20°C / 3 jours</span></div>
+              <div class="check-desc">Pour tout ce qui ne supporte pas la machine. En sac hermétique au congélo pendant 3 jours minimum.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="t4">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="8" y="16" width="32" height="24" rx="2" fill="#eda10c" stroke="#0C0C0A" stroke-width="1.5"></rect><rect x="18" y="10" width="12" height="6" rx="1" fill="none" stroke="#0C0C0A" stroke-width="1.5"></rect><line x1="24" y1="16" x2="24" y2="40" stroke="#0C0C0A" stroke-width="1.5"></line><text x="24" y="36" text-anchor="middle" font-size="7" font-weight="900" fill="#0C0C0A">30j</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Prévoir une tenue isolée pour 1 mois</span>
+              <div class="badge-row"><span class="badge tip">💡 Pratique</span></div>
+              <div class="check-desc">Vêtements pour 30 jours dans un sac hermétique séparé, dans une pièce non traitée.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="callout danger">
+          <div class="callout-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          </div>
+          <div class="callout-text">
+            <strong>⚡ Cause n°1 d'échec</strong>
+            Une seule chemise infestée remise dans l'armoire après traitement = retour des punaises garanti.
+          </div>
+        </div>
+      </div>
+
+      <!-- ASPIRATION -->
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="subsection-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h2l2-8h10l2 8h2"></path><path d="M5 13l-2 8h18l-2-8"></path></svg>
+          </div>
+          <h3>🧹 Nettoyage &amp; aspiration</h3>
+        </div>
+
+        <ul class="check-list">
+
+          <li class="check-card critical" data-id="a1">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><circle cx="20" cy="28" r="12" fill="#c8321e" stroke="#0C0C0A" stroke-width="1.5"></circle><circle cx="20" cy="28" r="5" fill="#0C0C0A"></circle><path d="M30 24 Q38 18 42 22 L42 30 Q36 28 32 30" fill="#0C0C0A"></path><circle cx="13" cy="40" r="3" fill="#0C0C0A"></circle><circle cx="27" cy="40" r="3" fill="#0C0C0A"></circle><path d="M30 24 L42 10" stroke="#0C0C0A" stroke-width="2" stroke-linecap="round"></path></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Aspirer TOUT le logement à fond</span>
+              <div class="badge-row">
+                <span class="badge critical">🎯 Obligatoire</span>
+                <span class="badge warranty">🛡️ Garantie</span>
+              </div>
+              <div class="check-desc">Matelas, sommier (lattes !), tête de lit, plinthes, fissures. Insistez sur les taches noires = leurs déjections.</div>
+            </div>
+          </li>
+
+          <li class="check-card critical" data-id="a2">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="10" y="14" width="28" height="28" rx="2" fill="#0C0C0A"></rect><rect x="8" y="10" width="32" height="6" rx="1" fill="#0C0C0A"></rect><line x1="16" y1="20" x2="16" y2="38" stroke="#F3F0E8" stroke-width="1.5"></line><line x1="24" y1="20" x2="24" y2="38" stroke="#F3F0E8" stroke-width="1.5"></line><line x1="32" y1="20" x2="32" y2="38" stroke="#F3F0E8" stroke-width="1.5"></line><text x="24" y="8" text-anchor="middle" font-size="10">💨</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Sac d'aspirateur → poubelle EXTÉRIEURE</span>
+              <div class="badge-row">
+                <span class="badge critical">⚡ Immédiat</span>
+                <span class="badge warranty">🛡️ Garantie</span>
+              </div>
+              <div class="check-desc">Fermez le sac, mettez-le dans un 2e sac poubelle noué, sortez direct à la poubelle dehors.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- MOBILIER -->
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="subsection-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v2M21 18v2M3 18h18M5 18V9a3 3 0 013-3h8a3 3 0 013 3v9"></path></svg>
+          </div>
+          <h3>🛋️ Mobilier</h3>
+        </div>
+
+        <ul class="check-list">
+
+          <li class="check-card critical" data-id="m1">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><line x1="4" y1="6" x2="4" y2="42" stroke="#0C0C0A" stroke-width="2"></line><rect x="14" y="14" width="20" height="22" rx="2" fill="#eda10c" stroke="#0C0C0A" stroke-width="1.5"></rect><line x1="14" y1="22" x2="34" y2="22" stroke="#0C0C0A" stroke-width="1"></line><text x="9" y="40" font-size="7" font-weight="900" fill="#004d00">50cm</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Écarter les meubles des murs de 50 cm</span>
+              <div class="badge-row">
+                <span class="badge critical">📏 Obligatoire</span>
+                <span class="badge warranty">🛡️ Garantie</span>
+              </div>
+              <div class="check-desc">Lits, armoires, commodes, canapés. Pour qu'on accède aux plinthes — leur cachette préférée.</div>
+            </div>
+          </li>
+
+          <li class="check-card critical" data-id="m2">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="6" y="8" width="36" height="34" rx="2" fill="#0C0C0A"></rect><rect x="10" y="12" width="32" height="8" fill="#eda10c" stroke="#0C0C0A" stroke-width="1"></rect><rect x="2" y="22" width="32" height="8" fill="#eda10c" stroke="#0C0C0A" stroke-width="1"></rect><rect x="10" y="32" width="32" height="8" fill="#eda10c" stroke="#0C0C0A" stroke-width="1"></rect></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Vider tiroirs, placards, armoires</span>
+              <div class="badge-row">
+                <span class="badge critical">📦 Obligatoire</span>
+                <span class="badge warranty">🛡️ Garantie</span>
+              </div>
+              <div class="check-desc">Laissez portes et tiroirs <strong>OUVERTS</strong>. Le contenu part dans les sacs hermétiques.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="m3">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="4" y="38" width="40" height="2" fill="#0C0C0A"></rect><rect x="14" y="6" width="20" height="32" rx="3" fill="#F3F0E8" stroke="#0C0C0A" stroke-width="1.5"></rect><line x1="18" y1="12" x2="30" y2="12" stroke="#0C0C0A" stroke-width="0.5"></line><line x1="18" y1="20" x2="30" y2="20" stroke="#0C0C0A" stroke-width="0.5"></line><line x1="18" y1="28" x2="30" y2="28" stroke="#0C0C0A" stroke-width="0.5"></line></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Matelas debout « en cathédrale »</span>
+              <div class="badge-row"><span class="badge important">⬆️ Important</span></div>
+              <div class="check-desc">Contre un mur, à la verticale. Permet de traiter toutes les faces, coutures et plis.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="m4">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="6" y="6" width="36" height="36" fill="#F3F0E8" stroke="#0C0C0A" stroke-width="1.5"></rect><path d="M18 8 Q20 16 22 18 Q24 22 22 28 Q20 34 24 40" fill="none" stroke="#eda10c" stroke-width="3" stroke-linecap="round"></path><circle cx="35" cy="14" r="3" fill="#004d00"></circle><text x="35" y="18" text-anchor="middle" font-size="6" fill="white" font-weight="900">✓</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Reboucher fissures, recoller papier peint</span>
+              <div class="badge-row"><span class="badge tip">💡 Si possible</span></div>
+              <div class="check-desc">Elles se cachent derrière le papier décollé, dans les fissures de plinthes, autour des prises.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="m5">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="22" rx="2" fill="#0C0C0A"></rect><rect x="20" y="36" width="8" height="4" fill="#0C0C0A"></rect><rect x="14" y="38" width="20" height="2" fill="#0C0C0A"></rect><path d="M6 12 L42 12 L40 24 L8 24 Z" fill="#2d7dd2" opacity="0.7" stroke="#0C0C0A" stroke-width="1.5"></path></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Bâcher TV, ordinateurs, électronique</span>
+              <div class="badge-row"><span class="badge important">🛡️ Protection</span></div>
+              <div class="check-desc">Sacs plastiques + adhésif pour protéger des projections de produit.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="m6">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><path d="M8 18 L40 18 L36 42 L12 42 Z" fill="#15C55A" stroke="#0C0C0A" stroke-width="1.5"></path><ellipse cx="24" cy="18" rx="16" ry="3" fill="#004d00" stroke="#0C0C0A" stroke-width="1.5"></ellipse><rect x="12" y="6" width="24" height="12" rx="1" fill="#eda10c" stroke="#0C0C0A" stroke-width="1.5"></rect><text x="24" y="14" text-anchor="middle" font-size="8" font-weight="900" fill="#0C0C0A">🍴</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Protéger vaisselle &amp; alimentation</span>
+              <div class="badge-row"><span class="badge important">🍽️ Important</span></div>
+              <div class="check-desc">Vaisselle, denrées, brosses à dents : contenants fermés ou sortis de la zone traitée.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- INTERDICTIONS -->
+      <div class="subsection">
+        <div class="subsection-title warning">
+          <div class="subsection-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+          </div>
+          <h3>🚫 À ne SURTOUT pas faire</h3>
+        </div>
+
+        <ul class="check-list">
+
+          <li class="check-card" data-id="i1">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration" style="background: var(--noxus-red-soft);">
+              <svg viewBox="0 0 48 48"><rect x="18" y="14" width="12" height="26" rx="2" fill="#c8321e" stroke="#0C0C0A" stroke-width="1.5"></rect><rect x="20" y="10" width="8" height="4" rx="1" fill="#0C0C0A"></rect><circle cx="24" cy="6" r="2" fill="#0C0C0A"></circle><line x1="8" y1="8" x2="40" y2="40" stroke="#c8321e" stroke-width="4" stroke-linecap="round"></line></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Pas de bombes insecticides du commerce</span>
+              <div class="badge-row"><span class="badge critical">⛔ Interdit</span></div>
+              <div class="check-desc">Elles dispersent les punaises et sont incompatibles avec nos produits pro.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="i2">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration" style="background: var(--noxus-red-soft);">
+              <svg viewBox="0 0 48 48"><path d="M8 16 L24 8 L40 16 L40 36 L24 44 L8 36 Z" fill="#eda10c" stroke="#0C0C0A" stroke-width="1.5"></path><path d="M8 16 L24 24 L40 16" fill="none" stroke="#0C0C0A" stroke-width="1.5"></path><line x1="24" y1="24" x2="24" y2="44" stroke="#0C0C0A" stroke-width="1.5"></line><line x1="8" y1="8" x2="40" y2="40" stroke="#c8321e" stroke-width="4" stroke-linecap="round"></line></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Ne déplacez RIEN vers d'autres pièces</span>
+              <div class="badge-row"><span class="badge critical">⛔ Interdit</span></div>
+              <div class="check-desc">Vous propageriez l'infestation. Tout reste en zone à traiter.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="i3">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration" style="background: var(--noxus-red-soft);">
+              <svg viewBox="0 0 48 48"><rect x="6" y="20" width="36" height="14" rx="2" fill="#F3F0E8" stroke="#0C0C0A" stroke-width="1.5"></rect><line x1="6" y1="8" x2="42" y2="44" stroke="#c8321e" stroke-width="4" stroke-linecap="round"></line></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Ne jetez pas matelas/meubles infestés</span>
+              <div class="badge-row"><span class="badge critical">⛔ Interdit</span></div>
+              <div class="check-desc">Sans traitement préalable, ils contaminent l'immeuble entier.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- COMPLETE STEP 1 -->
+    <div class="step-complete-zone" id="complete-1">
+
+      <!-- WARRANTY UNLOCKED CARD -->
+      <div class="warranty-unlocked">
+        <div class="wu-header">
+          <div class="wu-stamp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6z"></path>
+              <polyline points="9 12 11 14 15 10"></polyline>
+            </svg>
+          </div>
+          <div class="wu-titles">
+            <div class="wu-label">✨ Activée le jour J</div>
+            <div class="wu-title">Garantie Noxus activée</div>
+          </div>
+        </div>
+        <div class="wu-msg">
+          Vous avez complété <strong>100 % de la préparation</strong>. Votre garantie résultat est désormais opposable : en cas de présence persistante de punaises à l'issue des <strong>3 passages</strong>, la garantie couvre la poursuite du traitement sans frais supplémentaires.
+        </div>
+      </div>
+
+      <div class="complete-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <div class="complete-title">🎉 Préparation terminée !</div>
+      <div class="complete-msg">Excellent travail. Vous avez fait le plus dur — l'étape PENDANT est maintenant débloquée.</div>
+      <button class="btn-next" onclick="goToStep(2)">
+        Passer à l'étape 2 : PENDANT
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ============ STEP 2 : PENDANT ============ -->
+  <!-- ============================================ -->
+  <section class="step-section" data-step="2">
+
+    <div class="step-intro">
+      <div class="step-badge during">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"></polygon>
+        </svg>
+      </div>
+      <div class="step-eyebrow">⏱️ Jour J · 1h30 à 3h</div>
+      <h2 class="step-title">PENDANT ⚡</h2>
+      <p class="step-desc">Le jour de l'intervention. Quelques règles simples pour que tout se passe au mieux pendant que notre technicien travaille.</p>
+    </div>
+
+    <div class="section">
+
+      <ul class="check-list">
+
+        <li class="check-card critical" data-id="p1">
+          <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+          <div class="check-illustration">
+            <svg viewBox="0 0 48 48"><circle cx="14" cy="14" r="4" fill="#0C0C0A"></circle><rect x="10" y="18" width="8" height="12" rx="2" fill="#2d7dd2"></rect><circle cx="26" cy="16" r="3" fill="#0C0C0A"></circle><rect x="23" y="19" width="6" height="10" rx="2" fill="#eda10c"></rect><ellipse cx="38" cy="32" rx="6" ry="4" fill="#004d00"></ellipse><path d="M2 40 L46 40" stroke="#0C0C0A" stroke-width="1.5"></path><path d="M44 36 L46 38 L44 40" fill="none" stroke="#15C55A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div class="check-content">
+            <span class="check-label">Évacuer tout le monde : humains + animaux</span>
+            <div class="badge-row"><span class="badge critical">🚪 Obligatoire</span></div>
+            <div class="check-desc">Personne ne reste pendant l'intervention. Chiens, chats, oiseaux : tous dehors. Aquariums : couvrir et arrêter les pompes.</div>
+          </div>
+        </li>
+
+        <li class="check-card" data-id="p2">
+          <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+          <div class="check-illustration">
+            <svg viewBox="0 0 48 48"><path d="M14 36 L34 36 L32 44 L16 44 Z" fill="#c8321e" stroke="#0C0C0A" stroke-width="1.5"></path><path d="M24 36 Q24 24 18 18 Q14 14 16 10" fill="none" stroke="#004d00" stroke-width="2.5" stroke-linecap="round"></path><path d="M24 36 Q24 26 28 20 Q32 14 30 10" fill="none" stroke="#004d00" stroke-width="2.5" stroke-linecap="round"></path><ellipse cx="16" cy="14" rx="3" ry="5" fill="#15C55A" transform="rotate(-30 16 14)"></ellipse><ellipse cx="30" cy="14" rx="3" ry="5" fill="#15C55A" transform="rotate(30 30 14)"></ellipse><ellipse cx="22" cy="22" rx="3" ry="5" fill="#15C55A"></ellipse></svg>
+          </div>
+          <div class="check-content">
+            <span class="check-label">Sortir les plantes vertes</span>
+            <div class="badge-row"><span class="badge tip">🌿 Sensibles</span></div>
+            <div class="check-desc">Sensibles aux produits biocides. À rentrer 24h après votre retour.</div>
+          </div>
+        </li>
+
+        <li class="check-card" data-id="p3">
+          <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+          <div class="check-illustration">
+            <svg viewBox="0 0 48 48"><rect x="14" y="4" width="20" height="40" rx="4" fill="#0C0C0A"></rect><rect x="16" y="9" width="16" height="28" fill="#004d00"></rect><circle cx="24" cy="40" r="1.5" fill="#F3F0E8"></circle><text x="24" y="27" text-anchor="middle" font-size="14" fill="white">📞</text></svg>
+          </div>
+          <div class="check-content">
+            <span class="check-label">Restez joignable par téléphone</span>
+            <div class="badge-row"><span class="badge important">📱 Important</span></div>
+            <div class="check-desc">Le technicien peut avoir besoin d'une info : accès, zone supplémentaire, démontage à valider.</div>
+          </div>
+        </li>
+
+        <li class="check-card" data-id="p4">
+          <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+          <div class="check-illustration">
+            <svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="2" fill="#2d7dd2" stroke="#0C0C0A" stroke-width="1.5"></rect><line x1="24" y1="8" x2="24" y2="40" stroke="#0C0C0A" stroke-width="1.5"></line><line x1="8" y1="24" x2="40" y2="24" stroke="#0C0C0A" stroke-width="1.5"></line><rect x="6" y="40" width="36" height="3" fill="#0C0C0A"></rect><circle cx="24" cy="24" r="3" fill="#c8321e"></circle><line x1="22" y1="22" x2="26" y2="26" stroke="white" stroke-width="1.5"></line><line x1="26" y1="22" x2="22" y2="26" stroke="white" stroke-width="1.5"></line></svg>
+          </div>
+          <div class="check-content">
+            <span class="check-label">Fenêtres et VMC fermées</span>
+            <div class="badge-row"><span class="badge important">🪟 Pendant l'intervention</span></div>
+            <div class="check-desc">Maximise l'efficacité du traitement. Le technicien gère l'aération à la fin.</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="callout success">
+        <div class="callout-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="9 11 12 14 22 4"></polyline></svg>
+        </div>
+        <div class="callout-text">
+          <strong>📋 Compte-rendu numérique</strong>
+          À la fin de l'intervention, vous recevrez votre compte-rendu détaillé accessible 24/7 sur votre portail client Noxus.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COMPLETE STEP 2 -->
+    <div class="step-complete-zone" id="complete-2">
+      <div class="complete-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <div class="complete-title">⚡ Intervention prête !</div>
+      <div class="complete-msg">Vous êtes au point pour le jour J. Place à l'étape APRÈS — la dernière ligne droite.</div>
+      <button class="btn-next" onclick="goToStep(3)">
+        Passer à l'étape 3 : APRÈS
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ============ STEP 3 : APRÈS ============ -->
+  <!-- ============================================ -->
+  <section class="step-section" data-step="3">
+
+    <div class="step-intro">
+      <div class="step-badge after">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <div class="step-eyebrow">⏱️ J+0 à J+30 · 1 mois</div>
+      <h2 class="step-title">APRÈS 🌱</h2>
+      <p class="step-desc">Le traitement agit pendant 1 mois. Suivez ces consignes pour ne pas annuler son effet et garantir la disparition complète des punaises.</p>
+    </div>
+
+    <div class="section">
+
+      <div class="timeline-card">
+        <div class="timeline-title">⏰ Délais avant de revenir</div>
+        <div class="timeline-subtitle">Combien de temps attendre ?</div>
+
+        <div class="delay-grid">
+          <div class="delay-item">
+            <span class="delay-emoji">👨</span>
+            <div class="delay-label">Adultes</div>
+            <div class="delay-value">4h min</div>
+          </div>
+          <div class="delay-item">
+            <span class="delay-emoji">🧒</span>
+            <div class="delay-label">Enfants</div>
+            <div class="delay-value">12h</div>
+          </div>
+          <div class="delay-item">
+            <span class="delay-emoji">👶</span>
+            <div class="delay-label">Bébés &amp; femmes enceintes</div>
+            <div class="delay-value">24h</div>
+          </div>
+          <div class="delay-item">
+            <span class="delay-emoji">💨</span>
+            <div class="delay-label">Aération au retour</div>
+            <div class="delay-value">30 min</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <div class="callout-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        </div>
+        <div class="callout-text">
+          <strong>🫁 Asthmatiques / allergiques</strong>
+          Prolongez l'aération de 4 à 6 h supplémentaires avant de réintégrer le logement.
+        </div>
+      </div>
+
+      <div class="subsection" style="margin-top: 24px;">
+        <div class="subsection-title">
+          <div class="subsection-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h3>✅ Dans les jours qui suivent</h3>
+        </div>
+
+        <ul class="check-list">
+
+          <li class="check-card critical" data-id="ap1">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="22" y="6" width="4" height="26" fill="#0C0C0A"></rect><path d="M14 32 L34 32 L36 42 L12 42 Z" fill="#2d7dd2" stroke="#0C0C0A" stroke-width="1.5"></path><line x1="8" y1="8" x2="40" y2="40" stroke="#c8321e" stroke-width="4" stroke-linecap="round"></line><text x="40" y="14" text-anchor="middle" font-size="9" font-weight="900" fill="#c8321e">30j</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">PAS de serpillière pendant 4 semaines</span>
+              <div class="badge-row"><span class="badge critical">🚨 Critique</span></div>
+              <div class="check-desc">Le produit a un effet rémanent (1 mois). Le moindre coup de serpillière annule le traitement.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="ap2">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="2" fill="none" stroke="#0C0C0A" stroke-width="1.5"></rect><line x1="24" y1="8" x2="24" y2="40" stroke="#0C0C0A" stroke-width="1.5"></line><line x1="8" y1="24" x2="40" y2="24" stroke="#0C0C0A" stroke-width="1.5"></line><path d="M14 14 Q18 12 22 14" fill="none" stroke="#15C55A" stroke-width="2" stroke-linecap="round"></path><path d="M26 30 Q30 32 34 30" fill="none" stroke="#15C55A" stroke-width="2" stroke-linecap="round"></path></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Aérer 2h minimum dès le retour</span>
+              <div class="badge-row"><span class="badge important">💨 Important</span></div>
+              <div class="check-desc">Toutes fenêtres ouvertes. Les surfaces traitées doivent être bien sèches.</div>
+            </div>
+          </li>
+
+          <li class="check-card critical" data-id="ap3">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="6" y="20" width="36" height="16" rx="2" fill="#2d7dd2" stroke="#0C0C0A" stroke-width="1.5"></rect><rect x="6" y="14" width="10" height="10" rx="1" fill="#F3F0E8" stroke="#0C0C0A" stroke-width="1.5"></rect><circle cx="11" cy="19" r="2.5" fill="#eda10c"></circle><text x="30" y="14" font-size="10">💤</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Continuez à dormir dans le lit traité</span>
+              <div class="badge-row">
+                <span class="badge critical">😴 Important</span>
+                <span class="badge tip">👕 Habillé</span>
+              </div>
+              <div class="check-desc"><strong>Vous êtes l'appât !</strong> Les punaises sortent se nourrir, marchent sur le produit et meurent.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="ap4">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><path d="M12 14 L36 14 L38 42 L10 42 Z" fill="#eda10c" stroke="#0C0C0A" stroke-width="1.5"></path><path d="M12 14 Q18 8 24 14 Q30 8 36 14" fill="none" stroke="#0C0C0A" stroke-width="2.5" stroke-linecap="round"></path><rect x="16" y="22" width="16" height="14" rx="1" fill="white" stroke="#0C0C0A" stroke-width="1"></rect><rect x="16" y="22" width="16" height="3" fill="#c8321e"></rect><text x="24" y="32" text-anchor="middle" font-size="7" font-weight="900" fill="#0C0C0A">30j</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Sacs de linge fermés pendant 1 mois</span>
+              <div class="badge-row"><span class="badge important">📦 Patience</span></div>
+              <div class="check-desc">Sortez uniquement le nécessaire au fur et à mesure.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="ap5">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><path d="M14 8 L34 8 L34 28 L40 38 L40 44 L10 44 L10 38 L14 28 Z" fill="#15C55A" stroke="#0C0C0A" stroke-width="1.5"></path><line x1="14" y1="14" x2="34" y2="14" stroke="#004d00" stroke-width="2"></line><line x1="14" y1="20" x2="34" y2="20" stroke="#004d00" stroke-width="2"></line></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Pas pieds nus sur les zones traitées</span>
+              <div class="badge-row"><span class="badge time">🧦 7 jours min.</span></div>
+              <div class="check-desc">Chaussures ou chaussettes obligatoires pendant la première semaine.</div>
+            </div>
+          </li>
+
+          <li class="check-card critical" data-id="ap6">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="32" rx="2" fill="white" stroke="#0C0C0A" stroke-width="1.5"></rect><rect x="8" y="10" width="32" height="8" fill="#c8321e"></rect><rect x="14" y="6" width="3" height="8" rx="1" fill="#0C0C0A"></rect><rect x="31" y="6" width="3" height="8" rx="1" fill="#0C0C0A"></rect><text x="24" y="33" text-anchor="middle" font-size="12" font-weight="900" fill="#c8321e">J+15</text></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Programmer le 2e passage à J+15</span>
+              <div class="badge-row"><span class="badge critical">📅 Obligatoire</span></div>
+              <div class="check-desc">Les œufs du 1er passage éclosent entre J et J+15. Le 2e puis le 3e passage éliminent les nouvelles générations — c'est pour ça que 3 passages sont toujours nécessaires.</div>
+            </div>
+          </li>
+
+          <li class="check-card" data-id="ap7">
+            <div class="checkbox-wrap"><div class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+            <div class="check-illustration">
+              <svg viewBox="0 0 48 48"><circle cx="20" cy="20" r="12" fill="none" stroke="#0C0C0A" stroke-width="2.5"></circle><circle cx="20" cy="20" r="8" fill="#eda10c" opacity="0.3"></circle><line x1="29" y1="29" x2="40" y2="40" stroke="#0C0C0A" stroke-width="4" stroke-linecap="round"></line><ellipse cx="20" cy="20" rx="4" ry="3" fill="#c8321e"></ellipse></svg>
+            </div>
+            <div class="check-content">
+              <span class="check-label">Surveiller &amp; nous prévenir si piqûres</span>
+              <div class="badge-row"><span class="badge tip">📸 Photos bienvenues</span></div>
+              <div class="check-desc">Photos via le portail client ou par mail. Plus vous êtes réactif, plus on agit vite.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="callout info">
+          <div class="callout-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          </div>
+          <div class="callout-text">
+            <strong>🦟 Piqûres après traitement = normal</strong>
+            Les piqûres peuvent continuer 1 à 2 semaines après le traitement, le temps que toute la colonie meure. Ne paniquez pas, ne traitez pas vous-même.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COMPLETE STEP 3 -->
+    <div class="step-complete-zone" id="complete-3">
+      <div class="complete-icon" style="background: var(--noxus-gold);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+          <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"></polygon>
+        </svg>
+      </div>
+      <div class="complete-title" style="color: var(--noxus-gold);">🏆 Mission accomplie !</div>
+      <div class="complete-msg">Vous avez suivi le protocole de A à Z. Bravo ! Pour toute question, contactez-nous.</div>
+      <button class="btn-next" onclick="genererCertificat()" style="background: var(--noxus-gold); color: var(--noxus-dark);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+        Générer le certificat de préparation
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-logo-wrap">
+      <svg viewBox="0 0 130 103" fill="none" xmlns="http://www.w3.org/2000/svg" style="height: 64px;">
+        <path d="M100.696 2.77895C84.5751 16.3168 66.2151 24.6158 45.0162 27.4579C47.1257 20.2737 46.3867 13.8284 41.9151 7.81263C61.2193 1.0421 80.6435 -1.41158 100.696 2.77895Z" fill="#eda10c"></path>
+        <path d="M129.828 22.2726C127.181 22.7558 124.456 23.1947 121.756 23.7632C115.238 25.1305 109.715 24.4895 103.728 20.2137C100.794 18.2526 98.1004 16.6042 95.2141 14.8074C98.3499 12.4547 101.359 10.1968 104.372 7.93579C104.666 7.71474 104.94 7.51579 105.24 7.26316C108.278 4.84737 109.232 5.14737 111.945 6.53684C118.614 10.1179 124.529 14.5358 129.127 20.6053C129.379 20.94 129.604 21.2937 129.821 21.6537C129.866 21.7295 129.828 21.8558 129.828 22.2789V22.2726Z" fill="#eda10c"></path>
+        <path d="M25.3772 35.0842C23.293 24.2368 25.0614 16.8095 35.7225 10.6674C36.5435 10.1937 37.0488 10.2505 37.5162 11.0589C40.9741 17.0274 41.5299 23.1284 38.312 29.3716C37.3141 31.3074 35.7951 32.7505 33.6067 33.2684C30.8751 33.9158 28.1278 34.4811 25.3804 35.0842H25.3772ZM31.4814 28.0137C33.5436 28.0137 35.1635 26.4568 35.1383 24.5053C35.113 22.4589 33.5625 20.8895 31.5572 20.88C29.5141 20.8674 27.9067 22.4242 27.9067 24.4105C27.9067 26.4316 29.4793 28.0137 31.4814 28.0137Z" fill="#eda10c"></path>
+        <path d="M121.046 38.2137C119.113 38.2137 117.174 38.2768 115.245 38.1758C114.613 38.1442 113.956 37.7621 113.397 37.4084C107.321 33.5558 101.242 29.7063 95.2141 25.7779C94.0393 25.0137 93.2372 24.9158 91.7972 25.4968C88.4625 26.9684 87.1299 26.9084 84.3699 24.8684C83.9562 24.5621 83.5362 24.2526 82.8635 23.7663C83.9467 23.2453 84.8499 22.8063 85.7562 22.3768C87.512 21.5432 89.2993 20.7695 91.0204 19.8663C91.9583 19.3737 92.6814 19.3579 93.6067 19.9611C100.999 24.7768 108.427 29.5389 115.838 34.32C117.632 35.4789 119.416 36.6537 121.204 37.8221C121.15 37.9516 121.099 38.0779 121.046 38.2074V38.2137Z" fill="#eda10c"></path>
+        <path d="M18.2814 21.6663C12.4267 18.6758 8.9025 14.1663 6.98566 8.3621C5.94039 5.19474 5.80776 2.00526 6.51513 0C7.49408 0.385263 8.15092 0.827368 8.10355 2.12526C7.84145 9.46737 13.6362 18.4011 21.4741 20.1568C21.7204 20.2137 21.9604 20.3084 22.1562 20.3716C22.2036 20.5642 22.2635 20.6684 22.2478 20.7568C21.6667 23.9337 21.6572 23.8042 18.3478 24.0347C11.9246 24.4832 7.26987 27.8747 3.96355 33.2305C3.03513 34.7337 2.37513 36.4011 1.59197 37.9958C-0.18908 37.68 -0.280659 37.5632 0.369867 35.9463C3.29092 28.6642 8.22671 23.64 16.1278 21.9695C16.6899 21.8495 17.2646 21.8053 18.2846 21.6663H18.2814Z" fill="#eda10c"></path>
+        <path d="M96.0636 37.7526C92.653 38.2358 89.4288 38.7411 86.3941 36.4453C83.2204 34.0453 79.7183 32.0779 76.2951 30.0253C75.6825 29.6589 74.7099 29.5926 73.993 29.7663C72.5214 30.1263 71.113 30.7453 69.6793 31.2568C67.1246 32.1695 66.6604 32.0432 64.6172 29.7853C68.413 28.4368 72.1583 27.0758 75.932 25.8095C76.3678 25.6642 77.053 25.9295 77.4983 26.2074C82.4025 29.2579 87.2783 32.3558 92.173 35.4284C93.452 36.2305 94.7657 36.9789 96.0636 37.7526Z" fill="#eda10c"></path>
+        <path d="M66.0414 38.2011C64.2193 38.2011 62.4004 38.2105 60.5783 38.1916C60.2751 38.1884 59.9057 38.1316 59.6846 37.9547C57.4899 36.2021 55.3172 34.4211 52.7814 32.3589C54.7299 31.9263 56.1857 31.5821 57.6541 31.2979C57.9162 31.2474 58.292 31.3674 58.5067 31.5411C61.0709 33.6063 63.6162 35.6968 66.1678 37.7811C66.1267 37.92 66.0825 38.0621 66.0414 38.2011Z" fill="#eda10c"></path>
+        <path d="M50.9088 38.2042L46.6457 33.4421L41.4699 33.6695L45.133 38.1632L50.9088 38.2042Z" fill="#eda10c"></path>
+        <path d="M6.20891 55.2505V71.5895H0.000488281V44.4253H7.02365L16.57 59.4442V44.4253H22.7784V71.5895H16.57V71.5516L6.20891 55.2537V55.2505Z" fill="#F3F0E8"></path>
+        <path d="M40.63 43.6453C48.5089 43.6453 54.9889 50.321 54.9889 58.0042C54.9889 65.6874 48.3131 72.3632 40.63 72.3632C32.5584 72.3632 26.271 65.4568 26.271 58.0042C26.271 50.1253 32.9058 43.6453 40.63 43.6453ZM40.63 66.66C45.3258 66.66 48.5089 62.2358 48.5089 58.0074C48.5089 53.5042 45.0952 49.3547 40.63 49.3547C35.9342 49.3547 32.751 53.7411 32.751 58.0074C32.9436 62.5074 35.9721 66.66 40.63 66.66Z" fill="#F3F0E8"></path>
+        <path d="M55.2984 71.5863L63.7963 58.2758L54.9857 44.46L61.6994 44.4221L67.1342 52.9989L72.5657 44.4221L78.97 44.46L70.3173 58.0042L78.97 71.5863H72.2563L66.9794 63.2811L61.7026 71.5863H55.2984Z" fill="#F3F0E8"></path>
+        <path d="M81.6858 44.4221H87.8942V61.3421C87.8942 64.2916 89.8742 66.66 92.8615 66.66C95.8489 66.66 97.791 64.2916 97.791 61.3421V44.4221H103.999V61.1874C103.999 67.9389 99.0321 72.3632 92.8615 72.3632C86.691 72.3632 81.6858 68.2895 81.6858 61.1874V44.4221Z" fill="#F3F0E8"></path>
+        <path d="M123.364 64.2916C123.364 62.7379 120.995 61.7305 117.815 61.0326C113.587 60.1011 107.416 58.3547 107.416 52.38C107.416 46.4053 112.889 43.6484 117.856 43.6484C122.824 43.6484 126.743 45.9 129.266 49.3516L124.144 52.8442C123.136 51.0979 120.651 49.3516 118.011 49.3516C116.498 49.3516 113.896 50.1284 113.896 52.0674C113.896 53.7347 116.186 54.3189 119.056 55.0547C123.597 56.22 129.844 57.9253 129.844 64.0958C129.844 69.7232 123.869 72.3221 118.125 72.3221C113.467 72.3221 108.733 69.8779 106.327 66.3063L111.683 63.1232C112.807 65.0621 115.873 66.6537 118.204 66.6537C118.204 66.6537 123.364 66.7326 123.364 64.2853V64.2916Z" fill="#F3F0E8"></path>
+        <path d="M17.5184 97.5128C16.254 97.5128 15.1538 97.3158 14.2178 96.9217C13.2982 96.5276 12.5839 95.9693 12.0749 95.2467C11.5822 94.5242 11.3359 93.6785 11.3359 92.7097V91.9954C11.3359 91.8312 11.418 91.7491 11.5822 91.7491H13.3803C13.5445 91.7491 13.6266 91.8312 13.6266 91.9954V92.5865C13.6266 93.424 13.9879 94.1137 14.7104 94.6556C15.433 95.1975 16.4264 95.4684 17.6909 95.4684C18.8239 95.4684 19.6778 95.2303 20.2525 94.7541C20.8273 94.2779 21.1146 93.6539 21.1146 92.8821C21.1146 92.3731 20.9669 91.9379 20.6713 91.5766C20.3757 91.2154 19.9405 90.887 19.3658 90.5914C18.8075 90.2794 17.9864 89.9099 16.9026 89.483C15.7039 89.0232 14.7515 88.6044 14.0454 88.2267C13.3557 87.8491 12.781 87.3564 12.3212 86.7488C11.8614 86.1248 11.6315 85.3448 11.6315 84.4088C11.6315 82.9966 12.1323 81.8882 13.134 81.0836C14.1521 80.279 15.5233 79.8766 17.2475 79.8766C18.4626 79.8766 19.53 80.0819 20.4496 80.4924C21.3692 80.903 22.0753 81.4777 22.5679 82.2166C23.077 82.9556 23.3315 83.8095 23.3315 84.7783V85.271C23.3315 85.4352 23.2494 85.5173 23.0852 85.5173H21.2378C21.0736 85.5173 20.9915 85.4352 20.9915 85.271V84.9015C20.9915 84.0476 20.6466 83.3415 19.957 82.7832C19.2837 82.2084 18.3477 81.9211 17.149 81.9211C16.1309 81.9211 15.3426 82.1345 14.7843 82.5615C14.226 82.972 13.9469 83.5714 13.9469 84.3596C13.9469 84.9015 14.0864 85.3448 14.3656 85.6897C14.6447 86.0345 15.0553 86.3465 15.5972 86.6257C16.1555 86.8884 17.0012 87.2333 18.1342 87.6602C19.3001 88.12 20.2443 88.547 20.9669 88.9411C21.6894 89.3187 22.2887 89.8278 22.765 90.4682C23.2412 91.0922 23.4793 91.8722 23.4793 92.8082C23.4793 94.2533 22.9456 95.4027 21.8782 96.2566C20.8273 97.0941 19.374 97.5128 17.5184 97.5128ZM38.1324 81.8718C38.1324 82.036 38.0503 82.1181 37.8861 82.1181H29.1418C29.0762 82.1181 29.0433 82.151 29.0433 82.2166V87.5124C29.0433 87.5781 29.0762 87.611 29.1418 87.611H35.1519C35.3162 87.611 35.3983 87.6931 35.3983 87.8573V89.4091C35.3983 89.5733 35.3162 89.6554 35.1519 89.6554H29.1418C29.0762 89.6554 29.0433 89.6882 29.0433 89.7539V95.1728C29.0433 95.2385 29.0762 95.2714 29.1418 95.2714H37.8861C38.0503 95.2714 38.1324 95.3535 38.1324 95.5177V97.0695C38.1324 97.2337 38.0503 97.3158 37.8861 97.3158H26.925C26.7608 97.3158 26.6787 97.2337 26.6787 97.0695V80.32C26.6787 80.1558 26.7608 80.0737 26.925 80.0737H37.8861C38.0503 80.0737 38.1324 80.1558 38.1324 80.32V81.8718ZM51.2279 97.3158C51.0965 97.3158 51.0062 97.2583 50.957 97.1434L47.5085 89.7785C47.4921 89.7293 47.4593 89.7046 47.41 89.7046H43.8631C43.7974 89.7046 43.7645 89.7375 43.7645 89.8032V97.0695C43.7645 97.2337 43.6824 97.3158 43.5182 97.3158H41.6462C41.482 97.3158 41.3999 97.2337 41.3999 97.0695V80.32C41.3999 80.1558 41.482 80.0737 41.6462 80.0737H48.2721C49.2574 80.0737 50.1195 80.279 50.8584 80.6895C51.6138 81.1 52.1967 81.6747 52.6073 82.4137C53.0178 83.1526 53.2231 84.0065 53.2231 84.9754C53.2231 86.1248 52.9193 87.1019 52.3117 87.9065C51.7205 88.6947 50.8913 89.2284 49.8239 89.5076C49.7582 89.5404 49.7418 89.5815 49.7746 89.6307L53.3462 97.0202C53.3626 97.0531 53.3709 97.0941 53.3709 97.1434C53.3709 97.2583 53.3052 97.3158 53.1738 97.3158H51.2279ZM43.8631 82.1181C43.7974 82.1181 43.7645 82.151 43.7645 82.2166V87.7341C43.7645 87.7998 43.7974 87.8326 43.8631 87.8326H47.9765C48.8469 87.8326 49.5447 87.5781 50.0702 87.0691C50.5957 86.5436 50.8584 85.8539 50.8584 85C50.8584 84.1297 50.5957 83.4318 50.0702 82.9063C49.5447 82.3808 48.8469 82.1181 47.9765 82.1181H43.8631ZM60.5531 97.3158C60.4053 97.3158 60.3068 97.2501 60.2575 97.1187L54.9863 80.3446L54.9617 80.2461C54.9617 80.1312 55.0356 80.0737 55.1834 80.0737H57.1785C57.3263 80.0737 57.4249 80.1394 57.4741 80.2707L61.5383 93.892C61.5548 93.9248 61.5794 93.9413 61.6122 93.9413C61.6451 93.9413 61.6697 93.9248 61.6861 93.892L65.7503 80.2707C65.7996 80.1394 65.8899 80.0737 66.0213 80.0737H67.9672C68.1478 80.0737 68.2135 80.164 68.1642 80.3446L62.8438 97.1187C62.7945 97.2501 62.696 97.3158 62.5482 97.3158H60.5531ZM71.233 97.3158C71.0688 97.3158 70.9867 97.2337 70.9867 97.0695V80.32C70.9867 80.1558 71.0688 80.0737 71.233 80.0737H73.105C73.2692 80.0737 73.3513 80.1558 73.3513 80.32V97.0695C73.3513 97.2337 73.2692 97.3158 73.105 97.3158H71.233ZM82.9272 97.5375C81.7449 97.5375 80.6939 97.3076 79.7744 96.8478C78.8712 96.3716 78.1651 95.7065 77.656 94.8526C77.1634 93.9823 76.9171 92.9888 76.9171 91.8722V85.4926C76.9171 84.376 77.1634 83.399 77.656 82.5615C78.1651 81.7076 78.8712 81.0507 79.7744 80.591C80.6939 80.1147 81.7449 79.8766 82.9272 79.8766C84.1095 79.8766 85.1523 80.1065 86.0554 80.5663C86.9586 81.0097 87.6565 81.6419 88.1491 82.463C88.6582 83.284 88.9127 84.2364 88.9127 85.3202V85.3448C88.9127 85.427 88.888 85.4926 88.8388 85.5419C88.7895 85.5912 88.732 85.6158 88.6664 85.6158L86.7944 85.7143C86.6302 85.7143 86.548 85.6404 86.548 85.4926V85.4187C86.548 84.3678 86.2196 83.5221 85.5628 82.8817C84.9059 82.2413 84.0274 81.9211 82.9272 81.9211C81.827 81.9211 80.9403 82.2413 80.267 82.8817C79.6102 83.5221 79.2817 84.3678 79.2817 85.4187V91.9707C79.2817 93.0217 79.6102 93.8674 80.267 94.5078C80.9403 95.1482 81.827 95.4684 82.9272 95.4684C84.0274 95.4684 84.9059 95.1482 85.5628 94.5078C86.2196 93.8674 86.548 93.0217 86.548 91.9707V91.9215C86.548 91.7737 86.6302 91.6998 86.7944 91.6998L88.6664 91.7983C88.8306 91.7983 88.9127 91.8804 88.9127 92.0446C88.9127 93.1284 88.6582 94.0891 88.1491 94.9265C87.6565 95.7476 86.9586 96.388 86.0554 96.8478C85.1523 97.3076 84.1095 97.5375 82.9272 97.5375ZM103.801 81.8718C103.801 82.036 103.718 82.1181 103.554 82.1181H94.81C94.7443 82.1181 94.7115 82.151 94.7115 82.2166V87.5124C94.7115 87.5781 94.7443 87.611 94.81 87.611H100.82C100.984 87.611 101.066 87.6931 101.066 87.8573V89.4091C101.066 89.5733 100.984 89.6554 100.82 89.6554H94.81C94.7443 89.6554 94.7115 89.6882 94.7115 89.7539V95.1728C94.7115 95.2385 94.7443 95.2714 94.81 95.2714H103.554C103.718 95.2714 103.801 95.3535 103.801 95.5177V97.0695C103.801 97.2337 103.718 97.3158 103.554 97.3158H92.5932C92.429 97.3158 92.3469 97.2337 92.3469 97.0695V80.32C92.3469 80.1558 92.429 80.0737 92.5932 80.0737H103.554C103.718 80.0737 103.801 80.1558 103.801 80.32V81.8718ZM112.388 97.5128C111.124 97.5128 110.024 97.3158 109.088 96.9217C108.168 96.5276 107.454 95.9693 106.945 95.2467C106.452 94.5242 106.206 93.6785 106.206 92.7097V91.9954C106.206 91.8312 106.288 91.7491 106.452 91.7491H108.25C108.415 91.7491 108.497 91.8312 108.497 91.9954V92.5865C108.497 93.424 108.858 94.1137 109.58 94.6556C110.303 95.1975 111.296 95.4684 112.561 95.4684C113.694 95.4684 114.548 95.2303 115.123 94.7541C115.697 94.2779 115.985 93.6539 115.985 92.8821C115.985 92.3731 115.837 91.9379 115.541 91.5766C115.246 91.2154 114.811 90.887 114.236 90.5914C113.678 90.2794 112.856 89.9099 111.773 89.483C110.574 89.0232 109.622 88.6044 108.915 88.2267C108.226 87.8491 107.651 87.3564 107.191 86.7488C106.731 86.1248 106.502 85.3448 106.502 84.4088C106.502 82.9966 107.002 81.8882 108.004 81.0836C109.022 80.279 110.393 79.8766 112.118 79.8766C113.333 79.8766 114.4 80.0819 115.32 80.4924C116.239 80.903 116.945 81.4777 117.438 82.2166C117.947 82.9556 118.202 83.8095 118.202 84.7783V85.271C118.202 85.4352 118.119 85.5173 117.955 85.5173H116.108C115.944 85.5173 115.862 85.4352 115.862 85.271V84.9015C115.862 84.0476 115.517 83.3415 114.827 82.7832C114.154 82.2084 113.218 81.9211 112.019 81.9211C111.001 81.9211 110.213 82.1345 109.654 82.5615C109.096 82.972 108.817 83.5714 108.817 84.3596C108.817 84.9015 108.956 85.3448 109.236 85.6897C109.515 86.0345 109.925 86.3465 110.467 86.6257C111.026 86.8884 111.871 87.2333 113.004 87.6602C114.17 88.12 115.114 88.547 115.837 88.9411C116.559 89.3187 117.159 89.8278 117.635 90.4682C118.111 91.0922 118.349 91.8722 118.349 92.8082C118.349 94.2533 117.816 95.4027 116.748 96.2566C115.697 97.0941 114.244 97.5128 112.388 97.5128Z" fill="#F3F0E8"></path>
+      </svg>
+    </div>
+    <div class="footer-tag">Dératisation · Désinsectisation · Désinfection</div>
+
+    <div class="footer-zones">
+      <span class="zone-pill">Villefranche-sur-Saône</span>
+      <span class="zone-pill">Beaujolais</span>
+      <span class="zone-pill">Rhône</span>
+      <span class="zone-pill">Val de Saône</span>
+      <span class="zone-pill">Ain</span>
+    </div>
+
+    <div class="footer-info">
+      Une question ?<br>
+      Contactez-nous, on vous rappelle.<br>
+      <strong style="color: var(--noxus-cream);">noxus-services.fr</strong>
+    </div>
+
+    <div class="footer-cert">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      CERTIBIOCIDE · CONTRAT VILLE 2026
+    </div>
+  </footer>
+
+</div>
+
+<!-- ============ FAB BAR ============ -->
+<div class="fab-bar">
+  <button class="fab-btn" onclick="resetAll()" title="Réinitialiser">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="23 4 23 10 17 10"></polyline>
+      <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"></path>
+    </svg>
+    Reset
+  </button>
+  <button class="fab-btn primary" onclick="genererCertificat()" title="Certificat">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6z"></path>
+      <polyline points="9 12 11 14 15 10"></polyline>
+    </svg>
+    Certificat
+  </button>
+</div>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast">
+  <span id="toastIcon">🎉</span>
+  <span id="toastMsg">Bien joué !</span>
+</div>
+
+<!-- ============ CONFETTI ============ -->
+<div class="confetti-container" id="confettiContainer"></div>
+
+<script>
+  const STORAGE_KEY = 'noxus_pdl_v4';
+
+  const STEP_ITEMS = {
+    1: ['t1','t2','t3','t4','a1','a2','m1','m2','m3','m4','m5','m6','i1','i2','i3'],
+    2: ['p1','p2','p3','p4'],
+    3: ['ap1','ap2','ap3','ap4','ap5','ap6','ap7']
+  };
+
+  const STEP_NAMES = {
+    1: 'Étape 1 · Avant l\'intervention',
+    2: 'Étape 2 · Pendant l\'intervention',
+    3: 'Étape 3 · Après l\'intervention'
+  };
+
+  let currentStep = 1;
+
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"items":{},"unlocked":1}'); }
+    catch { return {items: {}, unlocked: 1}; }
+  }
+
+  function saveState(state) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+  }
+
+  function showToast(icon, msg) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastIcon').textContent = icon;
+    document.getElementById('toastMsg').textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._tm);
+    t._tm = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  function fireConfetti() {
+    const container = document.getElementById('confettiContainer');
+    const colors = ['#15C55A', '#eda10c', '#004d00', '#2d7dd2', '#c8321e', '#f5c869'];
+    for (let i = 0; i < 80; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.animationDelay = (Math.random() * 0.5) + 's';
+      c.style.animationDuration = (2.5 + Math.random() * 1.5) + 's';
+      const shape = Math.random();
+      if (shape < 0.33) c.style.borderRadius = '50%';
+      else if (shape < 0.66) c.style.borderRadius = '2px';
+      else { c.style.width = '6px'; c.style.height = '14px'; }
+      container.appendChild(c);
+      setTimeout(() => c.remove(), 4000);
+    }
+  }
+
+  function getStepProgress(step) {
+    const state = loadState();
+    const ids = STEP_ITEMS[step];
+    const total = ids.length;
+    const done = ids.filter(id => state.items[id]).length;
+    return { done, total, percent: total ? (done/total)*100 : 0, complete: done === total };
+  }
+
+  function updateWarrantyBar() {
+    const prog = getStepProgress(1);
+    const bar = document.getElementById('warrantyBar');
+    const icon = document.getElementById('warrantyIcon');
+    const status = document.getElementById('warrantyStatus');
+
+    if (prog.complete) {
+      bar.classList.add('active');
+      icon.innerHTML = '<path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6z"/><polyline points="9 12 11 14 15 10"/>';
+      status.textContent = 'Activée ✓ — Garantie opposable après les 3 passages';
+    } else {
+      bar.classList.remove('active');
+      icon.innerHTML = '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>';
+      const remaining = prog.total - prog.done;
+      status.textContent = remaining + ' tâche' + (remaining > 1 ? 's' : '') + ' restante' + (remaining > 1 ? 's' : '') + ' pour activer';
+    }
+  }
+
+  function updateProgressUI() {
+    const prog = getStepProgress(currentStep);
+    document.getElementById('progressStepName').textContent = STEP_NAMES[currentStep];
+    document.getElementById('progressDone').textContent = prog.done;
+    document.getElementById('progressTotal').textContent = prog.total;
+    document.getElementById('progressFill').style.width = prog.percent + '%';
+    updateWarrantyBar();
+  }
+
+  function updateTabsUI() {
+    const state = loadState();
+    document.querySelectorAll('.step-tab').forEach(tab => {
+      const step = parseInt(tab.dataset.step);
+      tab.classList.remove('active', 'locked', 'done');
+      if (step === currentStep) tab.classList.add('active');
+      if (step > state.unlocked) tab.classList.add('locked');
+      const prog = getStepProgress(step);
+      if (prog.complete) tab.classList.add('done');
+    });
+  }
+
+  function updateCompleteZones() {
+    [1, 2, 3].forEach(step => {
+      const zone = document.getElementById('complete-' + step);
+      if (!zone) return;
+      const prog = getStepProgress(step);
+      if (prog.complete) zone.classList.add('show');
+      else zone.classList.remove('show');
+    });
+  }
+
+  function goToStep(step) {
+    const state = loadState();
+    if (step > state.unlocked) {
+      showToast('🔒', 'Terminez d\'abord l\'étape ' + (step - 1));
+      return;
+    }
+    currentStep = step;
+    document.querySelectorAll('.step-section').forEach(s => s.classList.remove('active'));
+    const target = document.querySelector('.step-section[data-step="' + step + '"]');
+    if (target) target.classList.add('active');
+    updateTabsUI();
+    updateProgressUI();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function onCheckClick(card) {
+    const id = card.dataset.id;
+    const wasChecked = card.classList.contains('checked');
+    card.classList.toggle('checked');
+
+    const state = loadState();
+    state.items[id] = card.classList.contains('checked');
+    saveState(state); // Sauvegarder AVANT getStepProgress pour lire le bon état
+
+    const prog = getStepProgress(currentStep);
+    const justCompleted = !wasChecked && prog.complete;
+
+    if (justCompleted && currentStep < 3 && state.unlocked === currentStep) {
+      state.unlocked = currentStep + 1;
+      saveState(state);
+    }
+    updateProgressUI();
+    updateTabsUI();
+    updateCompleteZones();
+
+    if (justCompleted) {
+      fireConfetti();
+      if (currentStep === 1) {
+        showToast('🛡️', 'Garantie Noxus activée ! Étape PENDANT débloquée');
+      } else if (currentStep === 2) {
+        showToast('⚡', 'Intervention prête ! Étape APRÈS débloquée');
+      } else {
+        showToast('🏆', 'Mission accomplie ! Bravo !');
+      }
+    } else if (!wasChecked) {
+      const halfway = Math.floor(prog.total / 2);
+      if (prog.done === halfway) {
+        showToast('💪', 'Mi-parcours de l\'étape ' + currentStep);
+      } else if (prog.done === prog.total - 1 && currentStep === 1) {
+        showToast('🛡️', 'Plus qu\'une tâche pour activer la garantie !');
+      } else if (prog.done === prog.total - 1) {
+        showToast('🌟', 'Plus qu\'une tâche !');
+      }
+    }
+  }
+
+  function resetAll() {
+    if (!confirm('Réinitialiser toute la progression ?')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    document.querySelectorAll('.check-card').forEach(c => c.classList.remove('checked'));
+    currentStep = 1;
+    goToStep(1);
+    updateCompleteZones();
+    showToast('🔄', 'Progression réinitialisée');
+  }
+
+  function init() {
+    const state = loadState();
+    document.querySelectorAll('.check-card').forEach(card => {
+      const id = card.dataset.id;
+      if (state.items[id]) card.classList.add('checked');
+      card.addEventListener('click', () => onCheckClick(card));
+    });
+    currentStep = state.unlocked || 1;
+    goToStep(currentStep);
+    updateCompleteZones();
+  }
+
+
+  function genererCertificat() {
+    const state = loadState();
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('fr-FR', { day:'2-digit', month:'long', year:'numeric' });
+    const heureStr = now.toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
+    const ref = 'NXS-' + now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + Math.floor(Math.random()*9000+1000);
+
+    const items = {
+      t1: "Laver tout le linge à 60°C (draps, couettes, vêtements, peluches)",
+      t2: "Mettre le linge propre dans des sacs hermétiques (double-nœud)",
+      t3: "Textiles délicats : congélation -20°C / 72h minimum",
+      t4: "Prévoir une tenue isolée pour 1 mois dans un sac séparé",
+      a1: "Aspirer l'intégralité du logement (matelas, sommier, plinthes, fissures)",
+      a2: "Jeter le sac d'aspirateur à la poubelle extérieure immédiatement",
+      m1: "Écarter tous les meubles des murs de 50 cm minimum",
+      m2: "Vider tiroirs, placards et armoires — laisser ouverts",
+      m3: "Positionner matelas et sommiers debout « en cathédrale »",
+      m4: "Reboucher fissures et recoller le papier peint décollé",
+      m5: "Couvrir TV, ordinateurs et électronique avec des sacs plastiques",
+      m6: "Protéger vaisselle et denrées alimentaires",
+      i1: "Aucun insecticide du commerce utilisé",
+      i2: "Aucun objet déplacé vers une autre pièce",
+      i3: "Matelas et meubles infestés non jetés sans traitement préalable",
+      p1: "Évacuation de tous les occupants et animaux le jour J",
+      p2: "Plantes vertes sorties du logement",
+      p3: "Joignabilité téléphonique pendant l'intervention",
+      p4: "Fenêtres et VMC fermées pendant l'intervention",
+      ap1: "Aucun lavage des sols pendant 4 semaines (rémanence)",
+      ap2: "Aération de 30 min minimum dès le retour au logement",
+      ap3: "Poursuite du sommeil dans le lit traité (habillé)",
+      ap4: "Sacs de linge maintenus fermés pendant 1 mois",
+      ap5: "Interdiction pieds nus sur les zones traitées (7 jours)",
+      ap6: "2e et 3e passage programmés à J+15 et J+30",
+      ap7: "Engagement de signalement en cas de nouvelles piqûres"
+    };
+
+    const groupes = [
+      { titre: "AVANT L'INTERVENTION — Linge & Textiles", ids: ['t1','t2','t3','t4'] },
+      { titre: "AVANT L'INTERVENTION — Nettoyage & Aspiration", ids: ['a1','a2'] },
+      { titre: "AVANT L'INTERVENTION — Mobilier & Logement", ids: ['m1','m2','m3','m4','m5','m6'] },
+      { titre: "AVANT L'INTERVENTION — Interdictions", ids: ['i1','i2','i3'] },
+      { titre: "PENDANT L'INTERVENTION — Jour J", ids: ['p1','p2','p3','p4'] },
+      { titre: "APRÈS L'INTERVENTION — J+0 à J+30", ids: ['ap1','ap2','ap3','ap4','ap5','ap6','ap7'] },
+    ];
+
+    const totalItems = Object.keys(items).length;
+    const doneItems = Object.keys(items).filter(id => state.items[id]).length;
+    const pct = Math.round(doneItems / totalItems * 100);
+    const step1Done = ['t1','t2','t3','t4','a1','a2','m1','m2','m3','m4','m5','m6','i1','i2','i3'].every(id => state.items[id]);
+
+    let lignes = '';
+    groupes.forEach(g => {
+      lignes += `<tr class="group-row"><td colspan="2">${g.titre}</td></tr>`;
+      g.ids.forEach(id => {
+        const checked = state.items[id];
+        lignes += `<tr class="${checked ? 'done' : 'missing'}">
+          <td class="status-cell">${checked ? '<span class="check-ok">✓ RÉALISÉ</span>' : '<span class="check-no">✗ NON FAIT</span>'}</td>
+          <td>${items[id]}</td>
+        </tr>`;
+      });
+    });
+
+    const html = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Certificat de Préparation — ${ref}</title>
+<style>
+  @page { size: A4; margin: 15mm 20mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; font-size: 11pt; color: #0C0C0A; background: white; }
+
+  /* WATERMARK */
+  body::before {
+    content: "NOXUS SERVICES";
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%) rotate(-35deg);
+    font-size: 80pt;
+    font-weight: 900;
+    color: rgba(0,77,0,0.04);
+    letter-spacing: 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page { position: relative; z-index: 1; }
+
+  /* EN-TÊTE */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #004d00;
+    margin-bottom: 16px;
+  }
+
+  .header-left { flex: 1; }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .logo-box {
+    width: 48px; height: 48px;
+    background: #004d00;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+
+  .brand-name { font-size: 18pt; font-weight: 900; color: #004d00; letter-spacing: 1px; }
+  .brand-tag { font-size: 8pt; color: #6b6960; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
+
+  .header-right { text-align: right; }
+
+  .doc-type {
+    font-size: 8pt;
+    font-weight: 700;
+    color: #6b6960;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .doc-ref {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #004d00;
+    font-family: 'Courier New', monospace;
+    background: #f3f0e8;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  .doc-date { font-size: 9pt; color: #6b6960; margin-top: 6px; }
+
+  /* TITRE */
+  .title-block {
+    text-align: center;
+    margin: 16px 0;
+    padding: 14px;
+    background: linear-gradient(135deg, #004d00 0%, #0a6b0a 100%);
+    border-radius: 8px;
+    color: white;
+  }
+
+  .title-eyebrow { font-size: 8pt; letter-spacing: 3px; text-transform: uppercase; opacity: 0.7; margin-bottom: 4px; }
+  .title-main { font-size: 16pt; font-weight: 900; letter-spacing: -0.5px; }
+  .title-sub { font-size: 9pt; opacity: 0.8; margin-top: 4px; }
+
+  /* GARANTIE STATUS */
+  .garantie-block {
+    display: flex;
+    gap: 16px;
+    margin: 14px 0;
+    padding: 12px 16px;
+    border: 2px solid ${step1Done ? '#004d00' : '#c8321e'};
+    border-radius: 8px;
+    background: ${step1Done ? 'rgba(0,77,0,0.04)' : 'rgba(200,50,30,0.04)'};
+    align-items: center;
+  }
+
+  .garantie-icon {
+    font-size: 28pt;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .garantie-text { flex: 1; }
+  .garantie-titre { font-size: 11pt; font-weight: 700; color: ${step1Done ? '#004d00' : '#c8321e'}; margin-bottom: 3px; }
+  .garantie-desc { font-size: 9pt; color: #444; line-height: 1.4; }
+
+  .garantie-pct {
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .garantie-num { font-size: 22pt; font-weight: 900; color: ${step1Done ? '#004d00' : '#c8321e'}; line-height: 1; }
+  .garantie-label { font-size: 7pt; color: #6b6960; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* TABLEAU */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 9.5pt;
+  }
+
+  th {
+    background: #0C0C0A;
+    color: white;
+    padding: 7px 10px;
+    text-align: left;
+    font-size: 8pt;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  tr.group-row td {
+    background: #004d00;
+    color: white;
+    padding: 5px 10px;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  tr.done td { background: white; }
+  tr.missing td { background: #fff8f7; }
+
+  tr.done:nth-child(even) td { background: #fafaf6; }
+
+  td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #e4e0d6;
+    vertical-align: middle;
+    line-height: 1.3;
+  }
+
+  .status-cell { width: 110px; white-space: nowrap; }
+
+  .check-ok {
+    display: inline-block;
+    background: #004d00;
+    color: white;
+    font-size: 8pt;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+
+  .check-no {
+    display: inline-block;
+    background: #c8321e;
+    color: white;
+    font-size: 8pt;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+
+  /* SIGNATURE */
+  .signature-block {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    page-break-inside: avoid;
+  }
+
+  .sig-box {
+    flex: 1;
+    border: 1.5px solid #e4e0d6;
+    border-radius: 8px;
+    padding: 14px;
+  }
+
+  .sig-title {
+    font-size: 8pt;
+    font-weight: 700;
+    color: #6b6960;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e4e0d6;
+  }
+
+  .sig-field {
+    font-size: 9pt;
+    margin-bottom: 6px;
+    color: #444;
+  }
+
+  .sig-line {
+    border-bottom: 1px solid #0C0C0A;
+    min-height: 36px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+  }
+
+  /* PIED DE PAGE */
+  .footer-doc {
+    margin-top: 16px;
+    padding-top: 10px;
+    border-top: 2px solid #004d00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8pt;
+    color: #6b6960;
+    page-break-inside: avoid;
+  }
+
+  .certif-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border: 1px solid #eda10c;
+    border-radius: 20px;
+    color: #8a5a00;
+    font-weight: 700;
+    font-size: 8pt;
+    letter-spacing: 1px;
+  }
+
+  .legal-notice {
+    font-size: 7.5pt;
+    color: #999;
+    margin-top: 8px;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <div class="logo-area">
+        <div class="logo-box">N</div>
+        <div>
+          <div class="brand-name">NOXUS SERVICES</div>
+          <div class="brand-tag">Dératisation · Désinsectisation · Désinfection</div>
+        </div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="doc-type">Document officiel</div>
+      <div class="doc-ref">${ref}</div>
+      <div class="doc-date">Émis le ${dateStr} à ${heureStr}</div>
+    </div>
+  </div>
+
+  <div class="title-block">
+    <div class="title-eyebrow">Punaises de lit · Protocole officiel</div>
+    <div class="title-main">🛡 Certificat de Préparation Client</div>
+    <div class="title-sub">Ce document atteste de la réalisation du protocole préparatoire Noxus Services</div>
+  </div>
+
+  <div class="garantie-block">
+    <div class="garantie-icon">${step1Done ? '🛡️' : '⚠️'}</div>
+    <div class="garantie-text">
+      <div class="garantie-titre">${step1Done ? 'Garantie Résultat Noxus — ACTIVÉE' : 'Garantie Résultat Noxus — INCOMPLÈTE'}</div>
+      <div class="garantie-desc">${step1Done
+        ? 'L'intégralité de la préparation obligatoire a été réalisée. La garantie résultat Noxus est opposable : en cas de présence persistante de punaises à l'issue des 3 passages (J, J+15, J+30), Noxus Services s'engage à poursuivre le traitement sans frais supplémentaires, sous réserve du respect des consignes post-intervention.'
+        : 'La préparation n'est pas complète à 100 %. La garantie résultat ne peut pas être opposable en l'état. Merci de compléter toutes les tâches avant l'intervention.'
+      }</div>
+    </div>
+    <div class="garantie-pct">
+      <div class="garantie-num">${pct}%</div>
+      <div class="garantie-label">Préparation<br>réalisée</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:110px">Statut</th>
+        <th>Action de préparation</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${lignes}
+    </tbody>
+  </table>
+
+  <div class="signature-block">
+    <div class="sig-box">
+      <div class="sig-title">Attestation du client / occupant</div>
+      <div class="sig-field">Nom & Prénom :</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Adresse du logement traité :</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Signature + date :</div>
+      <div class="sig-line"></div>
+    </div>
+    <div class="sig-box">
+      <div class="sig-title">Validation technicien Noxus</div>
+      <div class="sig-field">Nom du technicien :</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Date d'intervention :</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Signature + cachet :</div>
+      <div class="sig-line"></div>
+    </div>
+  </div>
+
+  <div class="footer-doc">
+    <div>
+      <span class="certif-badge">✓ CERTIBIOCIDE</span>
+      &nbsp;&nbsp;Contrat Ville de Villefranche-sur-Saône 2026
+    </div>
+    <div style="text-align:right">
+      Réf. ${ref}<br>
+      noxus-services.fr
+    </div>
+  </div>
+
+  <div class="legal-notice">
+    Ce certificat est généré numériquement à partir des actions cochées par le client dans la fiche de préparation Noxus Services. Il ne constitue pas un document contractuel signé mais sert de support de traçabilité pour l'application de la garantie résultat. La garantie est conditionnée au respect intégral des consignes avant, pendant et après l'intervention, conformément aux CGV Noxus Services. Réf. ${ref}.
+  </div>
+
+</div>
+</body>
+</html>`;
+
+    const w = window.open('', '_blank');
+    w.document.write(html);
+    w.document.close();
+    setTimeout(() => w.print(), 600);
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+</script>
+
+
+
+</body></html>
