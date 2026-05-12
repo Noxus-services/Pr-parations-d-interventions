@@ -20,6 +20,9 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden}
+@media(max-width:780px){
+  html,body{height:auto;overflow-y:auto;overflow-x:hidden}
+}
 
 body {
   font-family:'DM Sans',sans-serif;
@@ -412,29 +415,71 @@ footer {
 
 /* ─── MOBILE ─── */
 @media(max-width:780px){
-  .shell{padding:0 16px}
+  .shell{padding:0 16px;height:auto;min-height:100vh}
+  body{overflow-y:auto}
   main{
     grid-template-columns:1fr;
-    grid-template-rows:auto 1fr;
-    gap:20px;
-    padding:12px 0;
+    grid-template-rows:auto auto;
+    gap:16px;
+    padding:12px 0 32px;
+    height:auto;
+    overflow:visible;
   }
-  .hero-left{gap:0}
+  .hero-left{gap:0;order:1}
+  .book-col{order:2;gap:8px}
   h1{font-size:32px}
-  .hero-desc{font-size:13px;margin-bottom:20px}
-  .steps{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hero-desc{font-size:13px;margin-bottom:16px}
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0}
   .step{padding:10px 12px;gap:10px}
   .step-t{font-size:12px}
   .step-s{font-size:10px}
-  .book{height:440px}
-  .book-col{gap:12px}
+  /* Cahier : hauteur auto, taille en vh pour remplir sans déborder */
+  .book{height:min(55vw, 320px)}
+  .book-col{gap:8px}
+  /* Contenu des pages adapté mobile */
+  .p-notice{padding:16px 14px 14px 42px}
+  .p-notice-num{font-size:10px;margin-bottom:8px}
+  .p-notice-emoji{font-size:36px;margin-bottom:10px}
+  .p-notice-title{font-size:clamp(18px,5vw,24px);margin-bottom:8px}
+  .p-notice-desc{font-size:11px;line-height:1.5}
+  .p-notice-foot{margin-top:10px}
+  .ntag{font-size:10px;padding:6px 12px}
+  /* Cover */
+  .p-cover{padding:20px 16px}
+  .p-cover-title{font-size:clamp(20px,6vw,28px)}
+  .p-cover-sub{font-size:11px}
+  /* Spine */
+  .spine{width:32px}
+  .spine-label{font-size:8px;letter-spacing:2px}
+  /* Dots navigation */
+  .dots{gap:5px}
+  .dot{width:6px;height:6px}
+  /* Arrows */
+  .arrow{width:32px;height:32px;font-size:14px}
   footer{flex-direction:column;gap:10px;text-align:center}
   .footer-zones{justify-content:center}
   .hero-eyebrow{margin-bottom:12px}
 }
-@media(max-width:400px){
-  h1{font-size:28px}
+@media(max-width:480px){
+  .shell{padding:0 10px}
+  h1{font-size:26px}
+  .steps{grid-template-columns:1fr 1fr;gap:6px}
+  .step{padding:8px 10px}
+  .book{height:min(52vw, 300px)}
+  .p-notice{padding:14px 12px 12px 38px}
+  .p-notice-emoji{font-size:30px;margin-bottom:8px}
+  .p-notice-title{font-size:clamp(16px,5vw,22px);margin-bottom:6px}
+  .p-notice-cat{font-size:9px}
+  .p-notice-desc{font-size:10px}
+  .ntag{font-size:9px;padding:5px 10px}
+  .p-cover-title{font-size:clamp(18px,5.5vw,24px)}
+}
+@media(max-width:380px){
+  h1{font-size:22px}
   .steps{grid-template-columns:1fr}
+  .book{height:280px}
+  .p-notice-emoji{font-size:26px}
+  .p-notice-title{font-size:18px}
 }
 </style>
 </head>
