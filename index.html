@@ -634,6 +634,18 @@ footer {
             <div class="corner"></div>
           </div>
 
+          <!-- 09 Traitement de volume -->
+          <div class="page hid" data-i="9" style="--nc:#4f46e5">
+            <div class="p-notice">
+              <div class="p-notice-num">09</div>
+              <div class="p-notice-emoji">&#x1F32B;</div>
+              <div class="p-notice-title">Traitement<br>de Volume</div>
+              <div class="p-notice-desc">Fumigation ou nebulisation.<br>Evacuation obligatoire.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientot disponible</span></div>
+            </div>
+            <div class="corner"></div>
+          </div>
+
         </div><!-- /pages -->
       </div>
 
@@ -737,11 +749,12 @@ var FICHES = [
   { i: 1, href: 'punaises-de-lit.html' },
   { i: 2, href: 'blattes.html' },
   { i: 3, href: 'Rongeurs.html' },
-  { i: 4, href: 'hymenopteres.html', alt: 'frelons.html' },
+  { i: 4, href: 'frelons.html', alt: 'hym%C3%A9nopt%C3%A8res.html', alt2: 'hymenopteres.html' },
   { i: 5, href: 'fourmis.html' },
   { i: 6, href: 'mites.html' },
   { i: 7, href: 'pigeons.html' },
-  { i: 8, href: 'puces.html' }
+  { i: 8, href: 'puces.html' },
+  { i: 9, href: 'traitement-volume.html' }
 ];
 
 function checkFiches() {
@@ -756,13 +769,20 @@ function checkFiches() {
         }
       })
       .catch(function() {
-        if (f.alt) {
-          fetch(f.alt, { method: 'HEAD' })
-            .then(function(r2) { if (r2.ok) activerFiche(f.i, f.alt); })
-            .catch(function() {});
-        }
+        var alts = [f.alt, f.alt2].filter(Boolean);
+        tryAlts(f.i, alts, 0);
       });
   });
+}
+
+function tryAlts(idx, alts, i) {
+  if (i >= alts.length) return;
+  fetch(alts[i], { method: 'HEAD' })
+    .then(function(r) {
+      if (r.ok) activerFiche(idx, alts[i]);
+      else tryAlts(idx, alts, i + 1);
+    })
+    .catch(function() { tryAlts(idx, alts, i + 1); });
 }
 
 function activerFiche(idx, href) {
