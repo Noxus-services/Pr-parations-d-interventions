@@ -693,6 +693,68 @@ body {
   .fab-btn { padding: 8px 10px; font-size: 11px; }
 }
 
+/* --- FORMULAIRE CERTIFICAT --- */
+.cert-form {
+  background: white;
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 0 auto 20px;
+  max-width: 480px;
+  text-align: left;
+  box-shadow: 0 8px 24px rgba(237,161,12,0.12);
+}
+.cert-form-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cert-form-title::before {
+  content: "";
+  width: 20px; height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+.cert-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.cert-field { display: flex; flex-direction: column; gap: 5px; }
+.cert-field-full { grid-column: span 2; }
+.cert-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.cert-input {
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+  outline: none;
+  transition: border-color 0.2s;
+  background: var(--bg);
+}
+.cert-input:focus { border-color: var(--gold); background: white; }
+.cert-input::placeholder { color: rgba(107,105,96,0.5); font-weight: 400; }
+@media (max-width: 480px) {
+  .cert-fields { grid-template-columns: 1fr; }
+  .cert-field-full { grid-column: span 1; }
+}
+
 /* --- PRINT --- */
 @media print {
   body { background: white; padding: 0; }
@@ -1303,12 +1365,30 @@ body {
 
   <div class="step-complete" id="comp3">
     <div class="complete-circle" style="background: var(--gold);">🏆</div>
-    <div class="complete-title" style="color: var(--gold);">Mission accomplie !</div>
-    <div class="complete-msg">Vous avez suivi le protocole complet. Bravo !</div>
-    <button class="btn-next" onclick="window.print()" style="background: var(--gold); color: var(--dark);">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-      Imprimer la fiche
-    </button>
+    <div class="complete-title" style="color: var(--gold);">Mission accomplie !</div>
+    <div class="complete-msg">Protocole complet. Renseignez vos informations pour generer votre certificat de preparation.</div>
+
+    <div class="cert-form" id="certForm">
+      <div class="cert-form-title">Generer mon certificat</div>
+      <div class="cert-fields">
+        <div class="cert-field">
+          <label class="cert-label">Prenom</label>
+          <input type="text" class="cert-input" id="certPrenom" placeholder="Votre prenom">
+        </div>
+        <div class="cert-field">
+          <label class="cert-label">Nom</label>
+          <input type="text" class="cert-input" id="certNom" placeholder="Votre nom">
+        </div>
+        <div class="cert-field cert-field-full">
+          <label class="cert-label">Numero de commande / reference Noxus</label>
+          <input type="text" class="cert-input" id="certRef" placeholder="Ex: NXS-2026-0042">
+        </div>
+      </div>
+      <button class="btn-next" onclick="genererCertificat()" style="background:var(--gold);color:var(--dark);margin-top:8px;width:100%;justify-content:center;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6z"/><polyline points="9 12 11 14 15 10"/></svg>
+        Generer mon certificat
+      </button>
+    </div>
   </div>
 
 </section>
@@ -1586,6 +1666,145 @@ function init() {
   currentStep = state.unlocked || 1;
   goStep(currentStep);
   updateComplete();
+}
+
+// -- CERTIFICAT
+function genererCertificat() {
+  var prenom = document.getElementById('certPrenom').value.trim();
+  var nom = document.getElementById('certNom').value.trim();
+  var ref = document.getElementById('certRef').value.trim();
+
+  if (!prenom || !nom) {
+    toast('!', 'Merci de renseigner votre prenom et nom');
+    return;
+  }
+
+  var now = new Date();
+  var dateStr = now.toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
+  var heureStr = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+  var certRef = ref || ('NXS-' + now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + Math.floor(Math.random()*9000+1000));
+
+  var items = {
+    t1: 'Laver tout le linge a 60 degres (draps, couettes, vetements)',
+    t2: 'Linge propre en sacs hermetiques (double-noeud)',
+    t3: 'Textiles delicats : congelateur -20 degres / 72h',
+    t4: 'Tenue isolee prevue pour 1 mois',
+    a1: 'Aspiration integrale du logement (matelas, sommier, plinthes)',
+    a2: 'Sac aspirateur jete a la poubelle exterieure',
+    m1: 'Meubles ecartes des murs de 50 cm minimum',
+    m2: 'Tiroirs, placards et armoires vides et ouverts',
+    m3: 'Matelas debout en cathedrale',
+    m4: 'Fissures rebouchees et papier peint recole',
+    m5: 'Electronique protege sous film plastique',
+    m6: 'Vaisselle et alimentation protegees',
+    i1: 'Aucun insecticide du commerce utilise',
+    i2: 'Aucun objet deplace vers une autre piece',
+    i3: 'Matelas et meubles infestes non jetes sans traitement',
+    p1: 'Evacuation de tous les occupants et animaux',
+    p2: 'Plantes vertes sorties',
+    p3: 'Joignabilite telephonique assuree',
+    p4: 'Fenetres et VMC fermees',
+    ap1: 'Engagement : pas de serpilliere pendant 4 semaines',
+    ap2: 'Aeration 30 min minimum au retour',
+    ap3: 'Sommeil dans le lit traite maintenu (habille)',
+    ap4: 'Sacs de linge fermes pendant 1 mois',
+    ap5: 'Pas pieds nus sur les zones traitees (7 jours)',
+    ap6: '2e et 3e passages programmes (J+15 et J+30)',
+    ap7: 'Engagement de signalement si piqures persistantes'
+  };
+
+  var state = load();
+  var lignes = '';
+  var groupes = [
+    { titre: 'AVANT - Linge et Textiles', ids: ['t1','t2','t3','t4'] },
+    { titre: 'AVANT - Aspiration', ids: ['a1','a2'] },
+    { titre: 'AVANT - Mobilier', ids: ['m1','m2','m3','m4','m5','m6'] },
+    { titre: 'AVANT - Interdictions', ids: ['i1','i2','i3'] },
+    { titre: 'PENDANT - Jour J', ids: ['p1','p2','p3','p4'] },
+    { titre: 'APRES - J+0 a J+30', ids: ['ap1','ap2','ap3','ap4','ap5','ap6','ap7'] }
+  ];
+
+  groupes.forEach(function(g) {
+    lignes += '<tr><td colspan="2" style="background:#004d00;color:white;padding:6px 12px;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase">' + g.titre + '</td></tr>';
+    g.ids.forEach(function(id) {
+      var ok = state.items[id];
+      lignes += '<tr style="background:' + (ok ? 'white' : '#fff8f7') + '">'
+        + '<td style="width:100px;padding:7px 12px;border-bottom:1px solid #e4e0d6;vertical-align:middle">'
+        + (ok ? '<span style="display:inline-block;background:#004d00;color:white;font-size:9px;font-weight:800;padding:3px 8px;border-radius:3px;letter-spacing:0.5px">OK</span>'
+               : '<span style="display:inline-block;background:#c8321e;color:white;font-size:9px;font-weight:800;padding:3px 8px;border-radius:3px;letter-spacing:0.5px">NON FAIT</span>')
+        + '</td><td style="padding:7px 12px;border-bottom:1px solid #e4e0d6;font-size:12px;' + (ok ? '' : 'color:#c8321e') + '">' + items[id] + '</td></tr>';
+    });
+  });
+
+  var totalOk = Object.keys(items).filter(function(id) { return state.items[id]; }).length;
+  var total = Object.keys(items).length;
+  var pct = Math.round(totalOk / total * 100);
+  var complet = pct === 100;
+
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">'
+    + '<title>Certificat de Preparation - ' + certRef + '</title>'
+    + '<style>'
+    + '@page{size:A4;margin:15mm 18mm}'
+    + '*{box-sizing:border-box;margin:0;padding:0}'
+    + 'body{font-family:Georgia,serif;font-size:11pt;color:#0C0C0A;background:white}'
+    + 'body::before{content:"NOXUS SERVICES";position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-35deg);font-size:72pt;font-weight:900;color:rgba(0,77,0,0.04);letter-spacing:8px;white-space:nowrap;pointer-events:none;z-index:0}'
+    + '.page{position:relative;z-index:1}'
+    + '.hdr{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:3px solid #004d00;margin-bottom:16px}'
+    + '.brand{font-size:20px;font-weight:900;color:#004d00;letter-spacing:1px}'
+    + '.brand-sub{font-size:9px;color:#6b6960;letter-spacing:2px;text-transform:uppercase;margin-top:2px}'
+    + '.ref-block{text-align:right}'
+    + '.ref-label{font-size:9px;color:#6b6960;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}'
+    + '.ref-num{font-size:11px;font-weight:700;font-family:Courier New,monospace;background:#F3F0E8;padding:4px 10px;border-radius:4px;display:inline-block;color:#004d00}'
+    + '.ref-date{font-size:9px;color:#6b6960;margin-top:4px}'
+    + '.title-block{text-align:center;margin:14px 0;padding:14px;background:linear-gradient(135deg,#004d00,#0a6b0a);border-radius:8px;color:white}'
+    + '.title-eye{font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.7;margin-bottom:4px}'
+    + '.title-main{font-size:18pt;font-weight:900;letter-spacing:-0.5px}'
+    + '.title-sub{font-size:10px;opacity:.8;margin-top:4px}'
+    + '.client-block{display:flex;gap:16px;margin:12px 0;padding:12px 16px;border:2px solid ' + (complet ? '#004d00' : '#c8321e') + ';border-radius:8px;background:' + (complet ? 'rgba(0,77,0,0.04)' : 'rgba(200,50,30,0.04)') + ';align-items:center}'
+    + '.client-info{flex:1}'
+    + '.client-name{font-size:16pt;font-weight:900;color:#004d00}'
+    + '.client-ref{font-size:10px;color:#6b6960;margin-top:3px}'
+    + '.gar-block{text-align:center;flex-shrink:0}'
+    + '.gar-num{font-size:24pt;font-weight:900;color:' + (complet ? '#004d00' : '#c8321e') + ';line-height:1}'
+    + '.gar-label{font-size:8px;color:#6b6960;text-transform:uppercase;letter-spacing:1px}'
+    + '.gar-status{font-size:13pt;font-weight:900;color:' + (complet ? '#004d00' : '#c8321e') + ';margin-bottom:4px}'
+    + 'table{width:100%;border-collapse:collapse;margin-top:10px;font-size:10pt}'
+    + 'th{background:#0C0C0A;color:white;padding:6px 12px;text-align:left;font-size:9px;letter-spacing:1px;text-transform:uppercase}'
+    + '.sig{display:flex;gap:20px;margin-top:18px;page-break-inside:avoid}'
+    + '.sig-box{flex:1;border:1.5px solid #e4e0d6;border-radius:8px;padding:12px}'
+    + '.sig-title{font-size:9px;font-weight:700;color:#6b6960;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #e4e0d6}'
+    + '.sig-field{font-size:9px;margin-bottom:4px;color:#444}'
+    + '.sig-line{border-bottom:1px solid #0C0C0A;min-height:32px;margin:3px 0 8px}'
+    + '.ftr{margin-top:14px;padding-top:10px;border-top:2px solid #004d00;display:flex;justify-content:space-between;align-items:center;font-size:9px;color:#6b6960;page-break-inside:avoid}'
+    + '.certif-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border:1px solid #eda10c;border-radius:20px;color:#8a5a00;font-weight:700;font-size:9px;letter-spacing:1px}'
+    + '.legal{font-size:8px;color:#aaa;margin-top:6px;line-height:1.4;font-style:italic}'
+    + '@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}'
+    + '</style></head><body><div class="page">'
+    + '<div class="hdr"><div><div class="brand">NOXUS SERVICES</div><div class="brand-sub">Deratisation · Desinsectisation · Desinfection</div></div>'
+    + '<div class="ref-block"><div class="ref-label">Certificat</div><div class="ref-num">' + certRef + '</div><div class="ref-date">Emis le ' + dateStr + ' a ' + heureStr + '</div></div></div>'
+    + '<div class="title-block"><div class="title-eye">Punaises de lit · Protocole officiel</div><div class="title-main">Certificat de Preparation Client</div><div class="title-sub">Ce document atteste de la realisation du protocole preparatoire Noxus Services</div></div>'
+    + '<div class="client-block"><div class="client-info"><div class="gar-status">' + (complet ? 'Garantie Resultat Noxus — ACTIVEE' : 'Garantie Resultat Noxus — INCOMPLETE') + '</div>'
+    + '<div class="client-name">' + prenom + ' ' + nom.toUpperCase() + '</div>'
+    + '<div class="client-ref">Reference commande : ' + certRef + '</div></div>'
+    + '<div class="gar-block"><div class="gar-num">' + pct + '%</div><div class="gar-label">Preparation<br>realisee</div></div></div>'
+    + '<table><thead><tr><th style="width:100px">Statut</th><th>Action de preparation</th></tr></thead><tbody>' + lignes + '</tbody></table>'
+    + '<div class="sig"><div class="sig-box"><div class="sig-title">Attestation du client</div>'
+    + '<div class="sig-field">Nom &amp; Prenom : ' + prenom + ' ' + nom.toUpperCase() + '</div>'
+    + '<div class="sig-field">Adresse du logement traite :</div><div class="sig-line"></div>'
+    + '<div class="sig-field">Signature + date :</div><div class="sig-line"></div></div>'
+    + '<div class="sig-box"><div class="sig-title">Validation technicien Noxus</div>'
+    + '<div class="sig-field">Nom du technicien :</div><div class="sig-line"></div>'
+    + '<div class="sig-field">Date intervention :</div><div class="sig-line"></div>'
+    + '<div class="sig-field">Signature + cachet :</div><div class="sig-line"></div></div></div>'
+    + '<div class="ftr"><div><span class="certif-pill">Certibiocide</span>&nbsp;&nbsp;Contrat Ville de Villefranche-sur-Saone 2026</div><div style="text-align:right">Ref. ' + certRef + '<br>noxus-services.fr</div></div>'
+    + '<div class="legal">Ce certificat est genere numeriquement a partir des actions cochees dans la fiche Noxus Services. Ref. ' + certRef + '.</div>'
+    + '</div></body></html>';
+
+  var w = window.open('', '_blank');
+  if (!w) { toast('!', 'Autorisez les popups pour generer le certificat'); return; }
+  w.document.write(html);
+  w.document.close();
+  setTimeout(function() { w.print(); }, 800);
 }
 
 // Lancer quand la page est prete
