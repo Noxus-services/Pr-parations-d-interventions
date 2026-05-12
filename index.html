@@ -622,6 +622,18 @@ footer {
             <div class="corner"></div>
           </div>
 
+          <!-- 08 Puces -->
+          <div class="page hid" data-i="8" style="--nc:#b45309">
+            <div class="p-notice">
+              <div class="p-notice-num">08</div>
+              <div class="p-notice-emoji">&#x1F43E;</div>
+              <div class="p-notice-title">Puces</div>
+              <div class="p-notice-desc">Animal + environnement<br>traites le meme jour. IGR 6 semaines.</div>
+              <div class="p-notice-foot"><span class="ntag soon">Bientot disponible</span></div>
+            </div>
+            <div class="corner"></div>
+          </div>
+
         </div><!-- /pages -->
       </div>
 
@@ -724,20 +736,32 @@ pEl.addEventListener('mouseleave', function(e){ if(drag) pe(e.clientX); });
 var FICHES = [
   { i: 1, href: 'punaises-de-lit.html' },
   { i: 2, href: 'blattes.html' },
-  { i: 3, href: 'rongeurs.html' },
-  { i: 4, href: 'frelons.html' },
+  { i: 3, href: 'Rongeurs.html' },
+  { i: 4, href: 'hymenopteres.html', alt: 'frelons.html' },
   { i: 5, href: 'fourmis.html' },
   { i: 6, href: 'mites.html' },
-  { i: 7, href: 'pigeons.html' }
+  { i: 7, href: 'pigeons.html' },
+  { i: 8, href: 'puces.html' }
 ];
 
 function checkFiches() {
   FICHES.forEach(function(f) {
     fetch(f.href, { method: 'HEAD' })
       .then(function(r) {
-        if (r.ok) activerFiche(f.i, f.href);
+        if (r.ok) { activerFiche(f.i, f.href); }
+        else if (f.alt) {
+          fetch(f.alt, { method: 'HEAD' })
+            .then(function(r2) { if (r2.ok) activerFiche(f.i, f.alt); })
+            .catch(function() {});
+        }
       })
-      .catch(function() {});
+      .catch(function() {
+        if (f.alt) {
+          fetch(f.alt, { method: 'HEAD' })
+            .then(function(r2) { if (r2.ok) activerFiche(f.i, f.alt); })
+            .catch(function() {});
+        }
+      });
   });
 }
 
